@@ -4,6 +4,34 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.7.0] - 2026-10-31
+
+### JSON Data Architecture & Website Owner Management Portal
+- **JSON Data Layer (`packages.json`, `promotions.json`):**
+  - Migrated Internet Packages & Pricing and Promotions into pure, clean JSON files (`src/data/packages.json` and `src/data/promotions.json`).
+  - Preserved typed TypeScript exports in `packages.ts` and `promotions.ts` for full backwards compatibility across all components and tests.
+  - Implemented strict Zod validation schemas (`packageSchema`, `promotionSchema`, `adminDataPayloadSchema`) guarding data types, positive speeds, non-negative prices, and bilingual copies.
+- **Data Service & Secure Admin API (`data-service.ts`, `/api/admin/data`):**
+  - Built `DataService` providing safe disk read/write routines and fallback recovery.
+  - Implemented `GET /api/admin/data` returning live packages and promotions.
+  - Implemented `POST /api/admin/data` protected with Owner PIN authentication (`ADMIN_PIN` or default `seller2026`), saving updates directly to disk with instant timestamped confirmation.
+  - Implemented factory default reset action (`action: "reset"`).
+- **Owner Admin Management Dashboard (`src/app/[locale]/admin/page.tsx`):**
+  - **Security Gate:** PIN-protected authentication screen with session persistence and quick logout.
+  - **Packages & Pricing Editor:** Visual management cards, interactive package editor modal (name, speed, price, original price, category, router included, features list, descriptions), package deletion, and reordering.
+  - **Promotions Editor:** Campaign cards, 1-click active/expired toggle, add/edit modal (title, description, highlight ribbon, valid until, promo code), and deletion.
+  - **Backup & Import Hub:** "Download Backup (.json)" and "Import JSON" for one-click website backups and restores.
+  - **Raw JSON Editor:** Interactive JSON code viewer and updater.
+  - **Discrete Access:** Added "Owner Portal" link in the footer for easy consultant access from mobile or desktop.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 passed across 7 test suites (+8 new unit tests in `admin-data.test.ts`).
+  - Production Build: 12 / 12 static pages prerendered.
+  - Playwright E2E: 32 / 32 passed across all viewports (Mobile 320px–414px, Tablet 768px, Desktop 1440px).
+
+---
+
 ## [1.6.2] - 2026-10-31
 
 ### Mobile Bottom Navigation Redesign & Safe Area Fixes

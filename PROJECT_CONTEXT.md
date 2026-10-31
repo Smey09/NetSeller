@@ -68,11 +68,13 @@ All dependencies are verified from [`package.json`](./package.json):
 |:---|:---:|:---|:---|
 | `/` | Redirect | `src/app/page.tsx` | Middleware redirects to default locale (`/en` or `/km`) |
 | `/[locale]` | SSG | `src/app/[locale]/page.tsx` | Single-Page Web App: Officer Seller profile, 4 Home Wi-Fi packages, comparison table, hardware showcase, guarantees, 1-tap Telegram action hub |
+| `/[locale]/admin` | Client | `src/app/[locale]/admin/page.tsx` | Owner Management Portal: PIN-protected dashboard to edit packages, speeds, pricing, and promotions live, with backup & import |
 | `/[locale]/packages` | Redirect | `next.config.mjs` | Redirects directly to `/[locale]#packages` |
 | `/[locale]/contact` | Redirect | `next.config.mjs` | Redirects directly to `/[locale]#contact` |
 | `/[locale]/not-found` | Client | `src/app/[locale]/not-found.tsx` | Custom 404 page with bilingual recovery CTAs and home redirect |
 | `/[locale]/error` | Client | `src/app/[locale]/error.tsx` | Error boundary with retry action and Telegram escalation |
 | `/[locale]/loading` | Server | `src/app/[locale]/loading.tsx` | Pulse loading skeleton for SSG page transitions |
+| `/api/admin/data` | API | `src/app/api/admin/data/route.ts` | Owner Data Management API: secure endpoint to read, validate, save, and reset packages.json and promotions.json |
 | `/api/inquiries` | API | `src/app/api/inquiries/route.ts` | Server-side inquiry validation and optional Telegram Bot webhook notifier |
 | `/robots.txt` | Static | `src/app/robots.ts` | Search engine crawler rules |
 | `/sitemap.xml` | Static | `src/app/sitemap.ts` | Multilingual XML sitemap generator |
@@ -103,13 +105,8 @@ All dependencies are verified from [`package.json`](./package.json):
 ## 5. Data Entities & Configuration
 
 ### Data Files (`src/data/`)
-- **`packages.ts`**: Array of 5 core Internet packages:
-  1. `fiber-starter-50` (50 Mbps - $15/mo - Home Starter)
-  2. `fiber-plus-100` (100 Mbps - $22/mo - Family & Streaming)
-  3. `fiber-pro-200` (200 Mbps - $30/mo - Smart Home & Gaming)
-  4. `fiber-ultra-350` (350 Mbps - $45/mo - SME & Office)
-  5. `fiber-biz-500` (500 Mbps - $70/mo - Enterprise & Commercial)
-- **`promotions.ts`**: Active promotional campaigns with bilingual titles, descriptions, promo codes, and expiration tracking (`isExpired`).
+- **`packages.json` & `packages.ts`**: Official internet packages data stored in JSON, exported with strict TypeScript types for static and dynamic rendering.
+- **`promotions.json` & `promotions.ts`**: Active promotional campaigns stored in JSON with bilingual titles, descriptions, promo codes, and expiration tracking (`isExpired`).
 - **`testimonials.ts`**: Authentic Cambodian customer reviews across Phnom Penh, Kandal, Siem Reap, and Sihanoukville.
 
 ### Centralized Configuration (`src/config/`)

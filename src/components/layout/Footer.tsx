@@ -226,6 +226,15 @@ export function Footer() {
               &copy; {new Date().getFullYear()} {sellerConfig.name}.
             </span>
 
+            <span className="text-slate-700">•</span>
+
+            <Link
+              href="/admin"
+              className="text-[11px] text-slate-500 hover:text-primary-400 transition-colors"
+            >
+              Owner Portal
+            </Link>
+
             <button
               type="button"
               onClick={scrollToTop}
