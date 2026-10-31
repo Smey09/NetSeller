@@ -58,10 +58,10 @@ export function PromotionSection() {
                   {/* Decorative corner tag */}
                   {highlight && (
                     <div className="absolute top-0 right-0">
-                      <div className={`text-white text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-0.5 px-3 sm:py-1 sm:px-4 rounded-bl-xl sm:rounded-bl-2xl shadow-2xs ${
+                      <div className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-0.5 px-3 sm:py-1 sm:px-4 rounded-bl-xl sm:rounded-bl-2xl shadow-2xs ${
                         isExpired
-                          ? "bg-slate-400"
-                          : "bg-slate-900"
+                          ? "bg-slate-400 text-white"
+                          : "bg-gradient-to-r from-amber-400 to-primary-500 text-slate-950 font-black shadow-xs shadow-primary-500/20"
                       }`}>
                         {highlight}
                       </div>
