@@ -4,6 +4,27 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.7.1] - 2026-10-31
+
+### Admin Responsive Data Tables, Search Filters & UI Styling Refinements
+- **Admin Portal Data Tables (`src/app/[locale]/admin/page.tsx`):**
+  - **Table View Mode:** Implemented full responsive data tables for both Internet Packages and Promotions catalogs, equipped with horizontal scroll wrapping (`overflow-x-auto`) to guarantee zero mobile page overflow.
+  - **View Mode Switcher:** Added a 1-tap `Table` ⇄ `Cards` toggle allowing the website owner to seamlessly switch between dense tabular analysis and visual preview cards.
+  - **Live Search Filtering:** Real-time search filter filtering packages by name, speed, category, price, router, or badge, and promotions by title, code, or tag.
+  - **Packages Table Columns:** Reorder `#` with Up/Down buttons, Package Name & Category badge, Speed (with dark squircle and yellow Zap badge), Monthly Price & Discounts, Router included, Custom badge, Availability status pill, and Edit/Delete action buttons.
+  - **Promotions Table Columns:** `#`, Campaign Title (EN/KM), Corner Tag (dark navy ribbon), Promo Code, Validity date, 1-Click Status toggle (Active/Expired), and Edit/Delete action buttons.
+- **Visual Design Alignments:**
+  - **Dark Navy Promotion Ribbon (`PromotionSection.tsx`):** Updated promotion card highlight badge to sleek dark navy (`bg-[#0B132B] text-white font-extrabold uppercase py-1 px-3 sm:py-1.5 sm:px-4.5 rounded-bl-2xl`) matching requested styling.
+  - **Speed Badge Squircle (`PackageCard.tsx`):** Replaced speed gradient box with dark navy rounded squircle (`bg-[#0B132B] border-slate-800`) and golden yellow lightning bolt (`Zap text-[#F9A01B] stroke-[2.5]`).
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 end-to-end tests passing across all viewports (Mobile 320px–414px, Tablet 768px, Desktop 1440px).
+
+---
+
 ## [1.7.0] - 2026-10-31
 
 ### JSON Data Architecture & Website Owner Management Portal

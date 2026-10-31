@@ -55,14 +55,16 @@ export function PromotionSection() {
                     isExpired ? "opacity-75" : ""
                   }`}
                 >
-                  {/* Decorative corner tag */}
+                  {/* Decorative corner tag matching dark navy ribbon aesthetic */}
                   {highlight && (
                     <div className="absolute top-0 right-0">
-                      <div className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-0.5 px-3 sm:py-1 sm:px-4 rounded-bl-xl sm:rounded-bl-2xl shadow-2xs ${
-                        isExpired
-                          ? "bg-slate-400 text-white"
-                          : "bg-gradient-to-r from-amber-400 to-primary-500 text-slate-950 font-black shadow-xs shadow-primary-500/20"
-                      }`}>
+                      <div
+                        className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-1 px-3 sm:py-1.5 sm:px-4.5 rounded-bl-2xl shadow-xs transition-colors ${
+                          isExpired
+                            ? "bg-slate-400 text-white"
+                            : "bg-[#0B132B] text-white font-extrabold border-b border-l border-white/10"
+                        }`}
+                      >
                         {highlight}
                       </div>
                     </div>

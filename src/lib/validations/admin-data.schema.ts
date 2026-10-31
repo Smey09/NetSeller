@@ -50,3 +50,4 @@ export const adminDataPayloadSchema = z.object({
 export type PackageFormData = z.infer<typeof packageSchema>;
 export type PromotionFormData = z.infer<typeof promotionSchema>;
 export type AdminDataPayload = z.infer<typeof adminDataPayloadSchema>;
+

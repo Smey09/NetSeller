@@ -40,6 +40,9 @@ import {
   Tag,
   Clock,
   Code,
+  Table,
+  LayoutGrid,
+  Search,
 } from "lucide-react";
 import defaultPackages from "@/data/packages.json";
 import defaultPromotions from "@/data/promotions.json";
@@ -62,6 +65,8 @@ export default function AdminPage() {
   );
   const [hasUnsavedChanges, setHasUnsavedChanges] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState<"packages" | "promotions" | "json">("packages");
+  const [viewMode, setViewMode] = React.useState<"table" | "cards">("table");
+  const [searchQuery, setSearchQuery] = React.useState("");
   const [toastMessage, setToastMessage] = React.useState<{ text: string; type: "success" | "error" } | null>(null);
 
   // Edit Package Modal State
@@ -76,6 +81,34 @@ export default function AdminPage() {
 
   // JSON view state
   const [jsonInput, setJsonInput] = React.useState("");
+
+  // Filtered lists based on search query
+  const filteredPackages = React.useMemo(() => {
+    if (!searchQuery.trim()) return packages;
+    const q = searchQuery.toLowerCase();
+    return packages.filter(
+      (pkg) =>
+        pkg.name.toLowerCase().includes(q) ||
+        pkg.category.toLowerCase().includes(q) ||
+        pkg.speedMbps.toString().includes(q) ||
+        pkg.monthlyPriceUsd.toString().includes(q) ||
+        (pkg.routerIncluded && pkg.routerIncluded.toLowerCase().includes(q)) ||
+        (pkg.badge && pkg.badge.toLowerCase().includes(q))
+    );
+  }, [packages, searchQuery]);
+
+  const filteredPromotions = React.useMemo(() => {
+    if (!searchQuery.trim()) return promotions;
+    const q = searchQuery.toLowerCase();
+    return promotions.filter(
+      (promo) =>
+        promo.titleEn.toLowerCase().includes(q) ||
+        promo.titleKm.toLowerCase().includes(q) ||
+        (promo.code && promo.code.toLowerCase().includes(q)) ||
+        (promo.highlightEn && promo.highlightEn.toLowerCase().includes(q)) ||
+        (promo.badgeEn && promo.badgeEn.toLowerCase().includes(q))
+    );
+  }, [promotions, searchQuery]);
 
   const showToast = (text: string, type: "success" | "error" = "success") => {
     setToastMessage({ text, type });
@@ -566,6 +599,61 @@ export default function AdminPage() {
         </button>
       </div>
 
+      {/* Search & View Mode Toolbar */}
+      {activeTab !== "json" && (
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-5 p-3 rounded-2xl bg-white/75 backdrop-blur-xl border border-white/85 shadow-xs">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Input
+              type="text"
+              placeholder={
+                activeTab === "packages"
+                  ? "Search packages by name, speed, category, price..."
+                  : "Search promotions by campaign title, code, tag..."
+              }
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 h-9.5 text-xs sm:text-sm rounded-xl border-slate-200 bg-white/90"
+            />
+          </div>
+
+          <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0">
+            <div className="text-[11px] sm:text-xs text-slate-500 font-semibold px-1">
+              {activeTab === "packages"
+                ? `${filteredPackages.length} of ${packages.length} Packages`
+                : `${filteredPromotions.length} of ${promotions.length} Promos`}
+            </div>
+
+            <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200/80">
+              <button
+                type="button"
+                onClick={() => setViewMode("table")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                  viewMode === "table"
+                    ? "bg-white text-slate-900 shadow-2xs"
+                    : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                <Table className="h-3.5 w-3.5" />
+                <span>Table</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("cards")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                  viewMode === "cards"
+                    ? "bg-white text-slate-900 shadow-2xs"
+                    : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                <LayoutGrid className="h-3.5 w-3.5" />
+                <span>Cards</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ============================================================ */}
       {/* TAB 1: INTERNET PACKAGES & PRICING                          */}
       {/* ============================================================ */}
@@ -574,7 +662,7 @@ export default function AdminPage() {
           <div className="flex items-center justify-between">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
               <span>Internet Packages Catalog</span>
-              <span className="text-xs text-slate-500 font-normal">
+              <span className="text-xs text-slate-500 font-normal hidden sm:inline">
                 (Changes save directly into `packages.json`)
               </span>
             </h2>
@@ -587,112 +675,292 @@ export default function AdminPage() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {packages.map((pkg, index) => (
-              <div
-                key={pkg.id}
-                className="relative rounded-2xl border border-white/85 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
-                        {pkg.category}
-                      </span>
-                      {pkg.isPopular && (
-                        <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-primary-500 text-slate-950 font-black">
-                          Popular
+          {viewMode === "table" ? (
+            <div className="overflow-x-auto rounded-2xl border border-white/85 bg-white/85 backdrop-blur-xl shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)]">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="border-b border-slate-200/80 bg-slate-50/90 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                    <th className="py-3 px-3 text-center w-12">#</th>
+                    <th className="py-3 px-4 min-w-[200px]">Package Name</th>
+                    <th className="py-3 px-4 min-w-[120px]">Speed</th>
+                    <th className="py-3 px-4 min-w-[110px]">Monthly Price</th>
+                    <th className="py-3 px-4 min-w-[170px]">Router Included</th>
+                    <th className="py-3 px-3 min-w-[110px]">Badge</th>
+                    <th className="py-3 px-3 min-w-[110px]">Status</th>
+                    <th className="py-3 px-4 text-right min-w-[120px]">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+                  {filteredPackages.map((pkg, index) => (
+                    <tr
+                      key={pkg.id}
+                      className="hover:bg-slate-50/80 transition-colors group"
+                    >
+                      {/* Order and Move Buttons */}
+                      <td className="py-3 px-3 text-center">
+                        <div className="flex items-center justify-center gap-0.5">
+                          <span className="font-bold text-slate-400 w-4 text-[11px]">
+                            {index + 1}
+                          </span>
+                          <div className="flex flex-col">
+                            <button
+                              type="button"
+                              disabled={index === 0}
+                              onClick={() => handleMovePackage(index, "up")}
+                              className="p-0.5 text-slate-400 hover:text-slate-900 disabled:opacity-20"
+                              title="Move Up"
+                            >
+                              <ArrowUp className="h-3 w-3" />
+                            </button>
+                            <button
+                              type="button"
+                              disabled={index === packages.length - 1}
+                              onClick={() => handleMovePackage(index, "down")}
+                              className="p-0.5 text-slate-400 hover:text-slate-900 disabled:opacity-20"
+                              title="Move Down"
+                            >
+                              <ArrowDown className="h-3 w-3" />
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Package Name and Category */}
+                      <td className="py-3 px-4">
+                        <div className="flex items-center gap-2">
+                          <div>
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span className="font-black text-slate-900 text-sm">
+                                {pkg.name}
+                              </span>
+                              <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-slate-100 text-slate-600">
+                                {pkg.category}
+                              </span>
+                              {pkg.isPopular && (
+                                <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.2 rounded bg-amber-400 text-slate-950">
+                                  POPULAR
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[10px] font-mono text-slate-400 block mt-0.5">
+                              ID: {pkg.id}
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Speed (Squircle with yellow Zap icon matching user spec) */}
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        <div className="flex items-center gap-2">
+                          <span className="h-7 w-7 rounded-lg bg-[#0B132B] text-[#F9A01B] flex items-center justify-center shrink-0 shadow-xs border border-slate-800">
+                            <Zap className="h-3.5 w-3.5 text-[#F9A01B] fill-[#F9A01B]/30 stroke-[2.2]" />
+                          </span>
+                          <span className="font-black text-slate-900 text-sm">
+                            {pkg.speedMbps}{" "}
+                            <span className="text-[10px] font-bold text-slate-500">
+                              Mbps
+                            </span>
+                          </span>
+                        </div>
+                      </td>
+
+                      {/* Pricing */}
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        <div className="leading-tight">
+                          <span className="font-black text-slate-900 text-sm">
+                            ${pkg.monthlyPriceUsd}
+                          </span>
+                          <span className="text-[10px] text-slate-500 font-bold ml-0.5">
+                            /mo
+                          </span>
+                          {pkg.originalPriceUsd && (
+                            <span className="text-[10px] text-slate-400 line-through block">
+                              ${pkg.originalPriceUsd}
+                            </span>
+                          )}
+                        </div>
+                      </td>
+
+                      {/* Router Included */}
+                      <td className="py-3 px-4">
+                        <span className="text-slate-800 font-medium text-[11px] block max-w-xs truncate">
+                          {pkg.routerIncluded || "Standard Modem"}
                         </span>
-                      )}
-                      {pkg.badge && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-200 text-slate-800">
-                          {pkg.badge}
+                      </td>
+
+                      {/* Custom Badge */}
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        {pkg.badge ? (
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
+                            {pkg.badge}
+                          </span>
+                        ) : (
+                          <span className="text-slate-300 text-[11px]">—</span>
+                        )}
+                      </td>
+
+                      {/* Status */}
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        {pkg.availabilityStatus === "coming_soon" ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                            Coming Soon
+                          </span>
+                        ) : pkg.availabilityStatus === "limited" ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                            Limited Stock
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            Available
+                          </span>
+                        )}
+                      </td>
+
+                      {/* Actions */}
+                      <td className="py-3 px-4 text-right whitespace-nowrap">
+                        <div className="flex items-center justify-end gap-1">
+                          <Button
+                            onClick={() => handleOpenEditPackage(pkg)}
+                            variant="ghost"
+                            size="sm"
+                            className="h-7 px-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 gap-1"
+                          >
+                            <Edit2 className="h-3 w-3" />
+                            Edit
+                          </Button>
+                          <Button
+                            onClick={() => handleDeletePackage(pkg.id, pkg.name)}
+                            variant="ghost"
+                            size="sm"
+                            className="h-7 px-2 rounded-lg text-xs font-bold text-red-600 hover:bg-red-50 hover:text-red-700 gap-1"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                  {filteredPackages.length === 0 && (
+                    <tr>
+                      <td
+                        colSpan={8}
+                        className="py-8 text-center text-slate-500 font-semibold"
+                      >
+                        No packages match &quot;{searchQuery}&quot;
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {filteredPackages.map((pkg, index) => (
+                <div
+                  key={pkg.id}
+                  className="relative rounded-2xl border border-white/85 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)] flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                          {pkg.category}
                         </span>
-                      )}
+                        {pkg.isPopular && (
+                          <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-primary-500 text-slate-950 font-black">
+                            Popular
+                          </span>
+                        )}
+                        {pkg.badge && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-200 text-slate-800">
+                            {pkg.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          disabled={index === 0}
+                          onClick={() => handleMovePackage(index, "up")}
+                          className="p-1 rounded-lg text-slate-400 hover:text-slate-800 disabled:opacity-30"
+                          title="Move Up"
+                        >
+                          <ArrowUp className="h-3.5 w-3.5" />
+                        </button>
+                        <button
+                          type="button"
+                          disabled={index === packages.length - 1}
+                          onClick={() => handleMovePackage(index, "down")}
+                          className="p-1 rounded-lg text-slate-400 hover:text-slate-800 disabled:opacity-30"
+                          title="Move Down"
+                        >
+                          <ArrowDown className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-1">
-                      <button
-                        type="button"
-                        disabled={index === 0}
-                        onClick={() => handleMovePackage(index, "up")}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-800 disabled:opacity-30"
-                        title="Move Up"
-                      >
-                        <ArrowUp className="h-3.5 w-3.5" />
-                      </button>
-                      <button
-                        type="button"
-                        disabled={index === packages.length - 1}
-                        onClick={() => handleMovePackage(index, "down")}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-800 disabled:opacity-30"
-                        title="Move Down"
-                      >
-                        <ArrowDown className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  </div>
+                    <h3 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
+                      {pkg.name}
+                    </h3>
 
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
-                    {pkg.name}
-                  </h3>
+                    {/* Pricing and Speed Box */}
+                    <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 my-3">
+                      <div className="flex items-center gap-2">
+                        <span className="h-8 w-8 rounded-lg bg-[#0B132B] text-[#F9A01B] flex items-center justify-center font-bold text-xs shrink-0 shadow-xs border border-slate-800">
+                          <Zap className="h-4 w-4 text-[#F9A01B] fill-[#F9A01B]/30" />
+                        </span>
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-400 uppercase">Speed</span>
+                          <p className="text-base font-black text-slate-900 leading-none">
+                            {pkg.speedMbps} Mbps
+                          </p>
+                        </div>
+                      </div>
 
-                  {/* Pricing and Speed Box */}
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 my-3">
-                    <div className="flex items-center gap-2">
-                      <span className="h-8 w-8 rounded-lg bg-gradient-to-tr from-primary-600 via-primary-500 to-amber-400 text-slate-950 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
-                        <Zap className="h-4 w-4 fill-slate-950" />
-                      </span>
-                      <div>
-                        <span className="text-[10px] font-bold text-slate-400 uppercase">Speed</span>
+                      <div className="text-right">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase">Price</span>
                         <p className="text-base font-black text-slate-900 leading-none">
-                          {pkg.speedMbps} Mbps
+                          ${pkg.monthlyPriceUsd}
+                          <span className="text-[10px] text-slate-500 font-semibold">/mo</span>
                         </p>
                       </div>
                     </div>
 
-                    <div className="text-right">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase">Price</span>
-                      <p className="text-base font-black text-slate-900 leading-none">
-                        ${pkg.monthlyPriceUsd}
-                        <span className="text-[10px] text-slate-500 font-semibold">/mo</span>
-                      </p>
+                    <p className="text-xs text-slate-600 line-clamp-2 mb-3">
+                      {pkg.descriptionEn || pkg.descriptionKm}
+                    </p>
+
+                    <div className="text-[11px] text-slate-500 space-y-1">
+                      <p>• {pkg.features?.[0] || "Fast optical fiber"}</p>
+                      <p>• {pkg.features?.[1] || "Unlimited Data"}</p>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-600 line-clamp-2 mb-3">
-                    {pkg.descriptionEn || pkg.descriptionKm}
-                  </p>
-
-                  <div className="text-[11px] text-slate-500 space-y-1">
-                    <p>• {pkg.features?.[0] || "Fast optical fiber"}</p>
-                    <p>• {pkg.features?.[1] || "Unlimited Data"}</p>
+                  <div className="flex items-center justify-end gap-2 pt-4 mt-3 border-t border-slate-100">
+                    <Button
+                      onClick={() => handleOpenEditPackage(pkg)}
+                      variant="outline"
+                      size="sm"
+                      className="rounded-xl text-xs gap-1 font-semibold"
+                    >
+                      <Edit2 className="h-3.5 w-3.5" />
+                      Edit Package
+                    </Button>
+                    <Button
+                      onClick={() => handleDeletePackage(pkg.id, pkg.name)}
+                      variant="ghost"
+                      size="sm"
+                      className="rounded-xl text-xs text-red-600 hover:bg-red-50 gap-1 font-semibold"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                      Delete
+                    </Button>
                   </div>
                 </div>
-
-                <div className="flex items-center justify-end gap-2 pt-4 mt-3 border-t border-slate-100">
-                  <Button
-                    onClick={() => handleOpenEditPackage(pkg)}
-                    variant="outline"
-                    size="sm"
-                    className="rounded-xl text-xs gap-1 font-semibold"
-                  >
-                    <Edit2 className="h-3.5 w-3.5" />
-                    Edit Package
-                  </Button>
-                  <Button
-                    onClick={() => handleDeletePackage(pkg.id, pkg.name)}
-                    variant="ghost"
-                    size="sm"
-                    className="rounded-xl text-xs text-red-600 hover:bg-red-50 gap-1 font-semibold"
-                  >
-                    <Trash2 className="h-3.5 w-3.5" />
-                    Delete
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -704,7 +972,7 @@ export default function AdminPage() {
           <div className="flex items-center justify-between">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
               <span>Promotions & Bonus Offers</span>
-              <span className="text-xs text-slate-500 font-normal">
+              <span className="text-xs text-slate-500 font-normal hidden sm:inline">
                 (Changes save directly into `promotions.json`)
               </span>
             </h2>
@@ -717,82 +985,210 @@ export default function AdminPage() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {promotions.map((promo) => (
-              <div
-                key={promo.id}
-                className={`relative rounded-2xl border border-white/85 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)] flex flex-col justify-between ${
-                  promo.isExpired ? "opacity-60" : ""
-                }`}
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
-                      {promo.badgeEn}
-                    </span>
-                    {promo.highlightEn && (
-                      <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-gradient-to-r from-amber-400 to-primary-500 text-slate-950">
-                        {promo.highlightEn}
+          {viewMode === "table" ? (
+            <div className="overflow-x-auto rounded-2xl border border-white/85 bg-white/85 backdrop-blur-xl shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)]">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="border-b border-slate-200/80 bg-slate-50/90 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                    <th className="py-3 px-3 text-center w-12">#</th>
+                    <th className="py-3 px-4 min-w-[220px]">Campaign Title</th>
+                    <th className="py-3 px-3 min-w-[140px]">Corner Tag</th>
+                    <th className="py-3 px-3 min-w-[120px]">Promo Code</th>
+                    <th className="py-3 px-3 min-w-[120px]">Validity</th>
+                    <th className="py-3 px-3 min-w-[100px]">Status</th>
+                    <th className="py-3 px-4 text-right min-w-[120px]">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+                  {filteredPromotions.map((promo, index) => (
+                    <tr
+                      key={promo.id}
+                      className={`hover:bg-slate-50/80 transition-colors ${
+                        promo.isExpired ? "opacity-60 bg-slate-50/30" : ""
+                      }`}
+                    >
+                      <td className="py-3 px-3 text-center font-bold text-slate-400 text-[11px]">
+                        {index + 1}
+                      </td>
+
+                      <td className="py-3 px-4">
+                        <div>
+                          <span className="font-black text-slate-900 text-sm block leading-snug">
+                            {promo.titleEn}
+                          </span>
+                          <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
+                            {promo.titleKm}
+                          </span>
+                          <span className="text-[10px] font-mono text-slate-400 block mt-0.5">
+                            ID: {promo.id} • {promo.badgeEn}
+                          </span>
+                        </div>
+                      </td>
+
+                      {/* Corner Tag / Highlight (styled like Image 1 dark navy ribbon) */}
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        {promo.highlightEn ? (
+                          <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-[#0B132B] text-white shadow-2xs border border-slate-800">
+                            {promo.highlightEn}
+                          </span>
+                        ) : (
+                          <span className="text-slate-300 text-[11px]">—</span>
+                        )}
+                      </td>
+
+                      {/* Promo Code */}
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        {promo.code ? (
+                          <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-900 border border-slate-200">
+                            {promo.code}
+                          </span>
+                        ) : (
+                          <span className="text-slate-300 text-[11px]">—</span>
+                        )}
+                      </td>
+
+                      {/* Validity */}
+                      <td className="py-3 px-3 whitespace-nowrap text-slate-600 text-[11px]">
+                        {promo.validUntil || "Ongoing"}
+                      </td>
+
+                      {/* Status (with 1-click toggle) */}
+                      <td className="py-3 px-3 whitespace-nowrap">
+                        <button
+                          type="button"
+                          onClick={() => handleTogglePromoExpired(promo.id)}
+                          className={`inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1 rounded-full transition-all ${
+                            promo.isExpired
+                              ? "bg-slate-200 text-slate-600 hover:bg-slate-300"
+                              : "bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100"
+                          }`}
+                        >
+                          <span
+                            className={`h-1.5 w-1.5 rounded-full ${
+                              promo.isExpired ? "bg-slate-400" : "bg-emerald-500"
+                            }`}
+                          />
+                          {promo.isExpired ? "Expired" : "Active"}
+                        </button>
+                      </td>
+
+                      {/* Actions */}
+                      <td className="py-3 px-4 text-right whitespace-nowrap">
+                        <div className="flex items-center justify-end gap-1">
+                          <Button
+                            onClick={() => handleOpenEditPromotion(promo)}
+                            variant="ghost"
+                            size="sm"
+                            className="h-7 px-2 rounded-lg text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 gap-1"
+                          >
+                            <Edit2 className="h-3 w-3" />
+                            Edit
+                          </Button>
+                          <Button
+                            onClick={() =>
+                              handleDeletePromotion(promo.id, promo.titleEn)
+                            }
+                            variant="ghost"
+                            size="sm"
+                            className="h-7 px-2 rounded-lg text-xs font-bold text-red-600 hover:bg-red-50 hover:text-red-700 gap-1"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                  {filteredPromotions.length === 0 && (
+                    <tr>
+                      <td
+                        colSpan={7}
+                        className="py-8 text-center text-slate-500 font-semibold"
+                      >
+                        No promotions match &quot;{searchQuery}&quot;
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {filteredPromotions.map((promo) => (
+                <div
+                  key={promo.id}
+                  className={`relative rounded-2xl border border-white/85 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.04)] flex flex-col justify-between ${
+                    promo.isExpired ? "opacity-60" : ""
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                        {promo.badgeEn}
                       </span>
-                    )}
-                  </div>
+                      {promo.highlightEn && (
+                        <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#0B132B] text-white">
+                          {promo.highlightEn}
+                        </span>
+                      )}
+                    </div>
 
-                  <h3 className="text-base font-black text-slate-900 tracking-tight mb-1">
-                    {promo.titleEn}
-                  </h3>
-                  <p className="text-xs text-slate-600 line-clamp-2 mb-3">
-                    {promo.descriptionEn}
-                  </p>
-
-                  <div className="text-[11px] text-slate-500 space-y-1 border-t border-slate-100 pt-2">
-                    <p className="flex items-center gap-1.5">
-                      <Clock className="h-3 w-3 text-slate-400" />
-                      Valid: <strong className="text-slate-700">{promo.validUntil}</strong>
+                    <h3 className="text-base font-black text-slate-900 tracking-tight mb-1">
+                      {promo.titleEn}
+                    </h3>
+                    <p className="text-xs text-slate-600 line-clamp-2 mb-3">
+                      {promo.descriptionEn}
                     </p>
-                    {promo.code && (
-                      <p className="flex items-center gap-1.5 font-mono">
-                        <Tag className="h-3 w-3 text-slate-400" />
-                        Code: <strong className="text-slate-900">{promo.code}</strong>
+
+                    <div className="text-[11px] text-slate-500 space-y-1 border-t border-slate-100 pt-2">
+                      <p className="flex items-center gap-1.5">
+                        <Clock className="h-3 w-3 text-slate-400" />
+                        Valid: <strong className="text-slate-700">{promo.validUntil}</strong>
                       </p>
-                    )}
+                      {promo.code && (
+                        <p className="flex items-center gap-1.5 font-mono">
+                          <Tag className="h-3 w-3 text-slate-400" />
+                          Code: <strong className="text-slate-900">{promo.code}</strong>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleTogglePromoExpired(promo.id)}
+                      className={`text-[10px] font-bold px-2.5 py-1 rounded-lg transition-colors ${
+                        promo.isExpired
+                          ? "bg-slate-200 text-slate-700 hover:bg-slate-300"
+                          : "bg-emerald-100 text-emerald-800 hover:bg-emerald-200"
+                      }`}
+                    >
+                      {promo.isExpired ? "Status: Ended" : "Status: Active"}
+                    </button>
+
+                    <div className="flex items-center gap-1">
+                      <Button
+                        onClick={() => handleOpenEditPromotion(promo)}
+                        variant="outline"
+                        size="sm"
+                        className="rounded-lg text-xs font-semibold px-2"
+                      >
+                        <Edit2 className="h-3.5 w-3.5" />
+                      </Button>
+                      <Button
+                        onClick={() => handleDeletePromotion(promo.id, promo.titleEn)}
+                        variant="ghost"
+                        size="sm"
+                        className="rounded-lg text-xs text-red-600 hover:bg-red-50 px-2"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
-
-                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    onClick={() => handleTogglePromoExpired(promo.id)}
-                    className={`text-[10px] font-bold px-2.5 py-1 rounded-lg transition-colors ${
-                      promo.isExpired
-                        ? "bg-slate-200 text-slate-700 hover:bg-slate-300"
-                        : "bg-emerald-100 text-emerald-800 hover:bg-emerald-200"
-                    }`}
-                  >
-                    {promo.isExpired ? "Status: Ended" : "Status: Active"}
-                  </button>
-
-                  <div className="flex items-center gap-1">
-                    <Button
-                      onClick={() => handleOpenEditPromotion(promo)}
-                      variant="outline"
-                      size="sm"
-                      className="rounded-lg text-xs font-semibold px-2"
-                    >
-                      <Edit2 className="h-3.5 w-3.5" />
-                    </Button>
-                    <Button
-                      onClick={() => handleDeletePromotion(promo.id, promo.titleEn)}
-                      variant="ghost"
-                      size="sm"
-                      className="rounded-lg text-xs text-red-600 hover:bg-red-50 px-2"
-                    >
-                      <Trash2 className="h-3.5 w-3.5" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

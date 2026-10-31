@@ -126,8 +126,8 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
         {/* Speed Highlight & Pricing Hero Box (Frosted Glass Inner Container) */}
         <div className="mt-2.5 sm:mt-3.5 flex items-center justify-between rounded-xl sm:rounded-2xl bg-slate-900/[0.03] backdrop-blur-md p-2.5 sm:p-3.5 border border-white/80 shadow-[inset_0_1px_2px_0_rgba(15,23,42,0.03)]">
           <div className="flex items-center gap-2 sm:gap-2.5">
-            <span className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-tr from-primary-600 via-primary-500 to-amber-400 text-slate-950 shadow-sm shadow-primary-500/25 shrink-0 border border-white/20">
-              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-slate-950 fill-slate-950" />
+            <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#0B132B] text-[#F9A01B] shadow-sm shadow-slate-950/20 shrink-0 border border-slate-800/80">
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-[#F9A01B] fill-[#F9A01B]/25 stroke-[2.5]" />
             </span>
             <div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
