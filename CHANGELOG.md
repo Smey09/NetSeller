@@ -4,6 +4,25 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.6.2] - 2026-10-31
+
+### Mobile Bottom Navigation Redesign & Safe Area Fixes
+- **Mobile Bottom Navigation Redesign (`MobileNavigation.tsx`):**
+  - **Label Optimization:** Shortened mobile tab label from verbose "Internet Packages" to concise "Packages" (`packagesShort`: "Packages" / "កញ្ចប់"), eliminating cramped spacing and ugly text wrapping.
+  - **Removed Clumsy Gray Box:** Replaced the heavy gray rectangular background (`bg-slate-900/10`) with a clean, high-end native iOS tab aesthetic: dynamic active primary icon scaling (`scale-110 text-primary-600`), bold label styling, and an animated amber indicator pill (`bg-primary-500 shadow-xs shadow-primary-500/40`).
+  - **Polished Telegram Action CTA:** Upgraded Telegram on the bottom dock into an executive primary action pill (`bg-[#229ED9] text-white rounded-xl py-1.5 px-2 shadow-sm shadow-[#229ED9]/25`) with tactile press animation.
+  - **Smooth Programmatic Scrolling:** Integrated `handleNavClick` for bottom tabs so tapping "Home" or "Packages" triggers smooth scroll without page jumps.
+- **iOS Safe Area Support (`layout.tsx`, `MobileNavigation.tsx`):**
+  - Added `viewportFit: "cover"` to Next.js viewport configuration.
+  - Configured dynamic bottom safe area padding (`pb-[max(0.6rem,env(safe-area-inset-bottom,0px))]`) ensuring bottom dock content is never obscured by the iOS home swipe indicator.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px, 375px, 414px, Tablet 768px, and Desktop 1440px.
+
+---
+
 ## [1.6.1] - 2026-10-31
 
 ### Brand Yellow Accent Update & Visual Hierarchy Refinement
