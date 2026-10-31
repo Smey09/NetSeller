@@ -15,12 +15,12 @@ export function PromotionSection() {
   const isKm = locale === "km";
 
   return (
-    <section id="promotions" className="py-8 sm:py-20 bg-slate-50/70 border-t border-slate-100">
+    <section id="promotions" className="py-8 sm:py-20 bg-slate-50/40 backdrop-blur-xs border-t border-slate-200/50 relative scroll-mt-16 sm:scroll-mt-20">
       <div className="container mx-auto px-3.5 sm:px-6">
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-bold text-amber-800 mb-2 sm:mb-3 border border-amber-200/60">
-            <Sparkles className="h-3.5 w-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/80 backdrop-blur-xl px-3 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-semibold text-slate-700 mb-2 sm:mb-3 border border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_2px_8px_rgba(15,23,42,0.03)]">
+            <Sparkles className="h-3.5 w-3.5 text-slate-700" />
             <span>{t("badge")}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
@@ -51,8 +51,8 @@ export function PromotionSection() {
               return (
                 <div
                   key={promo.id}
-                  className={`relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border bg-white p-4 sm:p-7 shadow-2xs transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 overflow-hidden ${
-                    isExpired ? "border-slate-200 opacity-75" : "border-slate-200/80"
+                  className={`relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-2xl p-4 sm:p-7 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_10px_30px_-5px_rgba(15,23,42,0.05)] transition-all duration-300 hover:shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_20px_40px_-10px_rgba(15,23,42,0.09)] hover:border-white hover:from-white/95 hover:via-white/85 hover:to-white/75 hover:-translate-y-1 overflow-hidden ${
+                    isExpired ? "opacity-75" : ""
                   }`}
                 >
                   {/* Decorative corner tag */}
@@ -61,7 +61,7 @@ export function PromotionSection() {
                       <div className={`text-white text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-0.5 px-3 sm:py-1 sm:px-4 rounded-bl-xl sm:rounded-bl-2xl shadow-2xs ${
                         isExpired
                           ? "bg-slate-400"
-                          : "bg-amber-500"
+                          : "bg-slate-900"
                       }`}>
                         {highlight}
                       </div>
@@ -70,7 +70,7 @@ export function PromotionSection() {
 
                   <div>
                     <div className="mb-3 sm:mb-4 flex items-center gap-2">
-                      <Badge variant="outline" className="text-[10px] sm:text-xs font-bold text-primary-700 bg-primary-50 border-primary-200 py-0.5">
+                      <Badge variant="outline" className="text-[10px] sm:text-xs font-semibold text-slate-700 bg-slate-100 border-slate-200 py-0.5">
                         {badge}
                       </Badge>
                       {isExpired && (
@@ -103,10 +103,10 @@ export function PromotionSection() {
 
                       {promo.code && (
                         <div className="flex items-center gap-2">
-                          <Tag className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                          <Tag className="h-3.5 w-3.5 text-slate-400 shrink-0" />
                           <span>
                             {t("promoCode")}{" "}
-                            <span className="font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded">
+                            <span className="font-mono font-bold text-slate-900 bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-lg border border-slate-200/80 shadow-2xs">
                               {promo.code}
                             </span>
                           </span>
@@ -149,7 +149,7 @@ export function PromotionSection() {
           </div>
         ) : (
           <div className="rounded-3xl border border-slate-200/90 bg-white p-10 text-center max-w-md mx-auto space-y-3 shadow-xs">
-            <div className="h-12 w-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto">
+            <div className="h-12 w-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mx-auto">
               <Gift className="h-6 w-6" />
             </div>
             <p className="text-sm font-semibold text-slate-700">{t("noPromotions")}</p>

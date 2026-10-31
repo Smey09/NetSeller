@@ -4,6 +4,232 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.6.0] - 2026-10-31
+
+### Header Active Tab Navigation, Language Switcher & Action Button Screen Feedback
+- **Header Active Tab & Smooth Scroll Spy (`Header.tsx`, Section Components):**
+  - Added dedicated anchor IDs and scroll margins (`id="home"`, `scroll-mt-16 sm:scroll-mt-20` on `#packages`, `#promotions`, `#contact`) to prevent sticky header content clipping.
+  - Implemented `handleNavClick` providing programmatic smooth scrolling across sections without full-page hash jumping.
+  - Enhanced active navigation pill indicators with scale highlight (`scale-[1.02]`), pulsing amber status dot (`bg-primary-400 ring-2 ring-primary-400/30 animate-pulse`), and tactile press feedback (`active:scale-95`).
+- **High-Contrast Language Switcher (`LanguageSwitcher.tsx`):**
+  - Redesigned active language indicator using high-contrast dark glass pill (`bg-slate-900 text-white font-bold shadow-xs`) eliminating low-contrast white-on-white ambiguity.
+  - Added `scroll={false}` on `Link` elements to preserve the user's exact scroll position when toggling between English and Khmer (prevents jarring screen jumping to top).
+  - Added tactile press feedback (`active:scale-95`) with zero horizontal overflow on compact viewports (320px).
+- **Action Button Screen Feedback & Visual Sheen (`Header.tsx`, `button.tsx`):**
+  - Added interactive on-screen action feedback: clicking the Header Telegram action button displays a sleek frosted glass confirmation toast (`CheckCircle2` + "Opening Telegram..."), copies the consultant's handle to clipboard as fallback assistance, and tracks privacy-safe analytics.
+  - Implemented dynamic light sweep glass sheen animation on action button hover/focus.
+  - Standardized tactile micro-interactions (`active:scale-95 active:shadow-inner`) across all button variants (`default`, `telegram`, `outline`, etc.).
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px, 375px, 414px, Tablet 768px, and Desktop 1440px.
+
+---
+
+## [1.5.9] - 2026-10-31
+
+### Header & Footer Glassmorphism & Specular Edge Refactor
+- **Header Specular Glass Architecture (`Header.tsx`):**
+  - Upgraded top micro-bar to dark frosted glass (`bg-slate-950/85 backdrop-blur-xl border-b border-white/[0.08] shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06)]`) with an ambient promo glass pill.
+  - Enhanced brand logo with gradient glass container (`bg-gradient-to-tr from-primary-600 to-primary-500 border border-white/20`) and specular-highlighted `KH` pill badge.
+  - Upgraded desktop Telegram CTA button with specular edge border (`border border-white/20 shadow-[#229ED9]/25`).
+  - Refactored mobile menu trigger and dropdown menu into deep frosted glass shell (`bg-white/95 backdrop-blur-3xl shadow-[0_20px_40px_rgba(15,23,42,0.12)] rounded-b-3xl`).
+- **Footer Dark Glassmorphism Refactor (`Footer.tsx`):**
+  - Re-engineered footer as a dark frosted glass foundation (`bg-slate-950/90 backdrop-blur-3xl border-t border-white/[0.08] shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.08)]`) with dual ambient optical glows.
+  - Converted Officer Seller profile card and official direct channel box into dark frosted glass panels (`border border-white/[0.08] bg-white/[0.04] shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_8px_24px_rgba(0,0,0,0.25)]`).
+  - Upgraded direct connect action buttons (Telegram, Call, Facebook) and Back-to-Top button to frosted glass tiles with smooth scale feedback.
+  - Enhanced quick navigation links with subtle horizontal hover slide and amber icon glow.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Next.js build: 9 / 9 static pages prerendered (59.4 kB First Load JS).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px–414px, Tablet 768px, and Desktop 1440px.
+
+---
+
+## [1.5.8] - 2026-10-31
+
+### Enhanced Glassmorphism Specular Edge & Background Canvas Refinement
+- **Ambient Canvas & Continuous Refraction (`layout.tsx`, Section Components):**
+  - Upgraded global body background to a multi-stop ambient canvas (`bg-gradient-to-br from-slate-100/90 via-slate-50 to-sky-50/40`) with 4 strategic optical light orbs (`blur-[120px]–[130px]`).
+  - Removed opaque white section backgrounds in `HeroSection`, `PackageSection`, and `ContactSection` to allow continuous optical depth to shine through frosted cards.
+- **Top Specular Edge Reflection & Glass Borders (`card.tsx`, `PackageCard.tsx`, `globals.css`):**
+  - Integrated top specular reflection highlight (`inset 0 1px 1px 0 rgba(255,255,255,0.95)`) on all frosted glass cards and inner panels.
+  - Implemented high-opacity translucent glass rim borders (`border border-white/85`) and subtle vertical glass gradients (`from-white/85 via-white/75 to-white/65 backdrop-blur-2xl`).
+- **Segmented Docks & Interactive Glass Controls:**
+  - Upgraded desktop navigation track, language switcher, and package filter pill dock to true floating frosted glass with inset specular highlights.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Next.js build: 9 / 9 static pages prerendered (59.4 kB First Load JS).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px–414px, Tablet 768px, and Desktop 1440px.
+
+---
+
+## [1.5.7] - 2026-10-31
+
+### Dynamic Scroll Spy & Segmented Header Active State
+- **Scroll Spy Navigation Engine (`src/components/layout/Header.tsx`):**
+  - Integrated dynamic scroll spy that monitors viewport position across `#packages`, `#promotions`, `#contact`, and top (`home`).
+  - Seamlessly keeps active indicator in sync as user scrolls or clicks anchor links.
+- **Segmented Glass Pill Track & Active Styling:**
+  - Enclosed desktop navigation items within a refined frosted track (`bg-slate-100/70 backdrop-blur-md border border-slate-200/50 shadow-2xs`).
+  - Elevated active tab to modern executive pill (`bg-slate-900 text-white font-bold shadow-xs`) with a subtle pulsating amber indicator dot (`bg-primary-400 animate-pulse`).
+- **Mobile Navigation Active State Synchronization (`MobileNavigation.tsx`):**
+  - Synchronized bottom mobile navigation bar with scroll position to dynamically highlight Packages when scrolled past the fold.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Next.js build: 9 / 9 static pages prerendered (58.9 kB First Load JS).
+  - Playwright E2E: 32 / 32 tests passed.
+
+---
+
+## [1.5.6] - 2026-10-31
+
+### Modern Glassmorphism ("Glasses Style") UI System Architecture
+- **Ambient Lighting Foundation (`src/app/[locale]/layout.tsx`):**
+  - Integrated zero-layout-shift fixed ambient optical glow orbs (`pointer-events-none -z-10`) in brand warm amber and sky tones to provide genuine background depth for frosted glass refractions.
+- **Glass Navbar & Micro-Bar (`src/components/layout/Header.tsx`):**
+  - Refactored sticky navbar into true frosted glass (`bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-xs`).
+  - Implemented sleek dark frosted glass micro-bar (`bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80`).
+  - Mobile dropdown menu upgraded to `bg-white/90 backdrop-blur-2xl shadow-2xl`.
+- **Frosted Segmented Controls (`LanguageSwitcher.tsx`, `PackageGrid.tsx`):**
+  - Upgraded language switcher into a frosted glass pill container (`bg-slate-200/50 backdrop-blur-md border-white/70`).
+  - Re-engineered package category selector as a modern floating glass dock with segmented pills.
+- **Glass Component Surfaces (`Card.tsx`, `PackageCard.tsx`, `PromotionSection.tsx`, `ContactSection.tsx`):**
+  - Upgraded base `Card` primitive to frosted glass (`bg-white/80 backdrop-blur-xl border border-white/80 shadow-slate-900/5`).
+  - Upgraded Package cards with frosted inner speed containers (`bg-slate-900/[0.03] backdrop-blur-xs border-slate-200/70`) and glass secondary action buttons.
+  - Upgraded Hero stats, consultant image frame, and floating badges to multi-layered frosted glass.
+  - Refactored contact hub cards, hotline card, and quick action cards with translucent glass panels.
+- **Glass Modals & Floating Widgets (`dialog.tsx`, `PackageOrderDialog.tsx`, `MobileNavigation.tsx`, `FloatingContact.tsx`):**
+  - Dialog overlay enhanced with `bg-slate-950/40 backdrop-blur-md` and modal container `bg-white/95 backdrop-blur-2xl border-white/80`.
+  - Upgraded mobile bottom navigation bar to `bg-white/80 backdrop-blur-xl border-t border-white/60 shadow-[0_-8px_30px_rgba(0,0,0,0.06)]`.
+  - Floating speed dial menu upgraded to `bg-white/85 backdrop-blur-2xl border border-white/80`.
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Next.js build: 9 / 9 static pages prerendered (58.9 kB First Load JS).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px, 375px, 414px, Tablet 768px, and Desktop 1440px.
+
+---
+
+## [1.5.5] - 2026-10-31
+
+### Clean UI Color Harmony & Visual Decluttering Overhaul
+- **Systematic Color Decluttering (60-30-10 Rule):**
+  - Eliminated conflicting multicolor badges and neon fills across the entire interface (removing random sky-blue, emerald-green, and multi-color gradients on non-CTA cards).
+  - Standardized on 60% clean whites & soft slate neutrals (`bg-slate-50`, `bg-white`), 30% crisp executive slate typography and containers (`slate-900`, `slate-950`), and 10% purposeful brand accent (`#F9A01B` / `primary-500` / `primary-600`) dedicated to high-intent conversions and brand identity.
+- **Top Micro-Bar & Header (`src/components/layout/Header.tsx`):**
+  - Replaced jarring loud orange bar with a sleek, executive dark micro-bar (`bg-slate-900 text-slate-300 border-slate-800`).
+  - Standardized logo icon to clean `bg-primary-500 text-white rounded-xl`.
+  - Neutralized Khmer/English pill and desktop active navigation links to calm `bg-slate-100 text-slate-950`.
+  - Tightened horizontal padding to `px-2.5 sm:px-6` to prevent micro-overflow on narrow viewports.
+- **Executive Dark Footer (`src/components/layout/Footer.tsx`):**
+  - Replaced intense full-orange footer fill with modern, high-trust executive dark theme (`bg-slate-950 text-slate-400 border-t border-slate-800/80`).
+  - Streamlined consultant badge, quick navigation, and direct contact widgets with understated slate-900/slate-800 surfaces.
+- **Packages & Pricing Cards (`src/components/packages/PackageCard.tsx`, `PackageGrid.tsx`):**
+  - Replaced bright orange zap badge boxes with polished `bg-slate-900 text-white` and amber spark `text-primary-400`.
+  - Neutralized filter pill buttons to executive `bg-slate-900 text-white`.
+  - Cleaned category labels, feature bullet badges, and specs to subtle, legible slate-600/slate-700.
+- **Promotions & Contact Sections (`PromotionSection.tsx`, `ContactSection.tsx`):**
+  - Unified 3 quick action cards into clean `bg-slate-100 text-slate-700` icons, eliminating multicolor rainbow dissonance.
+  - Neutralized section pill badges to `bg-slate-100 text-slate-700 border-slate-200`.
+- **Order Modal (`PackageOrderDialog.tsx`):**
+  - Replaced loud 3-color rainbow fast-chat gradient with calm `bg-slate-50 border-slate-200` container.
+  - Replaced modal header gradient with high-contrast `bg-slate-900 text-white border-b border-slate-800`.
+- **Quality Gates Verification:**
+  - `pnpm tsc --noEmit`: 0 errors.
+  - `pnpm lint`: 0 warnings, 0 errors.
+  - `pnpm test`: 21 passed across 6 unit test suites.
+  - `pnpm build`: 9/9 static pages prerendered (58.7 kB First Load JS).
+  - `pnpm test:e2e`: 32/32 tests passed across Mobile 320px, Mobile 375px, Mobile 414px, Tablet 768px, and Desktop 1440px.
+
+---
+
+## [1.5.4] - 2026-10-31
+
+### Production Readiness & Performance Optimization Overhaul
+- **HTTP Security Headers Configuration (`next.config.mjs`):**
+  - Integrated enterprise security headers across all routes:
+    - `X-Content-Type-Options: nosniff` (MIME sniffing prevention).
+    - `X-Frame-Options: SAMEORIGIN` (Clickjacking mitigation).
+    - `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload` (HSTS enforcement).
+    - `Referrer-Policy: origin-when-cross-origin`.
+    - `Permissions-Policy: camera=(), microphone=(), geolocation=()` (Sensor restriction).
+    - `X-DNS-Prefetch-Control: on`.
+- **Core Web Vitals & LCP Image Optimization (`src/components/home/HeroSection.tsx`):**
+  - Configured `fetchPriority="high"`, `loading="eager"`, `decoding="async"`, and explicit dimensions (`width={600} height={450}`) on primary hero image `/images/hero-friendly-consultant.jpg` to maximize LCP and avoid CLS.
+- **Inquiries API Resilience (`src/app/api/inquiries/route.ts`):**
+  - Updated validation schema to gracefully support both full package order submissions and quick 1-tap inquiries (`Telegram Quick Visitor`, `Direct Telegram Inquiry`) without 400 validation rejection.
+  - Implemented safe error handling and malformed JSON resilience.
+  - Authored dedicated unit test suite [`tests/unit/inquiries.test.ts`](tests/unit/inquiries.test.ts) covering full orders, quick inquiries, and malformed payload recovery.
+- **Verification:**
+  - TypeScript typecheck: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest unit tests: 21 passed across 6 test suites (`pnpm test`).
+  - Next.js SSG build: 9/9 static pages generated, 58.9 kB First Load JS (`pnpm build`).
+  - Playwright cross-browser responsive E2E tests: 32 passed across all 5 viewports (320px–1440px).
+
+---
+
+## [1.5.3] - 2026-10-31
+
+### Golden-Orange Theme Expansion to Top Micro-Bar & Footer
+- **Top Micro-Bar (`src/components/layout/Header.tsx`):**
+  - Updated from legacy slate dark (`bg-slate-900 text-white`) to brand Golden-Orange `bg-primary-500 text-slate-950 border-b border-primary-600/30`.
+  - Upgraded typography contrast with `text-slate-900` body and `text-slate-950 font-bold` contact highlights.
+  - Enhanced promo badge chip to `bg-white/40 backdrop-blur-xs px-2.5 py-0.5 rounded-full border border-black/5 text-slate-950`.
+- **Full Brand Footer Redesign (`src/components/layout/Footer.tsx`):**
+  - Updated outer footer canvas from `bg-slate-950` to rich gradient `bg-gradient-to-b from-primary-500 via-primary-500 to-amber-600 text-slate-950 border-t border-primary-600/30 shadow-inner`.
+  - Re-styled internal profile and contact cards with high-contrast elevated glassmorphic containers (`bg-white/90 backdrop-blur-sm border border-primary-600/30 shadow-xs`).
+  - Set quick links and interactive elements to `text-slate-900 hover:text-white font-semibold`.
+  - Preserved authentic Telegram `#229ED9` action CTA and upgraded phone hotline button to `bg-slate-950 text-white hover:bg-slate-900`.
+  - Updated bottom copyright, legal disclaimer, and back-to-top button to clean dark-on-amber contrast.
+- **Verification:**
+  - TypeScript check: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint check: 0 warnings/errors (`pnpm lint`).
+  - Vitest unit tests: 18 passed (`pnpm test`).
+  - Next.js SSG build: 9/9 pages statically generated, 58.9 kB First Load JS (`pnpm build`).
+  - Playwright responsive E2E tests: 32 tests passed across all 5 viewports (320px–1440px).
+
+---
+
+## [1.5.2] - 2026-10-31
+
+### Project-Wide Golden-Orange (`#F9A01B`) Brand Color Refactor
+- **True Brand Color Extraction & Global Design System:**
+  - Extracted exact color `#F9A01B` (RGB: 249, 160, 27 / HSL: `36 94.9% 54.1%`) from brand artwork.
+  - Replaced legacy blue base with warm golden-orange Cambodian telecom primary palette across `src/app/globals.css` and `tailwind.config.ts`:
+    - `--primary: 36 94.9% 54.1%;`
+    - `--ring: 36 94.9% 54.1%;`
+    - `--accent: 36 100% 97%;`
+    - Scale: `50: #fffbeb`, `100: #fef3c7`, `200: #fde68a`, `300: #fcd34d`, `400: #fbbf24`, `500: #f9a01b`, `600: #d97706`, `700: #b45309`, `800: #92400e`, `900: #78350f`, `950: #451a03`.
+  - Updated mobile browser theme bar in `src/app/[locale]/layout.tsx` (`themeColor: "#F9A01B"`).
+- **Component Design System Enhancements:**
+  - **`Button.tsx`**: Updated default variant to `bg-primary-500 text-white font-semibold hover:bg-primary-600 shadow-sm shadow-primary-500/25 active:scale-[0.98]`.
+  - **`Header.tsx`**: Updated logo badge to `bg-gradient-to-tr from-primary-500 to-amber-400`, brand text to `Net<span className="text-primary-500">Seller</span>`, and KH country pill to `text-primary-900 bg-primary-100 border border-primary-200/60`.
+  - **`Footer.tsx`**: Harmonized footer logo with `from-primary-500 to-amber-400`, `Net<span className="text-primary-400">Seller</span>`, and officer profile card avatar ring.
+  - **`HeroSection.tsx`**: Refactored primary Explore Packages button to `bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/25` and router card badge icon to `bg-primary-50 text-primary-600`.
+  - **`PackageCard.tsx`**: Updated popular package card border to `border-2 border-primary-500 shadow-md shadow-primary-500/15`, popular banner to `bg-primary-500`, category header to `text-primary-600`, and speed Zap badge to `bg-primary-500`.
+  - **`PackageGrid.tsx`**: Enhanced category filter pill buttons with active state `bg-primary-500 text-white shadow-md shadow-primary-500/25`.
+  - **`PackageOrderDialog.tsx`**: Updated header modal gradient to `from-primary-600 via-primary-700 to-primary-900`, step active indicators, and form action button to `bg-primary-500 hover:bg-primary-600 shadow-primary-500/25`.
+  - **`not-found.tsx`**: Converted legacy `blue-` tokens to `primary-50`, `primary-200`, and `primary-500`.
+  - **Telegram Brand Identity Isolation:** Preserved authentic `#229ED9` for all Telegram buttons and deep links across the entire UI.
+- **Verification:**
+  - TypeScript check: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint check: 0 warnings/errors (`pnpm lint`).
+  - Vitest unit tests: 18 passed (`pnpm test`).
+  - Next.js SSG build: 9/9 pages statically generated, 58.9 kB First Load JS (`pnpm build`).
+  - Playwright cross-browser responsive E2E tests: 32 tests passed across 5 viewports (320px, 375px, 414px, 768px, 1440px) with 0 horizontal overflow.
+
+---
+
 ## [1.5.1] - 2026-10-31
 
 ### Git Configuration & Git Workflow Skill Addition

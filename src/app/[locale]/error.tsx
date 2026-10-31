@@ -24,7 +24,7 @@ export default function ErrorBoundary({
   return (
     <div className="min-h-[70vh] flex items-center justify-center py-16 px-4">
       <div className="max-w-md w-full text-center space-y-6">
-        <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-amber-50 text-amber-600 border border-amber-200 shadow-sm">
+        <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary-50 text-primary-600 border border-primary-200 shadow-sm">
           <AlertTriangle className="h-10 w-10" />
         </div>
 

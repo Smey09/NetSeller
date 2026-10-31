@@ -11,6 +11,22 @@ import { cn } from "@/lib/utils";
 export function MobileNavigation() {
   const t = useTranslations("nav");
   const pathname = usePathname();
+  const [activeTab, setActiveTab] = React.useState<"home" | "packages">("home");
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const pkgEl = document.getElementById("packages");
+      if (pkgEl && window.scrollY >= pkgEl.offsetTop - 220) {
+        setActiveTab("packages");
+      } else {
+        setActiveTab("home");
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleCallClick = () => {
     PrivacyAnalytics.track("call_click", { location: "mobile_bottom_bar" });
@@ -24,7 +40,7 @@ export function MobileNavigation() {
     <nav
       role="navigation"
       aria-label={t("mobileNavAria")}
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] px-2 py-1.5"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-2xl border-t border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_-8px_30px_rgba(15,23,42,0.06)] px-2 py-1.5"
     >
       <div className="grid grid-cols-4 items-center justify-around gap-1 max-w-md mx-auto">
         {/* Home */}
@@ -33,9 +49,9 @@ export function MobileNavigation() {
           aria-label={t("home")}
           className={cn(
             "flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition-colors",
-            pathname === "/"
-              ? "text-primary-600 bg-primary-50"
-              : "text-slate-600 hover:text-primary-600"
+            activeTab === "home"
+              ? "text-slate-900 bg-slate-900/10 font-bold backdrop-blur-xs"
+              : "text-slate-600 hover:text-slate-900"
           )}
         >
           <Home className="h-5 w-5 mb-0.5" />
@@ -46,7 +62,12 @@ export function MobileNavigation() {
         <Link
           href="/#packages"
           aria-label={t("packages")}
-          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold text-slate-600 hover:text-primary-600 transition-colors"
+          className={cn(
+            "flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition-colors",
+            activeTab === "packages"
+              ? "text-slate-900 bg-slate-900/10 font-bold backdrop-blur-xs"
+              : "text-slate-600 hover:text-slate-900"
+          )}
         >
           <Package className="h-5 w-5 mb-0.5" />
           <span className="truncate">{t("packages")}</span>
@@ -57,9 +78,9 @@ export function MobileNavigation() {
           href={`tel:${sellerConfig.phone}`}
           onClick={handleCallClick}
           aria-label={t("callNow")}
-          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors"
+          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition-colors"
         >
-          <PhoneCall className="h-5 w-5 mb-0.5 text-emerald-600" />
+          <PhoneCall className="h-5 w-5 mb-0.5 text-slate-700" />
           <span className="truncate">{t("call")}</span>
         </a>
 

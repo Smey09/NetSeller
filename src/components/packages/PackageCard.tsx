@@ -65,16 +65,16 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
   return (
     <Card
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1 bg-white",
+        "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-2xl",
         isPopular
-          ? "border-2 border-primary-600 shadow-md shadow-primary-600/10"
-          : "border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-slate-300",
+          ? "border-2 border-primary-500/90 bg-gradient-to-b from-white/95 via-white/85 to-white/75 shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_15px_35px_-5px_rgba(249,160,27,0.18)] hover:shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_25px_50px_-10px_rgba(249,160,27,0.25)]"
+          : "border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_10px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_20px_40px_-10px_rgba(15,23,42,0.09),0_0_20px_-2px_rgba(249,160,27,0.12)] hover:border-white hover:from-white/95 hover:via-white/85 hover:to-white/75",
         className
       )}
     >
       {/* Top Banner for popular / featured */}
       {isPopular && (
-        <div className="bg-primary-600 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-2xs flex items-center justify-center gap-1.5">
+        <div className="bg-primary-500 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-2xs flex items-center justify-center gap-1.5">
           <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           <span>{badgeText || t("popular")}</span>
         </div>
@@ -84,7 +84,7 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
       <CardHeader className={cn("p-3.5 pb-2 sm:p-6 sm:pb-3", isPopular ? "pt-3.5 sm:pt-5" : "pt-4 sm:pt-6")}>
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-primary-600 block">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
               {packageData.category === "home" ? t("categoryHome") : t("categoryBusiness")}
             </span>
             <h3 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5 break-words">
@@ -95,8 +95,8 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
           <div className="flex flex-col items-end gap-1 shrink-0">
             {!isPopular && badgeText && (
               <Badge
-                variant={isPromoted ? "accent" : "secondary"}
-                className="font-semibold text-[10px] sm:text-xs py-0.5 px-2"
+                variant="outline"
+                className="font-semibold text-[10px] sm:text-xs py-0.5 px-2 bg-slate-100 text-slate-700 border-slate-200"
               >
                 {badgeText}
               </Badge>
@@ -110,7 +110,7 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
             )}
 
             {!isPopular && !badgeText && isLimited && (
-              <Badge variant="accent" className="font-semibold text-[10px] sm:text-xs py-0.5 px-2">
+              <Badge variant="outline" className="font-semibold text-[10px] sm:text-xs py-0.5 px-2 bg-slate-100 text-slate-700 border-slate-200">
                 {t("limited")}
               </Badge>
             )}
@@ -123,11 +123,11 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
           </p>
         )}
 
-        {/* Speed Highlight & Pricing Hero Box */}
-        <div className="mt-2.5 sm:mt-3.5 flex items-center justify-between rounded-xl sm:rounded-2xl bg-slate-50/80 p-2.5 sm:p-3.5 border border-slate-200/70">
+        {/* Speed Highlight & Pricing Hero Box (Frosted Glass Inner Container) */}
+        <div className="mt-2.5 sm:mt-3.5 flex items-center justify-between rounded-xl sm:rounded-2xl bg-slate-900/[0.03] backdrop-blur-md p-2.5 sm:p-3.5 border border-white/80 shadow-[inset_0_1px_2px_0_rgba(15,23,42,0.03)]">
           <div className="flex items-center gap-2 sm:gap-2.5">
-            <span className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-primary-600 text-white shadow-xs shrink-0">
-              <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
+            <span className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-slate-900 text-white shadow-xs shrink-0">
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-primary-400" />
             </span>
             <div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -163,19 +163,19 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
         <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-600 pt-1 border-t border-slate-100">
           {packageData.routerIncluded && (
             <li className="flex items-center gap-1.5 sm:gap-2 text-slate-800 font-medium">
-              <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-600 shrink-0" />
+              <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-600 shrink-0" />
               <span className="truncate">{packageData.routerIncluded}</span>
             </li>
           )}
 
-          <li className="flex items-center gap-1.5 sm:gap-2 text-emerald-700 font-semibold">
+          <li className="flex items-center gap-1.5 sm:gap-2 text-slate-800 font-medium">
             <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-600 shrink-0" />
             <span>{t("freeInstall")} ($0 Setup)</span>
           </li>
 
           {features && features.length > 0 && (
             <li className="flex items-center gap-1.5 sm:gap-2 text-slate-600">
-              <span className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 shrink-0">
+              <span className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-slate-100 text-slate-700 shrink-0">
                 <Check className="h-2 w-2 sm:h-2.5 sm:w-2.5 stroke-[3]" />
               </span>
               <span className="truncate">{features[0]}</span>
@@ -199,14 +199,14 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
           <span>{isComingSoon ? t("comingSoon") : t("orderViaTelegram")}</span>
         </Button>
 
-        {/* Secondary: View Full Details & Specs in Dialog */}
+        {/* Secondary: View Full Details & Specs in Dialog (Frosted Glass Button) */}
         <Button
           type="button"
           onClick={() => !isComingSoon && onSelect(packageData)}
           disabled={isComingSoon}
           variant="outline"
           size="sm"
-          className="w-full rounded-xl text-[11px] sm:text-xs font-semibold py-2 sm:py-2.5 border-slate-200 text-slate-700 hover:text-primary-600 hover:border-primary-400 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[38px]"
+          className="w-full rounded-xl text-[11px] sm:text-xs font-semibold py-2 sm:py-2.5 border border-white/80 bg-white/65 backdrop-blur-md text-slate-700 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.8)] hover:text-slate-950 hover:border-white hover:bg-white/90 hover:shadow-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[38px]"
           aria-label={isComingSoon ? `${packageData.name} - ${t("comingSoon")}` : `Buy Now for ${packageData.name}`}
         >
           <Info className="h-3.5 w-3.5 text-slate-400" />

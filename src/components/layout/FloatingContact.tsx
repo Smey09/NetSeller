@@ -29,9 +29,9 @@ export function FloatingContact() {
 
   return (
     <div className="hidden lg:flex fixed bottom-6 right-6 z-50 flex-col items-end gap-2.5">
-      {/* Expanded Quick Contact Action Menu */}
+      {/* Expanded Quick Contact Action Menu (Frosted Glass Menu) */}
       {isOpen && (
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 p-3 shadow-2xl space-y-2 mb-1 w-64 animate-in slide-in-from-bottom-2 duration-150">
+        <div className="bg-white/85 backdrop-blur-2xl rounded-2xl border border-white/80 p-3 shadow-2xl space-y-2 mb-1 w-64 animate-in slide-in-from-bottom-2 duration-150">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100 px-1">
             <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />

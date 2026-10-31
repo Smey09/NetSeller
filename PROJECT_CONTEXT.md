@@ -30,6 +30,9 @@ All dependencies are verified from [`package.json`](./package.json):
 
 ### Styling & Design System
 - **Tailwind CSS:** `3.4.15` with HSL CSS variables design tokens (`src/app/globals.css`)
+- **Brand Color Base:** `#F9A01B` / HSL `36 94.9% 54.1%` (Cambodian Telecom Warm Golden Orange / Amber)
+  - `primary-50`: `#fffbeb`, `primary-100`: `#fef3c7`, `primary-200`: `#fde68a`, `primary-300`: `#fcd34d`, `primary-400`: `#fbbf24`, `primary-500`: `#f9a01b`, `primary-600`: `#d97706`, `primary-700`: `#b45309`, `primary-800`: `#92400e`, `primary-900`: `#78350f`
+- **Telegram Brand Accent:** `#229ED9` (Dedicated for instant messaging actions and bot badges)
 - **PostCSS:** `8.4.49` / **Autoprefixer:** `10.4.20`
 - **Animation:** `tailwindcss-animate` (`1.0.7`)
 - **Utility Libraries:** `clsx` (`2.1.1`), `tailwind-merge` (`2.5.4`)
@@ -54,8 +57,8 @@ All dependencies are verified from [`package.json`](./package.json):
 - **`qrcode`:** `1.5.4` (Client/server PNG and SVG generation with Level H error correction)
 
 ### Testing Frameworks
-- **Vitest:** `2.1.5` (JSDOM environment, 22 unit tests)
-- **Playwright:** `1.49.0` (Cross-browser E2E suite, 44 assertions across 5 viewports)
+- **Vitest:** `2.1.5` (JSDOM environment, 21 unit tests across 6 suites)
+- **Playwright:** `1.49.0` (Cross-browser E2E suite, 32 assertions across 5 viewports)
 
 ---
 

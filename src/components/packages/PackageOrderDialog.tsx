@@ -242,13 +242,13 @@ export function PackageOrderDialog({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        className="max-w-lg p-0 sm:rounded-3xl border-slate-200 shadow-2xl max-h-[92vh] flex flex-col overflow-hidden"
+        className="max-w-lg p-0 sm:rounded-3xl border border-white/80 bg-white/95 backdrop-blur-2xl shadow-2xl max-h-[92vh] flex flex-col overflow-hidden"
         closeClassName="text-white/80 hover:text-white hover:bg-white/20 focus:ring-white top-3.5 right-3.5"
       >
-        {/* Header styling */}
-        <div className="shrink-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 px-5 pt-5 pb-4 sm:px-6 sm:pt-5 sm:pb-4 text-white relative">
+        {/* Header styling (Frosted Glass Dark) */}
+        <div className="shrink-0 bg-slate-900/95 backdrop-blur-md px-5 pt-5 pb-4 sm:px-6 sm:pt-5 sm:pb-4 text-white relative border-b border-slate-800/80">
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/15 backdrop-blur-md">
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md">
               <Wifi className="h-3.5 w-3.5 text-white" />
             </span>
             <Badge variant="outline" className="bg-white/10 text-white border-white/20 text-[11px] py-0 px-2 font-semibold">
@@ -263,15 +263,15 @@ export function PackageOrderDialog({
             {t("subtitle")}
           </DialogDescription>
 
-          {/* Quick package spec bar */}
-          <div className="mt-3 flex items-center justify-between gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur-md text-xs">
+          {/* Quick package spec bar (Frosted Pill) */}
+          <div className="mt-3 flex items-center justify-between gap-2 rounded-xl bg-white/10 px-3 py-2 backdrop-blur-md text-xs border border-white/10">
             <div className="min-w-0 pr-2">
               <span className="text-white/70 block text-[10px] uppercase font-bold tracking-wider">{t("packageLabel")}</span>
               <span className="font-bold text-white text-xs sm:text-sm truncate block">{selectedPkgData.name} ({selectedPkgData.speedMbps} Mbps)</span>
             </div>
             <div className="text-right shrink-0">
               <span className="text-white/70 block text-[10px] uppercase font-bold tracking-wider">{t("monthlyCost")}</span>
-              <span className="text-base sm:text-lg font-black text-amber-300">${selectedPkgData.monthlyPriceUsd}</span>
+              <span className="text-base sm:text-lg font-black text-primary-400">${selectedPkgData.monthlyPriceUsd}</span>
               <span className="text-white/70 text-xs">/mo</span>
             </div>
           </div>
@@ -279,11 +279,11 @@ export function PackageOrderDialog({
 
         {/* Step Indicator */}
         <div className="shrink-0 flex items-center border-b border-slate-100 bg-slate-50/80 px-5 py-2 sm:px-6 sm:py-2 text-xs font-semibold text-slate-600">
-          <span className={activeStep === "form" ? "text-primary-600 font-bold" : "text-slate-400"}>
+          <span className={activeStep === "form" ? "text-slate-900 font-bold" : "text-slate-400"}>
             {t("step1")}
           </span>
           <ArrowRight className="mx-2 h-3.5 w-3.5 text-slate-300" />
-          <span className={activeStep === "confirm" ? "text-primary-600 font-bold" : "text-slate-400"}>
+          <span className={activeStep === "confirm" ? "text-slate-900 font-bold" : "text-slate-400"}>
             {t("step2")}
           </span>
         </div>
@@ -293,7 +293,7 @@ export function PackageOrderDialog({
           {activeStep === "form" ? (
             <div className="space-y-4">
               {/* Option 1: Instant 1-Tap Direct Telegram (ZERO input required) */}
-              <div className="rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-emerald-50 border border-sky-200/80 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+              <div className="rounded-2xl bg-slate-50/70 backdrop-blur-xs border border-slate-200/80 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
                 <div className="min-w-0">
                   <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                     <Send className="h-3.5 w-3.5 text-[#229ED9] shrink-0" />
@@ -319,7 +319,7 @@ export function PackageOrderDialog({
               <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-3.5 sm:p-4 space-y-3">
                 <div className="flex items-center justify-between border-b border-slate-200/60 pb-2">
                   <span className="text-xs font-bold text-slate-900 uppercase tracking-wide flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-primary-600" />
+                    <Sparkles className="h-3.5 w-3.5 text-slate-700" />
                     {t("fullSpecsTitle")}
                   </span>
                   <Badge variant="outline" className="bg-white text-emerald-700 border-emerald-200 text-[10px] font-bold">
@@ -452,7 +452,7 @@ export function PackageOrderDialog({
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary-600 hover:bg-primary-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base py-3 sm:py-3.5 rounded-xl shadow-lg shadow-primary-600/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full bg-primary-500 hover:bg-primary-600 active:scale-[0.99] text-white font-bold text-sm sm:text-base py-3 sm:py-3.5 rounded-xl shadow-lg shadow-primary-500/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
                     disabled={isSubmitting}
                   >
                     <MessageCircle className="h-5 w-5" />
@@ -475,12 +475,12 @@ export function PackageOrderDialog({
           ) : (
             /* Confirm & Telegram Dispatch Step */
             <div className="space-y-4">
-              <div className="rounded-2xl bg-amber-50/80 border border-amber-200 p-3.5 text-xs text-amber-900">
+              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-3.5 text-xs text-slate-700">
                 <div className="flex items-start gap-2.5">
-                  <Sparkles className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+                  <Sparkles className="h-4 w-4 text-slate-500 shrink-0 mt-0.5" />
                   <div className="space-y-1">
                     <span className="font-bold block text-slate-900">{t("telegramNotice")}</span>
-                    <span className="text-amber-900/90 text-[11px] block leading-relaxed">
+                    <span className="text-slate-600 text-[11px] block leading-relaxed">
                       {t("disclaimer")}
                     </span>
                   </div>

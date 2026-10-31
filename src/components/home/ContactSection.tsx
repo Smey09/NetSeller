@@ -124,11 +124,11 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-8 sm:py-20 bg-white border-t border-slate-100 scroll-mt-12">
+    <section id="contact" className="py-8 sm:py-20 bg-transparent border-t border-slate-200/50 scroll-mt-16 sm:scroll-mt-20 relative">
       <div className="container mx-auto px-3.5 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-bold text-primary-700 mb-2 sm:mb-3 border border-primary-200/60">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/80 backdrop-blur-xl px-3 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-semibold text-slate-700 mb-2 sm:mb-3 border border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_2px_8px_rgba(15,23,42,0.03)]">
             <MessageSquare className="h-3.5 w-3.5" />
             <span>{t("badge")}</span>
           </div>
@@ -151,8 +151,8 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 max-w-6xl mx-auto items-start">
           {/* Direct channels left */}
           <div className="lg:col-span-5 space-y-3 sm:space-y-4">
-            {/* Telegram highlight card */}
-            <div className="rounded-2xl sm:rounded-3xl border border-[#229ED9]/25 bg-gradient-to-br from-sky-50/60 to-white p-4 sm:p-6 shadow-2xs">
+            {/* Telegram highlight card (Frosted Glass) */}
+            <div className="rounded-2xl sm:rounded-3xl border border-sky-200/80 bg-gradient-to-br from-sky-50/80 via-white/85 to-sky-50/60 backdrop-blur-2xl p-4 sm:p-6 shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_12px_28px_-5px_rgba(34,158,217,0.12)]">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-4">
                 <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-[#229ED9] text-white shadow-sm shrink-0">
                   <Send className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -186,8 +186,8 @@ export function ContactSection() {
               </a>
             </div>
 
-            {/* Direct hotline */}
-            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-slate-50/60 p-3.5 sm:p-6 shadow-2xs space-y-2 sm:space-y-4">
+            {/* Direct hotline (Frosted Glass) */}
+            <div className="rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3.5 sm:p-6 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] space-y-2 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-emerald-100 text-emerald-700 shrink-0">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -206,8 +206,8 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Facebook / Social */}
-            <div className="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3 sm:p-4 shadow-2xs flex items-center justify-between text-xs">
+            {/* Facebook / Social (Frosted Glass) */}
+            <div className="rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3 sm:p-4 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] flex items-center justify-between text-xs">
               <span className="text-slate-600 font-medium">{t("facebookLabel")}</span>
               <a
                 href={sellerConfig.facebookUrl}
@@ -221,11 +221,11 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: 1-Tap Action Hub */}
-          <div className="lg:col-span-7 rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-4 sm:p-8 shadow-xs space-y-4 sm:space-y-6">
+          {/* Right Column: 1-Tap Action Hub (Frosted Glass Panel) */}
+          <div className="lg:col-span-7 rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-2xl p-4 sm:p-8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_15px_35px_-5px_rgba(15,23,42,0.05)] space-y-4 sm:space-y-6">
             <div>
               <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
-                <Sparkles className="h-4 w-4 text-primary-600" />
+                <Sparkles className="h-4 w-4 text-slate-700" />
                 <h3 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
                   {t("quickActionTitle")}
                 </h3>
@@ -237,18 +237,18 @@ export function ContactSection() {
 
             {/* 3 Interactive 1-Tap Quick Action Cards */}
             <div className="grid grid-cols-1 gap-2 sm:gap-3">
-              {/* Action 1: Check Fiber Coverage */}
+              {/* Action 1: Check Fiber Coverage (Frosted Glass Card) */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("coverage")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-sky-50/70 hover:border-sky-300 transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
-                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700 group-hover:bg-[#229ED9] group-hover:text-white transition-colors">
+                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                     <MapPinned className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
                   <div className="min-w-0">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-primary-700 transition-colors truncate">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-primary-600 transition-colors truncate">
                       {t("checkCoverageBtn")}
                     </h4>
                     <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug line-clamp-1">
@@ -256,24 +256,24 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
               </button>
 
-              {/* Action 2: Book Installation */}
+              {/* Action 2: Book Installation (Frosted Glass Card) */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("booking")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-emerald-50/70 hover:border-emerald-300 transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
-                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                     <CalendarCheck className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
                   <div className="min-w-0">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-800 transition-colors truncate">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-primary-600 transition-colors truncate">
                       {t("orderInstallBtn")}
                     </h4>
                     <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug line-clamp-1">
@@ -281,24 +281,24 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-colors mt-0.5">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
               </button>
 
-              {/* Action 3: General Advice & Package Choice */}
+              {/* Action 3: General Advice & Package Choice (Frosted Glass Card) */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("advice")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-amber-50/70 hover:border-amber-300 transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
-                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                     <HelpCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                   </span>
                   <div className="min-w-0">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-amber-800 transition-colors truncate">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-primary-600 transition-colors truncate">
                       {t("askQuestionsBtn")}
                     </h4>
                     <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug line-clamp-1">
@@ -306,7 +306,7 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-amber-600 group-hover:text-white group-hover:border-amber-600 transition-colors mt-0.5">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
@@ -333,7 +333,7 @@ export function ContactSection() {
                 value={customMessage}
                 onChange={(e) => setCustomMessage(e.target.value)}
                 placeholder={t("customMessagePlaceholder")}
-                className="rounded-xl sm:rounded-2xl border-slate-200 bg-slate-50/50 text-xs sm:text-sm focus:bg-white transition-colors resize-none py-2"
+                className="rounded-xl sm:rounded-2xl border-slate-200/80 bg-white/60 backdrop-blur-xs text-xs sm:text-sm focus:bg-white transition-colors resize-none py-2"
               />
 
               <Button

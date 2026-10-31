@@ -14,13 +14,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
 
     const variantStyles = {
-      default: "bg-primary-600 text-white hover:bg-primary-700 shadow-sm shadow-primary-600/20 active:scale-[0.98]",
-      destructive: "bg-red-600 text-white hover:bg-red-700 active:scale-[0.98]",
-      outline: "border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 active:scale-[0.98]",
-      secondary: "bg-secondary-500 text-white hover:bg-secondary-600 shadow-sm active:scale-[0.98]",
-      ghost: "hover:bg-slate-100 text-slate-700",
+      default: "bg-primary-500 text-white font-semibold hover:bg-primary-600 shadow-sm shadow-primary-500/25 active:scale-95 active:shadow-inner",
+      destructive: "bg-red-600 text-white hover:bg-red-700 active:scale-95 active:shadow-inner",
+      outline: "border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 active:scale-95 active:shadow-inner",
+      secondary: "bg-secondary-500 text-white hover:bg-secondary-600 shadow-sm active:scale-95 active:shadow-inner",
+      ghost: "hover:bg-slate-100 text-slate-700 active:scale-95",
       link: "text-primary-600 underline-offset-4 hover:underline",
-      telegram: "bg-[#229ED9] text-white hover:bg-[#1E88C7] shadow-sm shadow-[#229ED9]/30 active:scale-[0.98]",
+      telegram: "bg-[#229ED9] text-white hover:bg-[#1E88C7] shadow-sm shadow-[#229ED9]/30 active:scale-95 active:shadow-inner",
     };
 
     const sizeStyles = {

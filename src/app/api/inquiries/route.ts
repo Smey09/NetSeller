@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { orderFormSchema } from "@/lib/validations/order.schema";
+import { z } from "zod";
 import { internetPackages } from "@/data/packages";
 import { formatTelegramMessage } from "@/features/telegram/telegram.utils";
+
+const apiInquirySchema = z.object({
+  customerName: z.string().trim().max(100).optional().default(""),
+  phoneNumber: z.string().trim().max(30).optional().default(""),
+  selectedPackageId: z.string().min(1).default("pkg-general"),
+  installationLocation: z.string().trim().max(250).optional().default(""),
+  notes: z.string().max(1000).optional().default(""),
+});
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const result = orderFormSchema.safeParse(body);
+    const result = apiInquirySchema.safeParse(body);
 
     if (!result.success) {
       return NextResponse.json(
