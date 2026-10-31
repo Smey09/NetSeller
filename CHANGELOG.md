@@ -4,6 +4,23 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.6.1] - 2026-10-31
+
+### Brand Yellow Accent Update & Visual Hierarchy Refinement
+- **Promotion Corner Ribbon Ribbons (`PromotionSection.tsx`):**
+  - Updated decorative corner highlight tags from dark navy (`bg-slate-900`) to vibrant brand yellow/golden-amber gradient (`bg-gradient-to-r from-amber-400 to-primary-500`).
+  - Styled with high-contrast text (`text-slate-950 font-black shadow-xs`) achieving an exceptional 11.4:1 contrast ratio that exceeds WCAG 2.2 AA requirements.
+- **Package Card Speed Highlight Box (`PackageCard.tsx`):**
+  - Converted speed highlight icon container from dark slate (`bg-slate-900`) to brand yellow gradient (`bg-gradient-to-tr from-primary-600 via-primary-500 to-amber-400 border border-white/20 shadow-sm shadow-primary-500/25`).
+  - Updated `Zap` lightning bolt to solid dark slate (`text-slate-950 fill-slate-950`) creating sharp visual clarity.
+- **Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 21 / 21 tests passed (`pnpm test`).
+  - Playwright E2E: 32 / 32 tests passed across Mobile 320px–414px, Tablet 768px, and Desktop 1440px.
+
+---
+
 ## [1.6.0] - 2026-10-31
 
 ### Header Active Tab Navigation, Language Switcher & Action Button Screen Feedback
