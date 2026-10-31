@@ -1,0 +1,49 @@
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { sellerConfig } from "@/config/seller";
+import { Home, Send } from "lucide-react";
+
+export default function NotFound() {
+  const t = useTranslations("common");
+
+  return (
+    <div className="min-h-[70vh] flex items-center justify-center py-16 px-4">
+      <div className="max-w-md w-full text-center space-y-6">
+        <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary-50 text-primary-600 border border-primary-100 shadow-sm">
+          <span className="text-3xl font-black">404</span>
+        </div>
+
+        <div className="space-y-2">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            {t("pageNotFound")}
+          </h1>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            {t("pageNotFoundDesc")}
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+          <Link href="/">
+            <Button className="w-full sm:w-auto font-bold gap-2">
+              <Home className="h-4 w-4" />
+              <span>{t("backToHome")}</span>
+            </Button>
+          </Link>
+          <a
+            href={`https://t.me/${sellerConfig.telegramUsername.replace(/^@/, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto"
+          >
+            <Button variant="telegram" className="w-full sm:w-auto font-bold gap-2">
+              <Send className="h-4 w-4" />
+              <span>{t("contactTelegram")}</span>
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
