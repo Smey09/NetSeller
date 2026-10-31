@@ -11,9 +11,16 @@ export function formatTelegramMessage(payload: TelegramMessagePayload): string {
     msg += `📦 កញ្ចប់៖ ${payload.packageName}\n`;
     msg += `⚡ ល្បឿន៖ ${payload.packageSpeed}\n`;
     msg += `💵 តម្លៃប្រចាំខែ៖ ${payload.packagePrice}\n`;
-    msg += `👤 ឈ្មោះអតិថិជន៖ ${payload.customerName}\n`;
-    msg += `📞 លេខទូរស័ព្ទ៖ ${payload.phoneNumber}\n`;
-    msg += `📍 ទីតាំងដំឡើង៖ ${payload.installationLocation}\n`;
+
+    if (payload.customerName && payload.customerName.trim().length > 0) {
+      msg += `👤 ឈ្មោះអតិថិជន៖ ${payload.customerName.trim()}\n`;
+    }
+    if (payload.phoneNumber && payload.phoneNumber.trim().length > 0) {
+      msg += `📞 លេខទូរស័ព្ទ៖ ${payload.phoneNumber.trim()}\n`;
+    }
+    if (payload.installationLocation && payload.installationLocation.trim().length > 0) {
+      msg += `📍 ទីតាំងដំឡើង៖ ${payload.installationLocation.trim()}\n`;
+    }
 
     if (payload.notes && payload.notes.trim().length > 0) {
       msg += `📝 ចំណាំបន្ថែម៖ ${payload.notes.trim()}\n`;
@@ -28,9 +35,16 @@ export function formatTelegramMessage(payload: TelegramMessagePayload): string {
   msg += `Package: ${payload.packageName}\n`;
   msg += `Speed: ${payload.packageSpeed}\n`;
   msg += `Monthly Price: ${payload.packagePrice}\n`;
-  msg += `Customer Name: ${payload.customerName}\n`;
-  msg += `Phone: ${payload.phoneNumber}\n`;
-  msg += `Installation Location: ${payload.installationLocation}\n`;
+
+  if (payload.customerName && payload.customerName.trim().length > 0) {
+    msg += `Customer Name: ${payload.customerName.trim()}\n`;
+  }
+  if (payload.phoneNumber && payload.phoneNumber.trim().length > 0) {
+    msg += `Phone: ${payload.phoneNumber.trim()}\n`;
+  }
+  if (payload.installationLocation && payload.installationLocation.trim().length > 0) {
+    msg += `Installation Location: ${payload.installationLocation.trim()}\n`;
+  }
 
   if (payload.notes && payload.notes.trim().length > 0) {
     msg += `Additional Notes: ${payload.notes.trim()}\n`;

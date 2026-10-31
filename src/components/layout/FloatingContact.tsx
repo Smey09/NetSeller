@@ -10,11 +10,9 @@ import {
   Phone,
   X,
   MessageCircle,
-  QrCode,
   ShieldCheck,
   ChevronUp,
 } from "lucide-react";
-import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 export function FloatingContact() {
@@ -80,21 +78,6 @@ export function FloatingContact() {
               <span className="text-[11px] text-slate-500">{sellerConfig.phoneDisplay}</span>
             </div>
           </a>
-
-          {/* Action 3: Digital Business Card View */}
-          <Link
-            href="/card"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors group"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white shadow-xs group-hover:scale-105 transition-transform">
-              <QrCode className="h-4 w-4 text-primary-400" />
-            </span>
-            <div className="flex flex-col">
-              <span className="text-xs font-bold text-slate-900 leading-tight">{t("digitalCard")}</span>
-              <span className="text-[11px] text-slate-500">{t("saveVcard")}</span>
-            </div>
-          </Link>
         </div>
       )}
 

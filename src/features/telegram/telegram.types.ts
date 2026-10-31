@@ -1,12 +1,12 @@
 import { Locale } from "@/types";
 
 export interface TelegramMessagePayload {
-  customerName: string;
-  phoneNumber: string;
+  customerName?: string;
+  phoneNumber?: string;
   packageName: string;
   packageSpeed: string;
   packagePrice: string;
-  installationLocation: string;
+  installationLocation?: string;
   notes?: string;
   locale?: Locale;
 }

@@ -1,13 +1,14 @@
 import { SellerConfig } from "@/types";
 
 export const sellerConfig: SellerConfig = {
-  name: "NetSeller Consultant",
-  titleEn: "Authorized Personal Internet & Fiber Sales Consultant",
-  titleKm: "អ្នកប្រឹក្សា និងតំណាងចែកចាយសេវាអ៊ីនធឺណិតល្បឿនលឿន",
+  name: "Officer Seller",
+  avatarUrl: "/images/hero-friendly-consultant.jpg",
+  titleEn: "Home Wi-Fi Sales Officer • Official Telecom Consultant",
+  titleKm: "មន្ត្រីផ្នែកលក់សេវា Home Wi-Fi • អ្នកប្រឹក្សាផ្លូវការ",
   bioEn:
-    "Helping homes, shops, and businesses across Cambodia get connected to the fastest, most dependable fiber Internet with personalized advice, zero hidden fees, and hassle-free installation support.",
+    "Official telecom sales officer for Home Wi-Fi & Optical Fiber Internet in Cambodia. Providing personalized package recommendations, instant home coverage checks via Telegram, and $0 free installation support.",
   bioKm:
-    "ជួយសម្រួលដល់ការភ្ជាប់បណ្ដាញអ៊ីនធឺណិតខ្សែកាបអុបទិកល្បឿនលឿនសម្រាប់គេហដ្ឋាន និងអាជីវកម្មនៅកម្ពុជា ជាមួយនឹងការប្រឹក្សាផ្ទាល់ តម្លៃច្បាស់លាស់ និងការដំឡើងរហ័សទាន់ចិត្ត។",
+    "មន្ត្រីផ្នែកលក់សេវា Home Wi-Fi និងខ្សែកាបអុបទិកផ្លូវការនៅកម្ពុជា។ ផ្ដល់ការណែនាំកញ្ចប់សេវាសមស្រប ពិនិត្យប្រអប់សេវាដល់ផ្ទះតាម Telegram ក្នុងរយៈពេល ១៥ នាទី និងដំឡើងឥតគិតថ្លៃ។",
   telegramUsername: "NetSellerKH", // Configure with seller's Telegram username
   telegramPhone: "+85512345678",
   phone: "+85512345678",

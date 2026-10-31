@@ -38,11 +38,9 @@ export function Header() {
 
   const navLinks = [
     { label: t("home"), href: "/" },
-    { label: t("packages"), href: "/packages" },
+    { label: t("packages"), href: "/#packages" },
     { label: t("promotions"), href: "/#promotions" },
-    { label: t("whyMe"), href: "/#why-choose-me" },
-    { label: t("about"), href: "/#about" },
-    { label: t("contact"), href: "/contact" },
+    { label: t("contact"), href: "/#contact" },
   ];
 
   return (

@@ -64,16 +64,13 @@ All dependencies are verified from [`package.json`](./package.json):
 | Route Path | Type | File Location | Purpose & Capabilities |
 |:---|:---:|:---|:---|
 | `/` | Redirect | `src/app/page.tsx` | Middleware redirects to default locale (`/en` or `/km`) |
-| `/[locale]` | SSG | `src/app/[locale]/page.tsx` | Main Homepage: Hero fold, packages, promos, trust pillars, areas, contact |
-| `/[locale]/packages` | SSG | `src/app/[locale]/packages/page.tsx` | Full Catalog & Comparison: Filter pills, cards grid, detailed comparison table |
-| `/[locale]/card` | SSG | `src/app/[locale]/card/page.tsx` | Digital Business Card: Optimized for QR card scans, vCard download, instant Telegram |
-| `/[locale]/contact` | SSG | `src/app/[locale]/contact/page.tsx` | Direct Contact: Consultant hotlines, Telegram chat, contact inquiry form, working hours |
-| `/[locale]/qr` | SSG | `src/app/[locale]/qr/page.tsx` | QR Generator Suite: Level H vector SVG & 1024px PNG print generator for business cards |
+| `/[locale]` | SSG | `src/app/[locale]/page.tsx` | Single-Page Web App: Officer Seller profile, 4 Home Wi-Fi packages, comparison table, hardware showcase, guarantees, 1-tap Telegram action hub |
+| `/[locale]/packages` | Redirect | `next.config.mjs` | Redirects directly to `/[locale]#packages` |
+| `/[locale]/contact` | Redirect | `next.config.mjs` | Redirects directly to `/[locale]#contact` |
 | `/[locale]/not-found` | Client | `src/app/[locale]/not-found.tsx` | Custom 404 page with bilingual recovery CTAs and home redirect |
 | `/[locale]/error` | Client | `src/app/[locale]/error.tsx` | Error boundary with retry action and Telegram escalation |
 | `/[locale]/loading` | Server | `src/app/[locale]/loading.tsx` | Pulse loading skeleton for SSG page transitions |
 | `/api/inquiries` | API | `src/app/api/inquiries/route.ts` | Server-side inquiry validation and optional Telegram Bot webhook notifier |
-| `/api/vcard` | API | `src/app/api/vcard/route.ts` | Direct `.vcf` contact file download endpoint |
 | `/robots.txt` | Static | `src/app/robots.ts` | Search engine crawler rules |
 | `/sitemap.xml` | Static | `src/app/sitemap.ts` | Multilingual XML sitemap generator |
 

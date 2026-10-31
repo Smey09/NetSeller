@@ -6,15 +6,14 @@ import { InternetPackage, Locale } from "@/types";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { sellerConfig } from "@/config/seller";
 import { PrivacyAnalytics } from "@/lib/analytics";
+import { TelegramService } from "@/features/telegram/telegram.service";
 import {
   Check,
   Zap,
   ArrowRight,
   ShieldCheck,
   Sparkles,
-  Users,
   Send,
   Info,
   Clock,
@@ -39,44 +38,56 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
 
   const features = isKm ? packageData.featuresKm : packageData.features;
   const description = isKm ? packageData.descriptionKm : packageData.descriptionEn;
-  const suitableFor = isKm ? packageData.suitableForKm : packageData.suitableForEn;
   const badgeText = isKm ? packageData.badgeKm : packageData.badge;
-  const equipmentTerms = isKm ? packageData.equipmentTermsKm : packageData.equipmentTermsEn;
 
-  const handleQuickTelegramChat = (e: React.MouseEvent) => {
+  // Direct 1-tap Telegram order without requiring any form input
+  const handleDirectTelegramOrder = (e: React.MouseEvent) => {
     e.stopPropagation();
     PrivacyAnalytics.track("telegram_click", {
-      location: "package_card_quick",
+      location: "package_card_direct_order",
       packageId: packageData.id,
     });
+
+    const links = TelegramService.prepareInquiry({
+      packageName: packageData.name,
+      packageSpeed: `${packageData.speedMbps} Mbps`,
+      packagePrice: `$${packageData.monthlyPriceUsd}/month`,
+      locale,
+    });
+
+    // Auto-copy pre-composed message as friendly fallback
+    TelegramService.copyToClipboard(links.formattedText);
+
+    // Open Telegram chat with consultant immediately
+    TelegramService.openTelegram(links, "direct");
   };
 
   return (
     <Card
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+        "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1 bg-white",
         isPopular
-          ? "border-2 border-primary-500 shadow-lg shadow-primary-500/10 ring-4 ring-primary-500/10"
-          : "border-slate-200/90 shadow-sm",
+          ? "border-2 border-primary-600 shadow-md shadow-primary-600/10"
+          : "border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-slate-300",
         className
       )}
     >
       {/* Top Banner for popular / featured */}
       {isPopular && (
-        <div className="bg-gradient-to-r from-primary-600 via-primary-500 to-secondary-500 py-1.5 px-4 text-center text-xs font-bold uppercase tracking-wider text-white shadow-sm flex items-center justify-center gap-1.5">
-          <Sparkles className="h-3.5 w-3.5" />
+        <div className="bg-primary-600 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-2xs flex items-center justify-center gap-1.5">
+          <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           <span>{badgeText || t("popular")}</span>
         </div>
       )}
 
       {/* Header */}
-      <CardHeader className={cn("p-6 pb-4", isPopular ? "pt-5" : "pt-6")}>
+      <CardHeader className={cn("p-3.5 pb-2 sm:p-6 sm:pb-3", isPopular ? "pt-3.5 sm:pt-5" : "pt-4 sm:pt-6")}>
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary-600 block">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-primary-600 block">
               {packageData.category === "home" ? t("categoryHome") : t("categoryBusiness")}
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mt-0.5 break-words">
+            <h3 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5 break-words">
               {packageData.name}
             </h3>
           </div>
@@ -85,21 +96,21 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
             {!isPopular && badgeText && (
               <Badge
                 variant={isPromoted ? "accent" : "secondary"}
-                className="font-semibold text-xs py-0.5"
+                className="font-semibold text-[10px] sm:text-xs py-0.5 px-2"
               >
                 {badgeText}
               </Badge>
             )}
 
             {isComingSoon && (
-              <Badge variant="outline" className="text-[11px] font-bold bg-slate-100 text-slate-600 border-slate-300">
+              <Badge variant="outline" className="text-[10px] sm:text-[11px] font-bold bg-slate-100 text-slate-600 border-slate-300">
                 <Clock className="h-3 w-3 mr-1" />
                 {t("comingSoon")}
               </Badge>
             )}
 
             {!isPopular && !badgeText && isLimited && (
-              <Badge variant="accent" className="font-semibold text-xs py-0.5">
+              <Badge variant="accent" className="font-semibold text-[10px] sm:text-xs py-0.5 px-2">
                 {t("limited")}
               </Badge>
             )}
@@ -107,39 +118,39 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
         </div>
 
         {description && (
-          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mt-2 line-clamp-2">
+          <p className="text-[11px] sm:text-sm text-slate-500 leading-relaxed mt-1 sm:mt-1.5 line-clamp-1">
             {description}
           </p>
         )}
 
-        {/* Speed Highlight Badge */}
-        <div className="mt-4 flex items-baseline justify-between rounded-2xl bg-slate-50 p-3.5 border border-slate-100">
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white shadow-md shadow-primary-600/30 shrink-0">
-              <Zap className="h-5 w-5" />
+        {/* Speed Highlight & Pricing Hero Box */}
+        <div className="mt-2.5 sm:mt-3.5 flex items-center justify-between rounded-xl sm:rounded-2xl bg-slate-50/80 p-2.5 sm:p-3.5 border border-slate-200/70">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <span className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-primary-600 text-white shadow-xs shrink-0">
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
             </span>
             <div>
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">
+              <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
                 {t("speed")}
               </span>
-              <span className="text-xl sm:text-2xl font-black text-slate-900">
+              <span className="text-lg sm:text-2xl font-black text-slate-900 leading-none">
                 {packageData.speedMbps}{" "}
-                <span className="text-sm font-bold text-slate-500">Mbps</span>
+                <span className="text-[11px] sm:text-xs font-bold text-slate-500">Mbps</span>
               </span>
             </div>
           </div>
 
           <div className="text-right shrink-0">
             {packageData.originalPriceUsd && (
-              <span className="text-xs font-medium text-slate-400 line-through block">
+              <span className="text-[10px] sm:text-xs font-medium text-slate-400 line-through block leading-none mb-0.5 sm:mb-1">
                 ${packageData.originalPriceUsd}
               </span>
             )}
-            <div className="flex items-baseline justify-end">
-              <span className="text-2xl sm:text-3xl font-black text-primary-600">
+            <div className="flex items-baseline justify-end leading-none">
+              <span className="text-xl sm:text-3xl font-black text-slate-900">
                 ${packageData.monthlyPriceUsd}
               </span>
-              <span className="text-xs font-semibold text-slate-500 ml-0.5">
+              <span className="text-[10px] sm:text-xs font-semibold text-slate-500 ml-0.5">
                 {t("perMonth")}
               </span>
             </div>
@@ -147,88 +158,61 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
         </div>
       </CardHeader>
 
-      {/* Content / Features */}
-      <CardContent className="p-6 pt-0 flex-1">
-        {/* Router & installation highlight */}
-        <div className="space-y-2 mb-4 pt-2 border-t border-slate-100 text-xs">
+      {/* Clean, Essential Highlights (Only top essential items - NO cluttered walls of text) */}
+      <CardContent className="px-3.5 py-1.5 sm:px-6 sm:py-2 flex-1">
+        <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-600 pt-1 border-t border-slate-100">
           {packageData.routerIncluded && (
-            <div className="flex items-center gap-2 text-slate-700 font-medium">
-              <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-              <span className="line-clamp-1">{packageData.routerIncluded}</span>
-            </div>
+            <li className="flex items-center gap-1.5 sm:gap-2 text-slate-800 font-medium">
+              <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-600 shrink-0" />
+              <span className="truncate">{packageData.routerIncluded}</span>
+            </li>
           )}
 
-          <div className="flex items-center gap-2 text-emerald-700 font-semibold">
-            <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-            <span>{t("freeInstall")} ($0)</span>
-          </div>
+          <li className="flex items-center gap-1.5 sm:gap-2 text-emerald-700 font-semibold">
+            <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-600 shrink-0" />
+            <span>{t("freeInstall")} ($0 Setup)</span>
+          </li>
 
-          {suitableFor && (
-            <div className="flex items-center gap-2 text-slate-500 text-xs pt-0.5">
-              <Users className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-              <span>{suitableFor}</span>
-            </div>
+          {features && features.length > 0 && (
+            <li className="flex items-center gap-1.5 sm:gap-2 text-slate-600">
+              <span className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 shrink-0">
+                <Check className="h-2 w-2 sm:h-2.5 sm:w-2.5 stroke-[3]" />
+              </span>
+              <span className="truncate">{features[0]}</span>
+            </li>
           )}
-
-          {equipmentTerms && (
-            <div className="rounded-xl bg-slate-50 p-2 border border-slate-100 flex items-start gap-1.5 text-[11px] text-slate-500 leading-snug">
-              <Info className="h-3 w-3 text-slate-400 shrink-0 mt-0.5" />
-              <span>{equipmentTerms}</span>
-            </div>
-          )}
-        </div>
-
-        {/* Bullet points (safely rendered when items present) */}
-        {features && features.length > 0 && (
-          <div className="space-y-2.5">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
-              {t("keyFeatures")}
-            </span>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-              {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 leading-snug">
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 shrink-0 mt-0.5">
-                    <Check className="h-2.5 w-2.5 stroke-[3]" />
-                  </span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        </ul>
       </CardContent>
 
-      {/* Footer / Buy Now Button & Direct Chat Link */}
-      <CardFooter className="p-6 pt-0 flex flex-col gap-2">
+      {/* Action Footer: 1-Tap Direct Telegram Button + View Full Details */}
+      <CardFooter className="p-3.5 pt-1.5 sm:p-6 sm:pt-3 flex flex-col gap-1.5 sm:gap-2">
+        {/* Primary 1-Click Order via Telegram (No form required!) */}
         <Button
-          onClick={() => !isComingSoon && onSelect(packageData)}
+          type="button"
+          onClick={handleDirectTelegramOrder}
           disabled={isComingSoon}
-          variant={isPopular ? "default" : "outline"}
-          size="lg"
-          className={cn(
-            "w-full rounded-xl font-bold text-sm sm:text-base py-3 transition-all flex items-center justify-center gap-2 shadow-sm",
-            isPopular
-              ? "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-600/30"
-              : "border-slate-300 hover:border-primary-600 hover:bg-primary-50 hover:text-primary-700 text-slate-800",
-            isComingSoon && "opacity-60 cursor-not-allowed hover:bg-slate-50 hover:text-slate-500 hover:border-slate-300"
-          )}
-          aria-label={isComingSoon ? `${packageData.name} - ${t("comingSoon")}` : `Buy Now for ${packageData.name}`}
+          variant="telegram"
+          size="default"
+          className="w-full rounded-xl font-bold text-xs sm:text-base py-2.5 sm:py-3 flex items-center justify-center gap-1.5 sm:gap-2 shadow-md shadow-[#229ED9]/20 transition-all active:scale-[0.99] cursor-pointer min-h-[44px]"
         >
-          <span>{isComingSoon ? t("comingSoon") : t("buyNow")}</span>
-          {!isComingSoon && <ArrowRight className="h-4 w-4" />}
+          <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
+          <span>{isComingSoon ? t("comingSoon") : t("orderViaTelegram")}</span>
         </Button>
 
-        {/* Direct quick Telegram consultation link */}
-        <a
-          href={`https://t.me/${sellerConfig.telegramUsername.replace(/^@/, "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleQuickTelegramChat}
-          className="text-xs text-slate-500 hover:text-[#229ED9] transition-colors flex items-center justify-center gap-1.5 py-1 font-medium"
+        {/* Secondary: View Full Details & Specs in Dialog */}
+        <Button
+          type="button"
+          onClick={() => !isComingSoon && onSelect(packageData)}
+          disabled={isComingSoon}
+          variant="outline"
+          size="sm"
+          className="w-full rounded-xl text-[11px] sm:text-xs font-semibold py-2 sm:py-2.5 border-slate-200 text-slate-700 hover:text-primary-600 hover:border-primary-400 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[38px]"
+          aria-label={isComingSoon ? `${packageData.name} - ${t("comingSoon")}` : `Buy Now for ${packageData.name}`}
         >
-          <Send className="h-3 w-3 text-[#229ED9]" />
-          <span>{t("quickChat")}</span>
-        </a>
+          <Info className="h-3.5 w-3.5 text-slate-400" />
+          <span>{t("viewDetails")}</span>
+          <ArrowRight className="h-3.5 w-3.5 text-slate-400 ml-0.5" />
+        </Button>
       </CardFooter>
     </Card>
   );

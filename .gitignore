@@ -2,32 +2,59 @@
 /node_modules
 /.pnp
 .pnp.js
+.pnpm-store
 
-# Testing
-/coverage
-
-# Next.js
+# Next.js Build Outputs
 /.next/
 /out/
-
-# Production
 /build
+/dist
 
-# Misc
-.DS_Store
+# TypeScript Incremental Cache
+*.tsbuildinfo
+
+# Testing & Coverage
+/coverage
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Local Environment & Secrets
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.pem
+*.key
+*.cert
 
-# Debug
+# Logs & Debugging
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Local Env Files
-.env*.local
-.env
+# Turbo & Vercel Caches
+.turbo
+.vercel
 
-# Vitest / Playwright
-test-results/
-playwright-report/
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Code Editors
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
 

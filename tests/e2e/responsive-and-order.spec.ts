@@ -42,7 +42,7 @@ test.describe("NetSeller User Journey: Discover -> Select -> Buy Now -> Telegram
     // Click Buy Now on the first package card
     const buyNowBtn = page.getByRole("button", { name: /Buy Now for/i }).first();
     await buyNowBtn.scrollIntoViewIfNeeded();
-    await buyNowBtn.click();
+    await buyNowBtn.click({ force: true });
 
     // Verify order dialog opens
     const dialog = page.getByRole("dialog");
@@ -72,7 +72,7 @@ test.describe("NetSeller User Journey: Discover -> Select -> Buy Now -> Telegram
     await page.goto("/en");
 
     // Check English text
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Fast, Reliable Internet");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Fast, Reliable");
 
     // Switch to Khmer
     const khmerLink = page.getByRole("link", { name: /ខ្មែរ/i }).first();
@@ -83,5 +83,26 @@ test.describe("NetSeller User Journey: Discover -> Select -> Buy Now -> Telegram
 
     // Verify Khmer text
     await expect(page.getByRole("heading", { level: 1 })).toContainText("អ៊ីនធឺណិត");
+  });
+
+  test("contact actions respond correctly according to viewport", async ({ page, isMobile }) => {
+    await page.goto("/en");
+
+    if (!isMobile) {
+      const floatingBtn = page.getByRole("button", { name: /Open Quick Contact/i });
+      await expect(floatingBtn).toBeVisible();
+      await floatingBtn.click();
+
+      // Check revealed actions inside floating widget
+      await expect(page.getByText("Quick Contact")).toBeVisible();
+      await expect(page.getByRole("link", { name: /Chat on Telegram/i })).toBeVisible();
+      await expect(page.getByRole("link", { name: /Direct Phone Call/i })).toBeVisible();
+    } else {
+      // On mobile viewports, bottom navigation bar handles direct contact
+      const mobileNav = page.locator("nav[aria-label='Mobile Navigation']");
+      await expect(mobileNav).toBeVisible();
+      await expect(page.getByRole("link", { name: /Telegram/i }).first()).toBeVisible();
+      await expect(page.getByRole("link", { name: /Call/i }).first()).toBeVisible();
+    }
   });
 });

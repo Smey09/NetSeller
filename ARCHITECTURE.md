@@ -28,18 +28,14 @@ NetSeller/
 │   │   │   ├── loading.tsx          # Pulse skeleton fallback
 │   │   │   ├── not-found.tsx        # Bilingual 404 boundary
 │   │   │   ├── error.tsx            # Client error boundary
-│   │   │   ├── card/page.tsx        # Digital Business Card (/card)
 │   │   │   ├── contact/page.tsx     # Direct Contact & Inquiries (/contact)
-│   │   │   ├── packages/page.tsx    # Full Catalog & Compare (/packages)
-│   │   │   └── qr/page.tsx          # QR Code Generator Suite (/qr)
+│   │   │   └── packages/page.tsx    # Full Catalog & Compare (/packages)
 │   │   └── api/
-│   │       ├── inquiries/route.ts   # Inquiry validation & optional webhook
-│   │       └── vcard/route.ts       # vCard .vcf binary download stream
+│   │       └── inquiries/route.ts   # Inquiry validation & optional webhook
 │   ├── components/
 │   │   ├── home/                    # Homepage section components
 │   │   ├── layout/                  # Navigation, Header, Footer, LanguageSwitcher
 │   │   ├── packages/                # Card, Grid, OrderDialog, ComparisonTable
-│   │   ├── qr/                      # Interactive QRCodeGenerator component
 │   │   └── ui/                      # Reusable Radix/Tailwind design tokens
 │   ├── config/                      # sellerConfig, siteConfig, navigationConfig
 │   ├── data/                        # packages.ts, promotions.ts, testimonials.ts
@@ -92,7 +88,7 @@ flowchart TD
 ### Server Components:
 - **`src/app/[locale]/layout.tsx`**: Injects `NextIntlClientProvider`, metadata generation, and wraps layout chrome.
 - **`src/app/[locale]/page.tsx`**: Composes sections without client overhead.
-- **`src/app/[locale]/card/page.tsx`**: Prerenders metadata and structured profile data for fast mobile loading.
+- **`src/app/[locale]/packages/page.tsx`**: Prerenders catalog, comparison table, and Wi-Fi equipment showcase.
 
 ### Client Components:
 - Marked with `"use client"` at the top of the file.
@@ -101,7 +97,6 @@ flowchart TD
   - `src/components/packages/PackageGrid.tsx` (category tab filter)
   - `src/components/layout/LanguageSwitcher.tsx` (locale route switching)
   - `src/components/layout/FloatingContact.tsx` (speed-dial FAB)
-  - `src/components/qr/QRCodeGenerator.tsx` (canvas rendering & download triggers)
 
 ---
 

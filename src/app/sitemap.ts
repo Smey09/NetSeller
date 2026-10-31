@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/packages", "/contact", "/card", "/qr"];
+  const routes = [""];
   const baseUrl = siteConfig.url;
 
   const entries: MetadataRoute.Sitemap = [];

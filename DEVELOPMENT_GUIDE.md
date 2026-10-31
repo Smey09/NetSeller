@@ -104,10 +104,13 @@ pnpm start
 
 ## 3. Git & Pull Request Guidelines
 
+> **On-Demand Skill:** For comprehensive Git instructions, branching diagrams, release tagging, and conflict recovery, refer to [`.agent/skills/git-workflow/SKILL.md`](./.agent/skills/git-workflow/SKILL.md).
+
 ### Branch Naming Conventions
-- `feature/<short-description>`: New capabilities or sections.
+- `feat/<short-description>`: New capabilities, components, or sections.
 - `fix/<issue-description>`: Bug fixes or visual defect corrections.
-- `chore/<task>`: Dependency updates, refactoring, or test additions.
+- `chore/<task>`: Dependency updates, build tooling, or refactoring.
+- `docs/<topic>`: Documentation updates only.
 
 ### Commit Message Standard (Conventional Commits)
 - `feat(packages): add coming soon availability status`

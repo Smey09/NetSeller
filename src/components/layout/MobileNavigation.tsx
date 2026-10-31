@@ -42,16 +42,11 @@ export function MobileNavigation() {
           <span className="truncate">{t("home")}</span>
         </Link>
 
-        {/* Packages */}
+        {/* Home Wi-Fi Packages */}
         <Link
-          href="/packages"
+          href="/#packages"
           aria-label={t("packages")}
-          className={cn(
-            "flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition-colors",
-            pathname === "/packages"
-              ? "text-primary-600 bg-primary-50"
-              : "text-slate-600 hover:text-primary-600"
-          )}
+          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold text-slate-600 hover:text-primary-600 transition-colors"
         >
           <Package className="h-5 w-5 mb-0.5" />
           <span className="truncate">{t("packages")}</span>

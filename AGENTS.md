@@ -42,7 +42,7 @@ To prevent repetitive repository analysis, all agents must consult this document
 | [`DEVELOPMENT_GUIDE.md`](./DEVELOPMENT_GUIDE.md) | CLI commands, testing scripts, how to add pages/packages/i18n | Implementation & testing |
 | [`CHANGELOG.md`](./CHANGELOG.md) | Architectural milestones, schema updates, breaking changes | Prior changes & history |
 | [`.agents/rules/`](./.agents/rules/) | Focused modular rules (Context, Coding, Next.js, UI, i18n, Tests, Security) | Domain-specific deep dives |
-| [`.agents/skills/`](./.agents/skills/) | On-demand procedural playbooks (Next.js, UI Review, Localization, Production) | Complex multi-step tasks |
+| [`.agents/skills/`](./.agents/skills/) | On-demand procedural playbooks (Git Workflow, Next.js, UI Review, Localization, Production) | Complex multi-step tasks |
 | [`.agents/workflows/`](./.agents/workflows/) | Standardized operational workflows (feature, bug, ui, review, test) | Standardized task cycles |
 
 ---
