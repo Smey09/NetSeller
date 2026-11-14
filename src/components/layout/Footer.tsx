@@ -197,14 +197,14 @@ export function Footer() {
 
               {/* Personal Phone & Call */}
               <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                <Phone className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <Phone className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />
                 <div className="leading-snug">
                   <span className="block text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
                     {tContact("phone")}
                   </span>
                   <a
                     href={`tel:${sellerConfig.phone}`}
-                    className="font-bold text-white hover:text-emerald-400 transition-colors"
+                    className="font-bold text-white hover:text-sky-400 transition-colors"
                   >
                     {sellerConfig.phoneDisplay}
                   </a>
@@ -217,7 +217,7 @@ export function Footer() {
         {/* Bottom Bar: Disclaimer, Copyright, Back to Top */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2 text-center sm:text-left">
-            <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
+            <ShieldCheck className="h-4 w-4 text-sky-400 shrink-0" />
             <p className="leading-relaxed">{t("disclaimer")}</p>
           </div>
 

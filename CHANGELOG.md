@@ -4,6 +4,27 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.8.1] - 2026-11-14
+
+### Clean Theme Design & Color Clutter Elimination
+- **Unified 2-Tone Palette (Slate Neutrals + Telegram Sky Blue):**
+  - **Eliminated Competing Color Noise:** Removed the visual clash of 7 different bright hues (orange CTA, green phone/badges, yellow zap bolt, navy boxes, purple/amber/sky ambient orbs) across the platform.
+  - **Single Brand Accent (`#229ED9`):** Aligned all brand highlights, primary links, active badges, and Telegram action pills to the Telegram Blue family (`#229ED9` / `primary-500` / `sky-600`), establishing a cohesive visual identity.
+  - **Airy, Minimalist Canvas:** Cleaned `src/app/[locale]/layout.tsx` background, replacing noisy multi-colored ambient orbs with a calm, subtle sky-tinted neutral blur (`bg-slate-50/70` with soft `sky-200/20`).
+- **Component Design Harmonization:**
+  - **Hero Section (`HeroSection.tsx`):** Paired primary "View Packages" CTA in sleek dark slate (`bg-slate-900`) with "Message on Telegram" (`bg-[#229ED9]`), matching verified checkmarks and subtle trust icons.
+  - **Package Cards (`PackageCard.tsx`):** Restyled the "Most Popular" card with a sleek slate-900 banner and subtle sky refraction; updated the speed badge to a clean slate-900 squircle with a subtle `sky-400` Zap icon.
+  - **Contact & Floating Dial (`ContactSection.tsx`, `FloatingContact.tsx`):** Converted hotline call buttons, notification banners, and status badges from loud emerald greens to refined slate and sky tones.
+  - **Admin Portal (`admin/page.tsx`):** Aligned Save button, status pills, and card previews with the clean slate and sky design system.
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across all viewports (Mobile 320px–414px, Tablet 768px, Desktop 1440px).
+
+---
+
 ## [1.8.0] - 2026-11-14
 
 ### Production Copy, Personal Seller Tone & Mobile UI Refinement

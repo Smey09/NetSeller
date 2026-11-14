@@ -142,8 +142,8 @@ export function ContactSection() {
 
         {/* Global Copied Notification Banner */}
         {notification && (
-          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-emerald-500 text-white font-semibold text-center text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 animate-in fade-in slide-in-from-top-2">
-            <CheckCircle2 className="h-4 w-4" />
+          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-900 text-white font-semibold text-center text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 animate-in fade-in slide-in-from-top-2 border border-slate-800">
+            <CheckCircle2 className="h-4 w-4 text-sky-400" />
             <span>{notification}</span>
           </div>
         )}
@@ -189,7 +189,7 @@ export function ContactSection() {
             {/* Direct hotline (Frosted Glass) */}
             <div className="rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3.5 sm:p-6 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] space-y-2 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-emerald-100 text-emerald-700 shrink-0">
+                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-sky-50 text-[#229ED9] shrink-0 border border-sky-100">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 </span>
                 <div>
@@ -198,7 +198,7 @@ export function ContactSection() {
                   </span>
                   <a
                     href={`tel:${sellerConfig.phone}`}
-                    className="text-base sm:text-lg font-bold text-slate-900 hover:text-emerald-600 transition-colors"
+                    className="text-base sm:text-lg font-bold text-slate-900 hover:text-primary-600 transition-colors"
                   >
                     {sellerConfig.phoneDisplay}
                   </a>

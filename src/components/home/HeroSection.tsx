@@ -61,10 +61,10 @@ export function HeroSection() {
                 {sellerConfig.name}
               </span>
               <span className="h-3 w-px bg-slate-200" />
-              <Badge variant="success" className="text-[9px] sm:text-[10px] py-0 px-1.5 sm:px-2 font-bold gap-1 shadow-2xs">
-                <ShieldCheck className="h-2.5 w-2.5" />
+              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] py-0.5 px-2 font-bold rounded-full bg-sky-50 text-sky-800 border border-sky-200/80 shadow-2xs">
+                <ShieldCheck className="h-2.5 w-2.5 text-sky-600" />
                 <span>{t("verifiedBadge")}</span>
-              </Badge>
+              </div>
             </div>
 
             {/* Main Headline */}
@@ -85,7 +85,7 @@ export function HeroSection() {
               <a href="#packages" className="w-full sm:w-auto">
                 <Button
                   size="default"
-                  className="w-full sm:w-auto font-bold rounded-xl sm:rounded-2xl px-3 sm:px-8 py-2.5 sm:py-3.5 bg-primary-500 hover:bg-primary-600 text-white shadow-sm shadow-primary-500/25 gap-1.5 text-xs sm:text-base cursor-pointer min-h-[44px]"
+                  className="w-full sm:w-auto font-bold rounded-xl sm:rounded-2xl px-3 sm:px-8 py-2.5 sm:py-3.5 bg-slate-900 hover:bg-slate-800 text-white shadow-sm gap-1.5 text-xs sm:text-base cursor-pointer min-h-[44px]"
                 >
                   <span className="truncate">{t("explorePackages")}</span>
                   <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
@@ -113,25 +113,25 @@ export function HeroSection() {
               <a
                 href={`tel:${sellerConfig.phone}`}
                 onClick={() => PrivacyAnalytics.track("call_click", { location: "hero_call" })}
-                className="col-span-2 sm:hidden inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-white/80 bg-white/70 backdrop-blur-md text-xs font-semibold text-slate-700 shadow-xs hover:bg-white transition-colors w-full min-h-[40px]"
+                className="col-span-2 sm:hidden inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-slate-200/80 bg-white/80 backdrop-blur-md text-xs font-semibold text-slate-700 shadow-xs hover:bg-white transition-colors w-full min-h-[40px]"
               >
-                <PhoneCall className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                <PhoneCall className="h-3.5 w-3.5 text-slate-600 shrink-0" />
                 <span>{t("callNow")}: {sellerConfig.phoneDisplay}</span>
               </a>
             </div>
 
             {/* Trust bullet row */}
             <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-6 text-[11px] sm:text-sm font-semibold text-slate-700">
-              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-white/80 sm:border-0 shadow-2xs sm:shadow-none">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-slate-200/60 sm:border-0 shadow-2xs sm:shadow-none">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary-600 shrink-0" />
                 <span>{t("zeroSetup")}</span>
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-white/80 sm:border-0 shadow-2xs sm:shadow-none">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-slate-200/60 sm:border-0 shadow-2xs sm:shadow-none">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary-600 shrink-0" />
                 <span>{t("routerIncludedBadge")}</span>
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-white/80 sm:border-0 shadow-2xs sm:shadow-none">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+              <span className="inline-flex items-center gap-1 bg-white/70 backdrop-blur-xs sm:bg-transparent px-2.5 py-0.5 sm:p-0 rounded-full sm:rounded-none border border-slate-200/60 sm:border-0 shadow-2xs sm:shadow-none">
+                <CheckCircle2 className="h-3.5 w-3.5 text-primary-600 shrink-0" />
                 <span>{t("fastInstallBadge")}</span>
               </span>
             </div>
@@ -168,7 +168,7 @@ export function HeroSection() {
                     </div>
 
                     <div className="inline-flex items-center gap-1 rounded-full bg-slate-900/85 backdrop-blur-xl py-1 px-2.5 text-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.2)] border border-white/20">
-                      <ShieldCheck className="h-3 w-3 text-emerald-400" />
+                      <ShieldCheck className="h-3 w-3 text-sky-400" />
                       <span className="text-[10px] font-bold">
                         {sellerConfig.name}
                       </span>
@@ -179,15 +179,15 @@ export function HeroSection() {
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 rounded-xl bg-white/90 backdrop-blur-2xl p-2.5 sm:p-3 shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_24px_rgba(0,0,0,0.08)] border border-white/90">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-primary-50 text-primary-600 shrink-0">
+                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-sky-50 text-primary-600 shrink-0">
                           <Wifi className="h-4 w-4 sm:h-5 sm:w-5" />
                         </span>
                         <div className="leading-tight">
                           <span className="text-[11px] sm:text-xs font-bold text-slate-900 block">
                             {t("routerIncludedBadge")}
                           </span>
-                          <span className="text-[9px] sm:text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
-                            <CheckCircle2 className="h-3 w-3 text-emerald-500 shrink-0" />
+                          <span className="text-[9px] sm:text-[10px] text-primary-600 font-semibold flex items-center gap-1">
+                            <CheckCircle2 className="h-3 w-3 text-primary-600 shrink-0" />
                             {t("zeroSetup")}
                           </span>
                         </div>

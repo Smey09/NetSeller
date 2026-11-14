@@ -12,7 +12,7 @@ import { sellerConfig } from "@/config/seller";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  themeColor: "#F9A01B",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -131,16 +131,14 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`min-h-screen bg-gradient-to-br from-slate-100/90 via-slate-50 to-sky-50/40 text-slate-900 antialiased selection:bg-primary-500 selection:text-white flex flex-col justify-between pb-16 lg:pb-0 relative ${
+        className={`min-h-screen bg-slate-50/70 text-slate-900 antialiased selection:bg-[#229ED9] selection:text-white flex flex-col justify-between pb-16 lg:pb-0 relative ${
           locale === "km" ? "font-khmer" : "font-sans"
         }`}
       >
-        {/* Ambient Optical Light Orbs for Frosted Glass Refraction (Zero overflow risk) */}
+        {/* Subtle Ambient Clean Light (Minimalist clean blur) */}
         <div aria-hidden="true" className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-          <div className="absolute -top-32 -left-32 h-[34rem] w-[34rem] rounded-full bg-primary-400/15 blur-[120px]" />
-          <div className="absolute top-1/4 -right-32 h-[38rem] w-[38rem] rounded-full bg-sky-400/15 blur-[130px]" />
-          <div className="absolute top-2/3 -left-20 h-[30rem] w-[30rem] rounded-full bg-indigo-300/10 blur-[130px]" />
-          <div className="absolute -bottom-32 right-1/4 h-[34rem] w-[34rem] rounded-full bg-amber-400/15 blur-[120px]" />
+          <div className="absolute -top-32 -left-32 h-[36rem] w-[36rem] rounded-full bg-sky-200/20 blur-[140px]" />
+          <div className="absolute top-1/2 -right-32 h-[32rem] w-[32rem] rounded-full bg-slate-200/35 blur-[140px]" />
         </div>
 
         <NextIntlClientProvider locale={locale} messages={messages}>

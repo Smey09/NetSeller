@@ -68,9 +68,9 @@ export function FloatingContact() {
           <a
             href={`tel:${sellerConfig.phone}`}
             onClick={handleCallClick}
-            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-emerald-50 text-slate-800 transition-colors group"
+            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors group"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-xs group-hover:scale-105 transition-transform">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white shadow-xs group-hover:scale-105 transition-transform">
               <Phone className="h-4 w-4" />
             </span>
             <div className="flex flex-col">
