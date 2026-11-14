@@ -128,8 +128,8 @@ export function ContactSection() {
       <div className="container mx-auto px-3.5 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/80 backdrop-blur-xl px-3 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-semibold text-slate-700 mb-2 sm:mb-3 border border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_2px_8px_rgba(15,23,42,0.03)]">
-            <MessageSquare className="h-3.5 w-3.5" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-xl px-3.5 py-1 text-[11px] sm:text-xs font-bold text-slate-800 mb-2 sm:mb-3 border border-slate-200/90 shadow-2xs">
+            <MessageSquare className="h-3.5 w-3.5 text-primary-500" />
             <span>{t("badge")}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
@@ -186,8 +186,8 @@ export function ContactSection() {
               </a>
             </div>
 
-            {/* Direct hotline (Frosted Glass) */}
-            <div className="rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3.5 sm:p-6 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] space-y-2 sm:space-y-4">
+            {/* Direct hotline */}
+            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-3.5 sm:p-6 shadow-xs space-y-2 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-orange-50 text-primary-500 shrink-0 border border-orange-100">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -206,8 +206,8 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Facebook / Social (Frosted Glass) */}
-            <div className="rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3 sm:p-4 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] flex items-center justify-between text-xs">
+            {/* Facebook / Social */}
+            <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-xs flex items-center justify-between text-xs">
               <span className="text-slate-600 font-medium">{t("facebookLabel")}</span>
               <a
                 href={sellerConfig.facebookUrl}
@@ -221,11 +221,11 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: 1-Tap Action Hub (Frosted Glass Panel) */}
-          <div className="lg:col-span-7 rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-2xl p-4 sm:p-8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_15px_35px_-5px_rgba(15,23,42,0.05)] space-y-4 sm:space-y-6">
+          {/* Right Column: 1-Tap Action Hub */}
+          <div className="lg:col-span-7 rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-8 shadow-xs space-y-4 sm:space-y-6">
             <div>
               <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
-                <Sparkles className="h-4 w-4 text-slate-700" />
+                <Sparkles className="h-4 w-4 text-primary-500" />
                 <h3 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
                   {t("quickActionTitle")}
                 </h3>
@@ -237,11 +237,11 @@ export function ContactSection() {
 
             {/* 3 Interactive 1-Tap Quick Action Cards */}
             <div className="grid grid-cols-1 gap-2 sm:gap-3">
-              {/* Action 1: Check Fiber Coverage (Frosted Glass Card) */}
+              {/* Action 1: Check Fiber Coverage */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("coverage")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-slate-300 shadow-2xs hover:shadow-sm transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
                   <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
@@ -256,17 +256,17 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
               </button>
 
-              {/* Action 2: Book Installation (Frosted Glass Card) */}
+              {/* Action 2: Book Installation */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("booking")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-slate-300 shadow-2xs hover:shadow-sm transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
                   <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
@@ -281,17 +281,17 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
               </button>
 
-              {/* Action 3: General Advice & Package Choice (Frosted Glass Card) */}
+              {/* Action 3: General Advice & Package Choice */}
               <button
                 type="button"
                 onClick={() => handleQuickAction("advice")}
-                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 to-white/65 backdrop-blur-xl hover:from-white/95 hover:to-white/80 hover:border-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_4px_16px_rgba(15,23,42,0.03)] hover:shadow-md transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
+                className="group text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/70 hover:bg-white hover:border-slate-300 shadow-2xs hover:shadow-sm transition-all flex items-start justify-between gap-2.5 sm:gap-3 cursor-pointer"
               >
                 <div className="flex items-start gap-2.5 sm:gap-3 min-w-0">
                   <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 group-hover:bg-slate-900 group-hover:text-white transition-colors">
@@ -306,7 +306,7 @@ export function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white/90 backdrop-blur-xs px-2 py-1 sm:px-2.5 sm:py-1.5 border border-white/90 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
+                <div className="shrink-0 flex items-center gap-1 rounded-lg sm:rounded-xl bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 border border-slate-200 text-[10px] sm:text-xs font-bold text-slate-700 group-hover:bg-[#229ED9] group-hover:text-white group-hover:border-[#229ED9] transition-colors mt-0.5 shadow-2xs">
                   <Send className="h-3 w-3" />
                   <span>Telegram</span>
                 </div>
@@ -333,7 +333,7 @@ export function ContactSection() {
                 value={customMessage}
                 onChange={(e) => setCustomMessage(e.target.value)}
                 placeholder={t("customMessagePlaceholder")}
-                className="rounded-xl sm:rounded-2xl border-slate-200/80 bg-white/60 backdrop-blur-xs text-xs sm:text-sm focus:bg-white transition-colors resize-none py-2"
+                className="rounded-xl sm:rounded-2xl border-slate-200 bg-slate-50/50 text-xs sm:text-sm focus:bg-white transition-colors resize-none py-2"
               />
 
               <Button

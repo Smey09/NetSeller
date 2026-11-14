@@ -65,10 +65,10 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
   return (
     <Card
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1 backdrop-blur-2xl",
+        "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1",
         isPopular
-          ? "border-2 border-primary-500 bg-gradient-to-b from-white/95 via-white/85 to-white/75 shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_15px_35px_-5px_rgba(243,112,33,0.18)] hover:shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_25px_50px_-10px_rgba(243,112,33,0.25)]"
-          : "border border-slate-200/80 bg-gradient-to-b from-white/90 via-white/80 to-white/70 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_10px_30px_-5px_rgba(15,23,42,0.04)] hover:shadow-md hover:border-slate-300 hover:from-white hover:to-white/80",
+          ? "border-2 border-primary-500 bg-white shadow-md shadow-primary-500/10 hover:shadow-xl hover:shadow-primary-500/20"
+          : "border border-slate-200/90 bg-white shadow-xs hover:shadow-lg hover:border-slate-300",
         className
       )}
     >
@@ -199,14 +199,14 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
           <span>{isComingSoon ? t("comingSoon") : t("orderViaTelegram")}</span>
         </Button>
 
-        {/* Secondary: View Full Details & Specs in Dialog (Frosted Glass Button) */}
+        {/* Secondary: View Full Details & Specs in Dialog */}
         <Button
           type="button"
           onClick={() => !isComingSoon && onSelect(packageData)}
           disabled={isComingSoon}
           variant="outline"
           size="sm"
-          className="w-full rounded-xl text-[11px] sm:text-xs font-semibold py-2 sm:py-2.5 border border-white/80 bg-white/65 backdrop-blur-md text-slate-700 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.8)] hover:text-slate-950 hover:border-white hover:bg-white/90 hover:shadow-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[38px]"
+          className="w-full rounded-xl text-[11px] sm:text-xs font-semibold py-2 sm:py-2.5 border border-slate-200 bg-slate-50/80 hover:bg-slate-100 text-slate-700 hover:text-slate-950 shadow-2xs flex items-center justify-center gap-1.5 transition-all cursor-pointer min-h-[38px]"
           aria-label={isComingSoon ? `${packageData.name} - ${t("comingSoon")}` : `Buy Now for ${packageData.name}`}
         >
           <Info className="h-3.5 w-3.5 text-slate-400" />

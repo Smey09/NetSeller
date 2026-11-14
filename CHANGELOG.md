@@ -4,7 +4,36 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
-## [1.9.1] - 2026-11-14
+## [1.9.2] - 2026-11-14
+
+### UI/UX Refinement: HeroSection, Header, Footer Background Colors & Top Floating Pills
+- **Enhanced HeroSection Design (`HeroSection.tsx`):**
+  - **High-Contrast Top Floating Pill on Hero Image:** Replaced washed-out translucent badges with crystal-clear high-contrast glassmorphic pills:
+    - *Online Status Pill:* High-opacity white glass (`bg-white/95 backdrop-blur-2xl border border-white shadow-[0_8px_20px_-4px_rgba(15,23,42,0.18)]`) with pulsating emerald live beacon.
+    - *Consultant Badge Pill:* Rich charcoal glass (`bg-slate-900/95 backdrop-blur-2xl text-white border border-white/20 shadow-[0_8px_20px_-4px_rgba(0,0,0,0.3)]`) with primary orange verification shield.
+  - **Top Seller Identity Micro-Pill:** Polished to crisp `bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_4px_16px_-2px_rgba(15,23,42,0.06)]` with avatar ring in `ring-primary-500/25`.
+  - **Hero Headline & CTAs:** Boosted headline hierarchy with high-contrast text and vibrant primary orange highlight. Refined primary Telegram and package CTA buttons with tactile drop shadows and active-state scales.
+  - **Bottom Highlight Metrics Row:** Redesigned 4 key performance tiles with micro-icon squircles (`Zap`, `Clock`, `ShieldCheck`, `Wifi`), high-contrast values, and category badges (`Fast`, `SLA`, `$0 Free`, `Uncapped`).
+- **Improved Project Header Background Color (`Header.tsx`):**
+  - **Main Sticky Header:** Replaced washed-out `bg-white/70` with solid high-contrast `bg-white/95 backdrop-blur-xl border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)]` when scrolled (and `bg-white/90 border-slate-200/60` at top) to prevent content bleed-through during scrolling.
+  - **Top Contact Micro-Bar:** Transitioned to rich charcoal slate `bg-slate-900 border-b border-slate-800 text-slate-300`, harmonizing the header stack.
+  - **Desktop Nav Pill Track:** Upgraded track to `bg-slate-100/80 backdrop-blur-md border border-slate-200/70 shadow-inner` with high-contrast active states.
+  - **Mobile Menu & Trigger:** Upgraded to crisp white backdrop blur with clean borders.
+- **Improved Project Footer Background Color (`Footer.tsx`):**
+  - **Footer Container:** Replaced pitch-black translucent `bg-slate-950/90` with luxurious charcoal slate `bg-slate-900 text-slate-400 border-t border-slate-800 shadow-2xl`.
+  - **Warm Accent Ambient Glows:** Replaced cool blue glows with warm orange and amber radial halos (`bg-primary-500/10` and `bg-orange-500/10`).
+  - **Inner Profile & Channel Cards:** Elevated to clean slate glass cards (`bg-slate-950/60 backdrop-blur-xl border border-slate-800 shadow-md`) with high-contrast readable typography.
+  - **Interactive Action Buttons & Back-to-Top:** Refined with `bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700`.
+- **Global Theme & Component Improvements:**
+  - **Package Cards (`PackageCard.tsx`):** Upgraded cards from multi-opacity washed-out gradients to crisp pure white cards (`bg-white border-slate-200/90 shadow-xs hover:shadow-lg hover:border-slate-300`), and popular plans with `border-2 border-primary-500 shadow-md shadow-primary-500/10`.
+  - **Promotions & Contact Sections (`PromotionSection.tsx`, `ContactSection.tsx`):** Cleaned section backgrounds, pill badges, and interactive 1-tap action tiles.
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing across all 7 suites.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across all 4 responsive viewports (320px, 375px, 768px, 1440px).
+  - Security Audit: 0 secret leaks, 0 unescaped injections, all security gates passed.
 
 ### Complete Brand Name Neutralization (Zero "Cellcard" Mentions)
 - **Neutralized All Explicit Brand Keywords:**

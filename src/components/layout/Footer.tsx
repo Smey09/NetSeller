@@ -30,13 +30,13 @@ export function Footer() {
   const sellerTitle = isKm ? sellerConfig.titleKm : sellerConfig.titleEn;
 
   return (
-    <footer className="relative bg-slate-950/90 backdrop-blur-3xl text-slate-400 pt-10 sm:pt-16 pb-12 sm:pb-12 border-t border-white/[0.08] shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.08)] overflow-hidden">
-      {/* Subtle Ambient Glows inside Dark Glass Footer */}
-      <div aria-hidden="true" className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-primary-500/5 blur-[120px] pointer-events-none" />
-      <div aria-hidden="true" className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-sky-500/5 blur-[120px] pointer-events-none" />
+    <footer className="relative bg-slate-900 text-slate-400 pt-10 sm:pt-16 pb-12 sm:pb-14 border-t border-slate-800 shadow-2xl overflow-hidden">
+      {/* Subtle Ambient Warm Glows */}
+      <div aria-hidden="true" className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-primary-500/10 blur-[130px] pointer-events-none" />
+      <div aria-hidden="true" className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-orange-500/10 blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-10 pb-8 sm:pb-12 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-10 pb-8 sm:pb-12 border-b border-slate-800">
           {/* Col 1: Seller Brand & Profile (lg: 5 cols) */}
           <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
             <Link href="/" className="inline-flex items-center gap-2.5 group">
@@ -56,11 +56,11 @@ export function Footer() {
               </div>
             </Link>
 
-            {/* Seller Profile Badge (Frosted Dark Glass Card) */}
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-3 sm:p-4 max-w-sm shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_8px_24px_rgba(0,0,0,0.25)]">
+            {/* Seller Profile Badge (Clean Slate Card) */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/60 backdrop-blur-xl p-3 sm:p-4 max-w-sm shadow-md">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="relative shrink-0">
-                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-slate-800 flex items-center justify-center text-white overflow-hidden font-black text-xs border border-white/[0.1] shadow-xs">
+                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-slate-800 flex items-center justify-center text-white overflow-hidden font-black text-xs border border-slate-700 shadow-xs">
                     {sellerConfig.avatarUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
@@ -106,7 +106,7 @@ export function Footer() {
 
               <a
                 href={`tel:${sellerConfig.phone}`}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.06] text-white hover:bg-white/[0.12] border border-white/[0.1] backdrop-blur-md transition-all text-xs font-bold shadow-sm active:scale-[0.98]"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white hover:bg-slate-700 border border-slate-700 transition-all text-xs font-bold shadow-sm active:scale-[0.98]"
                 aria-label="Call Direct"
               >
                 <Phone className="h-3.5 w-3.5" />
@@ -117,7 +117,7 @@ export function Footer() {
                 href={sellerConfig.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.06] text-slate-300 hover:text-white hover:bg-white/[0.12] transition-all border border-white/[0.1] backdrop-blur-md shadow-sm active:scale-[0.98]"
+                className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-all border border-slate-700 shadow-sm active:scale-[0.98]"
                 aria-label="Facebook"
               >
                 <span className="font-bold text-xs">f</span>
@@ -170,18 +170,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Direct Official Channels (lg: 4 cols) (Frosted Dark Glass Card) */}
+          {/* Col 3: Direct Official Channels (lg: 4 cols) (Clean Slate Card) */}
           <div className="lg:col-span-4 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
               {t("contactInfo")}
             </h4>
 
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-4 sm:p-5 space-y-3.5 text-xs sm:text-sm shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_8px_24px_rgba(0,0,0,0.25)]">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/60 backdrop-blur-xl p-4 sm:p-5 space-y-3.5 text-xs sm:text-sm shadow-md">
               {/* Telegram Channel */}
-              <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+              <div className="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
                 <Send className="h-4 w-4 text-[#229ED9] shrink-0 mt-0.5" />
                 <div className="leading-snug">
-                  <span className="block text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+                  <span className="block text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
                     {tContact("telegramDirect")}
                   </span>
                   <a
@@ -196,10 +196,10 @@ export function Footer() {
               </div>
 
               {/* Personal Phone & Call */}
-              <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+              <div className="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
                 <Phone className="h-4 w-4 text-primary-400 shrink-0 mt-0.5" />
                 <div className="leading-snug">
-                  <span className="block text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
+                  <span className="block text-[11px] text-slate-400 font-semibold uppercase tracking-wider">
                     {tContact("phone")}
                   </span>
                   <a
@@ -238,7 +238,7 @@ export function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer border border-white/[0.1] backdrop-blur-md shadow-sm active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-3.5 py-2 text-xs font-semibold text-slate-200 hover:text-white transition-all cursor-pointer border border-slate-700 shadow-sm active:scale-[0.98]"
               aria-label={t("backToTop")}
             >
               <span>{t("backToTop")}</span>

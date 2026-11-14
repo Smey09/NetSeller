@@ -107,8 +107,8 @@ export function Header() {
 
   return (
     <>
-      {/* Top micro-bar for quick contact info (Dark Frosted Glass) */}
-      <div className="bg-slate-950/85 backdrop-blur-xl text-slate-300 text-[11px] sm:text-xs py-1.5 px-4 font-medium hidden sm:block border-b border-white/[0.08] shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06)]">
+      {/* Top micro-bar for quick contact info (Dark Charcoal Top Bar) */}
+      <div className="bg-slate-900 border-b border-slate-800 text-slate-300 text-[11px] sm:text-xs py-1.5 px-4 font-medium hidden sm:block shadow-xs">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-slate-300">
@@ -122,7 +122,7 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.07] backdrop-blur-xs border border-white/[0.1] text-primary-400 text-[11px] font-semibold shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-500/15 border border-primary-500/30 text-orange-300 text-[11px] font-bold shadow-2xs">
               <Sparkles className="h-3 w-3" />
               {t("topBarPromo")}
             </span>
@@ -130,13 +130,13 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Sticky Navbar (Frosted Glass Specular Navbar) */}
+      {/* Main Sticky Navbar (Clean Frosted Glass Navbar) */}
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-300 border-b backdrop-blur-2xl",
+          "sticky top-0 z-40 w-full transition-all duration-300 border-b backdrop-blur-xl",
           scrolled
-            ? "bg-white/80 shadow-[inset_0_-1px_1px_0_rgba(255,255,255,0.8),0_4px_20px_rgba(15,23,42,0.04)] border-slate-200/50 py-2 sm:py-2.5"
-            : "bg-white/70 border-slate-200/30 py-2.5 sm:py-3.5"
+            ? "bg-white/95 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] border-slate-200/80 py-2 sm:py-2.5"
+            : "bg-white/90 border-slate-200/60 py-2.5 sm:py-3.5 shadow-2xs"
         )}
       >
         <div className="w-full max-w-7xl mx-auto px-2.5 sm:px-6 flex items-center justify-between gap-1.5 sm:gap-4">
@@ -163,8 +163,8 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links (Segmented Glass Pill Track) */}
-          <nav className="hidden lg:flex items-center p-1 rounded-full bg-white/65 backdrop-blur-xl border border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_2px_8px_rgba(15,23,42,0.03)] gap-0.5">
+          {/* Desktop Navigation Links (Segmented Pill Track) */}
+          <nav className="hidden lg:flex items-center p-1 rounded-full bg-slate-100/80 backdrop-blur-md border border-slate-200/70 shadow-inner gap-0.5">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -176,7 +176,7 @@ export function Header() {
                     "relative px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 select-none active:scale-95",
                     isActive
                       ? "bg-slate-900 text-white shadow-xs font-bold scale-[1.02]"
-                      : "text-slate-600 hover:text-slate-950 hover:bg-white/70"
+                      : "text-slate-600 hover:text-slate-950 hover:bg-white"
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -225,7 +225,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 sm:p-2 rounded-xl border border-white/85 bg-white/70 backdrop-blur-xl text-slate-700 hover:bg-white hover:text-slate-950 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9)] focus:outline-none focus:ring-2 focus:ring-primary-500 shrink-0 transition-all active:scale-95"
+              className="lg:hidden p-1.5 sm:p-2 rounded-xl border border-slate-200 bg-white/90 backdrop-blur-md text-slate-700 hover:bg-white hover:text-slate-950 shadow-xs focus:outline-none focus:ring-2 focus:ring-primary-500 shrink-0 transition-all active:scale-95"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? t("close") : t("menu")}
             >
@@ -234,9 +234,9 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile dropdown menu (Frosted Glass Shell) */}
+        {/* Mobile dropdown menu (Clean Glass Shell) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/80 bg-white/95 backdrop-blur-3xl px-4 pt-3.5 pb-6 mt-2 shadow-[0_20px_40px_rgba(15,23,42,0.12)] animate-in slide-in-from-top-2 duration-200 rounded-b-3xl">
+          <div className="lg:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-2xl px-4 pt-3.5 pb-6 mt-2 shadow-xl animate-in slide-in-from-top-2 duration-200 rounded-b-3xl">
             <nav className="flex flex-col space-y-1.5">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
