@@ -2,7 +2,7 @@
   {
     "id": "pkg-basic",
     "key": "basic",
-    "name": "Cellcard Home WiFi 60 Mbps",
+    "name": "Home Wi-Fi Fiber 60 Mbps",
     "speedMbps": 60,
     "monthlyPriceUsd": 15,
     "originalPriceUsd": 18,
@@ -20,15 +20,15 @@
       "100% Unlimited Data - No Throttling",
       "Free Dual-Band Wi-Fi Router Loan ($0)",
       "Free Optical Fiber Setup & Testing ($0)",
-      "Bonus: 3 Cellcard SIMs (5GB + 100 mins/mo)",
+      "Bonus: 3x Mobile SIMs (5GB + 100 mins/mo)",
       "Direct Telegram Support & Fast Dispatch"
     ],
     "featuresKm": [
-      "ល្បឿន 60 Mbps ខ្សែកាបអុបទិក Cellcard",
+      "ល្បឿន 60 Mbps ខ្សែកាបអុបទិកល្បឿនលឿន",
       "ប្រើប្រាស់ទិន្នន័យគ្មានដែនកំណត់ ១០០%",
       "ផ្ដល់ជូនរ៉ោតទ័រ Dual-Band ខ្ចីឥតគិតថ្លៃ ($0)",
       "មិនគិតថ្លៃសេវាដំឡើង និងតេស្តខ្សែ ($0)",
-      "ថែមស៊ីម Cellcard ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
+      "ថែមស៊ីមទូរស័ព្ទ ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
       "ជំនួយផ្ទាល់តាម Telegram រហ័សទាន់ចិត្ត"
     ],
     "descriptionEn": "Reliable high-speed fiber internet for apartments, small homes, HD video streaming, and online classes.",
@@ -41,7 +41,7 @@
   {
     "id": "pkg-standard",
     "key": "standard",
-    "name": "Cellcard Home WiFi 100 Mbps",
+    "name": "Home Wi-Fi Fiber 100 Mbps",
     "speedMbps": 100,
     "monthlyPriceUsd": 18,
     "originalPriceUsd": 24,
@@ -59,7 +59,7 @@
       "100% Unlimited Downloads & Uploads",
       "High-Power Next-Gen Wi-Fi 6 Router ($0)",
       "Free Fiber Cable & Setup ($0 Setup)",
-      "Bonus: 3 Cellcard SIMs (5GB + 100 mins/mo)",
+      "Bonus: 3x Mobile SIMs (5GB + 100 mins/mo)",
       "Lag-Free 4K TV Streaming & Mobile Gaming",
       "Direct Priority Assistance on Telegram"
     ],
@@ -68,12 +68,12 @@
       "ទាញយក និងបញ្ជូនទិន្នន័យគ្មានដែនកំណត់",
       "ផ្ដល់ជូនរ៉ោតទ័រទំនើប Wi-Fi 6 Gigabit ($0)",
       "មិនគិតថ្លៃសេវាដំឡើងខ្សែហ្វាយប៊ឺ ($0)",
-      "ថែមស៊ីម Cellcard ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
+      "ថែមស៊ីមទូរស័ព្ទ ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
       "ទស្សនាភាពយន្ត 4K និងលេងហ្គេមមិនទាក់",
       "ការជួយសម្រួលរហ័សអាទិភាពតាម Telegram"
     ],
-    "descriptionEn": "Cellcard's #1 top-selling home fiber plan. Fast, consistent speeds for families with multiple smart devices.",
-    "descriptionKm": "កញ្ចប់ពេញនិយមបំផុតលេខ ១ របស់ Cellcard សម្រាប់គ្រួសារទូទៅ! ដំណើរការរលូនលើទូរស័ព្ទច្រើនគ្រឿង និង Smart TV។",
+    "descriptionEn": "Our top-selling home fiber plan. Fast, consistent speeds for families with multiple smart devices.",
+    "descriptionKm": "កញ្ចប់ពេញនិយមបំផុតលេខ ១ សម្រាប់គ្រួសារទូទៅ! ដំណើរការរលូនលើទូរស័ព្ទច្រើនគ្រឿង និង Smart TV។",
     "suitableForEn": "3 - 6 Persons • 8 - 15 Devices",
     "suitableForKm": "សមាជិក ៣-៦ នាក់ • ឧបករណ៍ ៨-១៥ គ្រឿង",
     "equipmentTermsEn": "High-power Wi-Fi 6 router provided on free loan. $0 deposit on standard plans.",
@@ -82,7 +82,7 @@
   {
     "id": "pkg-premium",
     "key": "premium",
-    "name": "Cellcard Home WiFi 200 Mbps",
+    "name": "Home Wi-Fi Fiber 200 Mbps",
     "speedMbps": 200,
     "monthlyPriceUsd": 25,
     "originalPriceUsd": 32,
@@ -99,7 +99,7 @@
       "200 Mbps Ultra-Fast Optical Fiber",
       "Advanced Wi-Fi 6 Router (Ultra-Low Ping)",
       "Zero Installation Fee ($0 Setup)",
-      "Bonus: 3 Cellcard SIMs (5GB + 100 mins/mo)",
+      "Bonus: 3x Mobile SIMs (5GB + 100 mins/mo)",
       "Smooth Esports Gaming & Live Streaming",
       "Supports 15 - 25 Concurrent Devices",
       "VIP Telegram Priority Support"
@@ -108,7 +108,7 @@
       "ល្បឿនលឿនកម្រិតខ្ពស់ 200 Mbps",
       "បំពាក់រ៉ោតទ័រទំនើប Wi-Fi 6 (Latency ទាប)",
       "មិនគិតថ្លៃសេវាដំឡើង ($0 ឥតគិតថ្លៃ)",
-      "ថែមស៊ីម Cellcard ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
+      "ថែមស៊ីមទូរស័ព្ទ ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
       "លេងហ្គេមប្រកួតប្រជែង និង Live វីដេអូរលូន",
       "ទ្រទ្រង់ឧបករណ៍ ១៥ - ២៥ គ្រឿងក្នុងពេលតែមួយ",
       "ជំនួយអាទិភាពពិសេស VIP តាម Telegram"
@@ -123,7 +123,7 @@
   {
     "id": "pkg-super",
     "key": "super",
-    "name": "Cellcard Home WiFi 300 Mbps",
+    "name": "Home Wi-Fi Fiber 300 Mbps",
     "speedMbps": 300,
     "monthlyPriceUsd": 35,
     "originalPriceUsd": 45,
@@ -141,7 +141,7 @@
       "High-Power Wi-Fi 6 Router (Mesh-Ready)",
       "Wide Coverage for Multi-Story Homes & Villas",
       "Free Priority Fiber Installation ($0 Setup)",
-      "Bonus: 3 Cellcard SIMs (5GB + 100 mins/mo)",
+      "Bonus: 3x Mobile SIMs (5GB + 100 mins/mo)",
       "Supports 30+ Simultaneous Devices",
       "Fast Priority Technician Dispatch"
     ],
@@ -150,7 +150,7 @@
       "រ៉ោតទ័រ Wi-Fi 6 Gigabit កម្លាំងផ្សាយខ្លាំង (Mesh-Ready)",
       "សេវាគ្របដណ្តប់ទូលាយសម្រាប់ផ្ទះច្រើនជាន់ ឬវីឡា",
       "ដំឡើងអាទិភាពឥតគិតថ្លៃ ($0 ឥតគិតថ្លៃ)",
-      "ថែមស៊ីម Cellcard ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
+      "ថែមស៊ីមទូរស័ព្ទ ៣ ប្រព័ន្ធ (5GB + ១០០ នាទីរាល់ខែ)",
       "ទ្រទ្រង់ឧបករណ៍ក្នុងផ្ទះបានជាង ៣០ គ្រឿង",
       "ជាងបច្ចេកទេសជំនាញចុះដំឡើងលឿនបំផុត"
     ],

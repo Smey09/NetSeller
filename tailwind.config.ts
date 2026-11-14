@@ -34,7 +34,7 @@ const config: Config = {
           200: "#fed7aa",
           300: "#fdba74",
           400: "#fb923c",
-          500: "#f37021", // Cellcard Orange (#F37021)
+          500: "#f37021", // Vibrant Orange (#F37021)
           600: "#ea580c",
           700: "#c2410c",
           800: "#9a3412",

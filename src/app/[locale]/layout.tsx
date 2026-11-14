@@ -135,7 +135,7 @@ export default async function LocaleLayout({
           locale === "km" ? "font-khmer" : "font-sans"
         }`}
       >
-        {/* Subtle Ambient Clean Light (Cellcard warm ambient blur) */}
+        {/* Subtle Ambient Clean Light (Warm ambient blur) */}
         <div aria-hidden="true" className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
           <div className="absolute -top-32 -left-32 h-[36rem] w-[36rem] rounded-full bg-orange-200/25 blur-[140px]" />
           <div className="absolute top-1/2 -right-32 h-[32rem] w-[32rem] rounded-full bg-slate-200/35 blur-[140px]" />

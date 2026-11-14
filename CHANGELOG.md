@@ -4,6 +4,27 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.1] - 2026-11-14
+
+### Complete Brand Name Neutralization (Zero "Cellcard" Mentions)
+- **Neutralized All Explicit Brand Keywords:**
+  - **Consultant Profile (`seller.ts`):** Restored clean independent sales consultant identity ("Sokha Wi-Fi", "Home Wi-Fi Sales & Installation Consultant") with personal service guarantees.
+  - **Package Catalog (`packages.json`):** Renamed plans to "Home Wi-Fi Fiber 60 Mbps", "Home Wi-Fi Fiber 100 Mbps", "Home Wi-Fi Fiber 200 Mbps", and "Home Wi-Fi Fiber 300 Mbps". Replaced corporate SIM naming with "Bonus: 3x Mobile SIMs".
+  - **Promotions Data (`promotions.json`):** Removed corporate brand references from advance payment promotion titles and descriptions ("Free 3x Mobile SIM Cards").
+  - **Bilingual Dictionaries (`en.json`, `km.json`):** Cleared all "Cellcard" keywords from Hero headlines, badges, subtitles, and package descriptions across both English and Khmer languages.
+  - **Quick Contact Triggers (`ContactSection.tsx`):** Streamlined 1-tap pre-composed Telegram inquiries to refer strictly to "Home Wi-Fi" and fiber optic coverage checks.
+- **Preserved Design & Data Structure:**
+  - Maintained the vibrant orange theme design (`#F37021`), charcoal typography, and warm airy background styling.
+  - Maintained all real high-value plan tiers, speeds (60, 100, 200, 300 Mbps), and price points ($15, $18, $25, $35).
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across all screen sizes.
+
+---
+
 ## [1.9.0] - 2026-11-14
 
 ### Cellcard Home Wi-Fi Branding & Real Package Architecture
