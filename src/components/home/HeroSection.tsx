@@ -35,12 +35,12 @@ export function HeroSection() {
 
       <div className="container mx-auto px-3.5 sm:px-6">
         {/* =========================================================================
-            ONE UNIFIED HERO MAIN FOLD: Left (Offer & CTAs) + Right (Officer Profile & Live Hub)
+            ONE UNIFIED HERO MAIN FOLD: Left (Offer & CTAs) + Right (Seller Profile & Live Hub)
             ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
-          {/* Left Column: Officer Seller Micro-Pill, Headline, Subtitle, Actions, Trust */}
+          {/* Left Column: Seller Identity Micro-Pill, Headline, Subtitle, Actions, Trust */}
           <div className="lg:col-span-7 space-y-3.5 sm:space-y-6 text-center lg:text-left">
-            {/* Officer Seller Identity Header Micro-Pill (Frosted Glass) */}
+            {/* Seller Identity Header Micro-Pill (Frosted Glass) */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md p-1 pr-3 sm:p-1.5 sm:pr-4 border border-white/80 shadow-xs">
               <div className="relative shrink-0">
                 <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-slate-900 flex items-center justify-center text-white overflow-hidden text-[10px] font-bold">

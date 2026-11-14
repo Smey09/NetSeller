@@ -4,6 +4,8 @@ import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { promotionsData } from "@/data/promotions";
 import { sellerConfig } from "@/config/seller";
+import { TelegramService } from "@/features/telegram/telegram.service";
+import { PrivacyAnalytics } from "@/lib/analytics";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Calendar, Tag, Send, ArrowRight, Gift, Clock } from "lucide-react";
@@ -46,7 +48,15 @@ export function PromotionSection() {
                 ? `សួស្តីបង! ខ្ញុំចង់ទទួលយកការផ្ដល់ជូនប្រូម៉ូសិន៖ ${title} (${promo.code || "ការផ្ដល់ជូនពិសេស"})`
                 : `Hello! I want to claim this promotion for Internet subscription: ${title} (${promo.code || "Special Offer"})`;
 
-              const telegramClaimUrl = `https://t.me/share/url?url=&text=${encodeURIComponent(promoClaimText)}`;
+              const handleClaimPromo = async () => {
+                PrivacyAnalytics.track("telegram_click", { location: "promotion_claim", promoId: promo.id });
+                await TelegramService.copyToClipboard(promoClaimText);
+                window.open(
+                  `https://t.me/${sellerConfig.telegramUsername.replace(/^@/, "")}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              };
 
               return (
                 <div
@@ -128,21 +138,16 @@ export function PromotionSection() {
                         <span>{t("expiredBadge")}</span>
                       </Button>
                     ) : (
-                      <a
-                        href={telegramClaimUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full"
+                      <Button
+                        type="button"
+                        onClick={handleClaimPromo}
+                        variant="telegram"
+                        size="sm"
+                        className="w-full rounded-xl font-bold text-xs sm:text-sm py-2 sm:py-2.5 flex items-center justify-center gap-1.5 sm:gap-2 shadow-sm min-h-[42px] cursor-pointer"
                       >
-                        <Button
-                          variant="telegram"
-                          size="sm"
-                          className="w-full rounded-xl font-bold text-xs sm:text-sm py-2 sm:py-2.5 flex items-center justify-center gap-1.5 sm:gap-2 shadow-sm min-h-[42px]"
-                        >
-                          <Send className="h-3.5 w-3.5" />
-                          <span>{t("claimBtn")}</span>
-                        </Button>
-                      </a>
+                        <Send className="h-3.5 w-3.5" />
+                        <span>{t("claimBtn")}</span>
+                      </Button>
                     )}
                   </div>
                 </div>

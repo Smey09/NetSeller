@@ -101,9 +101,9 @@ export function PackageGrid({
         </div>
       )}
 
-      {/* Responsive Grid: 1 col on mobile (320px+), 2 cols on tablet (768px+), 3 cols on desktop (1024px+) */}
+      {/* Responsive Grid: 1 col on mobile, 2 cols on tablet/laptop, 4 cols on desktop */}
       {filteredPackages.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 items-stretch">
           {filteredPackages.map((pkg) => (
             <PackageCard
               key={pkg.id}

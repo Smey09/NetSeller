@@ -40,18 +40,18 @@ export function ContactSection() {
     let text = "";
     if (type === "coverage") {
       text = isKm
-        ? `សួស្តីបង Officer Seller! ខ្ញុំចង់ពិនិត្យមើលខ្សែបណ្ដាញ Home Wi-Fi នៅទីតាំងរបស់ខ្ញុំ (ផ្ញើទីតាំង/Location)។`
-        : `Hello Officer Seller! I would like to check Home Wi-Fi fiber coverage for my location. (Sending location...)`;
+        ? `សួស្តីបង! ខ្ញុំចង់ពិនិត្យមើលខ្សែបណ្ដាញ Home Wi-Fi នៅទីតាំងរបស់ខ្ញុំ (ផ្ញើទីតាំង/Location)។`
+        : `Hello! I would like to check Home Wi-Fi fiber coverage for my location. (Sending location...)`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_coverage" });
     } else if (type === "booking") {
       text = isKm
-        ? `សួស្តីបង Officer Seller! ខ្ញុំចង់កក់សេវាដំឡើង Home Wi-Fi គេហដ្ឋាន។ សូមជួយណែនាំព័ត៌មានលម្អិត។`
-        : `Hello Officer Seller! I would like to book a Home Wi-Fi installation at my home.`;
+        ? `សួស្តីបង! ខ្ញុំចង់កក់សេវាដំឡើង Home Wi-Fi គេហដ្ឋាន។ សូមជួយណែនាំព័ត៌មានលម្អិត។`
+        : `Hello! I would like to book a Home Wi-Fi installation at my home.`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_booking" });
     } else {
       text = isKm
-        ? `សួស្តីបង Officer Seller! ខ្ញុំចង់ពិគ្រោះយោបល់ដើម្បីជ្រើសរើសកញ្ចប់ Home Wi-Fi ដែលស័ក្តិសមបំផុតសម្រាប់គេហដ្ឋានរបស់ខ្ញុំ។`
-        : `Hello Officer Seller! I need advice on selecting the best Home Wi-Fi package for my household.`;
+        ? `សួស្តីបង! ខ្ញុំចង់ពិគ្រោះយោបល់ដើម្បីជ្រើសរើសកញ្ចប់ Home Wi-Fi ដែលស័ក្តិសមបំផុតសម្រាប់គេហដ្ឋានរបស់ខ្ញុំ។`
+        : `Hello! I need advice on selecting the best Home Wi-Fi package for my household.`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_advice" });
     }
 
@@ -87,13 +87,13 @@ export function ContactSection() {
     e.preventDefault();
     const cleanNote = customMessage.trim();
     const defaultText = isKm
-      ? `សួស្តីបង Officer Seller! ខ្ញុំមានចម្ងល់ចង់សាកសួរអំពីសេវា Home Wi-Fi។`
-      : `Hello Officer Seller! I have a question about your Home Wi-Fi service.`;
+      ? `សួស្តីបង! ខ្ញុំមានចម្ងល់ចង់សាកសួរអំពីសេវា Home Wi-Fi។`
+      : `Hello! I have a question about your Home Wi-Fi service.`;
 
     const textToSend = cleanNote
       ? isKm
-        ? `សួស្តីបង Officer Seller!\n\nសំណួរ៖ ${cleanNote}\n\nសូមអរគុណ!`
-        : `Hello Officer Seller!\n\nInquiry: ${cleanNote}\n\nThank you!`
+        ? `សួស្តីបង!\n\nសំណួរ៖ ${cleanNote}\n\nសូមអរគុណ!`
+        : `Hello!\n\nInquiry: ${cleanNote}\n\nThank you!`
       : defaultText;
 
     await TelegramService.copyToClipboard(textToSend);

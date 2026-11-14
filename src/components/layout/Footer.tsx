@@ -37,7 +37,7 @@ export function Footer() {
 
       <div className="container mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-10 pb-8 sm:pb-12 border-b border-white/[0.08]">
-          {/* Col 1: Officer Seller Brand & Profile (lg: 5 cols) */}
+          {/* Col 1: Seller Brand & Profile (lg: 5 cols) */}
           <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
             <Link href="/" className="inline-flex items-center gap-2.5 group">
               <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-primary-600 to-primary-500 text-white shadow-sm shadow-primary-500/20 group-hover:scale-105 transition-transform border border-white/20">
@@ -56,7 +56,7 @@ export function Footer() {
               </div>
             </Link>
 
-            {/* Officer Seller Profile Badge (Frosted Dark Glass Card) */}
+            {/* Seller Profile Badge (Frosted Dark Glass Card) */}
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-xl p-3 sm:p-4 max-w-sm shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_8px_24px_rgba(0,0,0,0.25)]">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="relative shrink-0">

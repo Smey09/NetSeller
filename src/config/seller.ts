@@ -1,14 +1,14 @@
 import { SellerConfig } from "@/types";
 
 export const sellerConfig: SellerConfig = {
-  name: "Officer Seller",
+  name: "Sokha Wi-Fi",
   avatarUrl: "/images/hero-friendly-consultant.jpg",
-  titleEn: "Home Wi-Fi Sales Officer • Official Telecom Consultant",
-  titleKm: "មន្ត្រីផ្នែកលក់សេវា Home Wi-Fi • អ្នកប្រឹក្សាផ្លូវការ",
+  titleEn: "Home Wi-Fi Sales & Installation Consultant",
+  titleKm: "អ្នកប្រឹក្សាលក់ និងដំឡើងសេវា Home Wi-Fi",
   bioEn:
-    "Official telecom sales officer for Home Wi-Fi & Optical Fiber Internet in Cambodia. Providing personalized package recommendations, instant home coverage checks via Telegram, and $0 free installation support.",
+    "Personal Home Wi-Fi consultant in Cambodia. Providing instant home coverage checks via Telegram, honest recommendations, free Wi-Fi 6 router, and $0 installation.",
   bioKm:
-    "មន្ត្រីផ្នែកលក់សេវា Home Wi-Fi និងខ្សែកាបអុបទិកផ្លូវការនៅកម្ពុជា។ ផ្ដល់ការណែនាំកញ្ចប់សេវាសមស្រប ពិនិត្យប្រអប់សេវាដល់ផ្ទះតាម Telegram ក្នុងរយៈពេល ១៥ នាទី និងដំឡើងឥតគិតថ្លៃ។",
+    "អ្នកប្រឹក្សាលក់ និងដំឡើងសេវា Home Wi-Fi នៅកម្ពុជា។ ពិនិត្យប្រអប់សេវាតាម Telegram ក្នុង ១៥ នាទី តម្លៃច្បាស់លាស់ ថែមរ៉ោតទ័រ Wi-Fi 6 និងដំឡើងឥតគិតថ្លៃ ($0)។",
   telegramUsername: "NetSellerKH", // Configure with seller's Telegram username
   telegramPhone: "+85512345678",
   phone: "+85512345678",
@@ -66,4 +66,3 @@ export const sellerConfig: SellerConfig = {
     },
   ],
 };
-

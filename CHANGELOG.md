@@ -4,7 +4,28 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
-## [1.7.1] - 2026-10-31
+## [1.8.0] - 2026-11-14
+
+### Production Copy, Personal Seller Tone & Mobile UI Refinement
+- **Personal Seller Tone & Production Copy (`en.json`, `km.json`, `seller.ts`, `packages.json`):**
+  - **Zero Corporate Jargon:** Removed all stiff corporate / bureaucratic references ("Officer Seller", "Official Telecom Sales Officer") across the entire codebase in favor of a warm, transparent, high-converting personal consultant identity.
+  - **Business Card QR-Scan Customer Journey:** Optimized page flow specifically for customers scanning a QR code on a physical business card or flyer: immediate visual clarity on the 4 Home Wi-Fi packages, speeds (30, 50, 100, 150 Mbps), prices ($15, $20, $30, $42), free router inclusion, and $0 setup fee.
+  - **Bilingual Copy Alignment:** Fully refreshed English and Khmer language dictionaries with idiomatic Cambodian telecom terms (ខ្សែកាបអុបទិក, ឥតគិតថ្លៃសេវាដំឡើង $0, ថែមរ៉ោតទ័រ Wi-Fi 6, គ្មានដែនកំណត់) and generous line heights (`leading-relaxed`) to prevent vowel clipping.
+  - **Seller Config:** Updated `src/config/seller.ts` with clean personal seller identity ("Sokha Wi-Fi", "Home Wi-Fi Sales & Installation Consultant") and clear customization comments.
+- **Mobile Navigation Polish (`MobileNavigation.tsx`):**
+  - Harmonized the 4-column mobile bottom navigation bar with 48px touch targets.
+  - Shortened the packages tab label to "Packages" (`en`) and "កញ្ចប់" (`km`) to prevent text wrapping or crowding on small screens (320px–375px).
+  - Styled the active tab with a soft rounded pill (`bg-slate-100 rounded-2xl text-slate-900`) and styled the Telegram button with a matching light sky pill (`bg-[#E8F5FD] text-[#229ED9] rounded-2xl`).
+- **Layout & Interaction Enhancements (`PackageGrid.tsx`, `PromotionSection.tsx`, `ContactSection.tsx`):**
+  - Upgraded package grid to `grid-cols-1 md:grid-cols-2 xl:grid-cols-4` so all 4 Home Wi-Fi plans align in a clean row on desktop screens without orphan cards.
+  - Streamlined promotion cards: clicking "Claim on Telegram" automatically copies the promo message to the user's clipboard and directly launches the seller's Telegram chat.
+  - Replaced hardcoded "Officer Seller" template text in `ContactSection.tsx` quick actions with natural conversational greetings.
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across all mobile and desktop viewports (Mobile 320px–414px, Tablet 768px, Desktop 1440px).
 
 ### Admin Responsive Data Tables, Search Filters & UI Styling Refinements
 - **Admin Portal Data Tables (`src/app/[locale]/admin/page.tsx`):**

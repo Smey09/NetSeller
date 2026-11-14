@@ -64,63 +64,49 @@ export function MobileNavigation() {
     <nav
       role="navigation"
       aria-label={t("mobileNavAria")}
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-2xl border-t border-white/85 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.95),0_-8px_30px_rgba(15,23,42,0.06)] px-2.5 pt-1.5 pb-[max(0.6rem,env(safe-area-inset-bottom,0px))]"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-2xl border-t border-slate-200/60 shadow-[0_-4px_20px_rgba(15,23,42,0.06)] px-3 pt-2 pb-[max(0.6rem,env(safe-area-inset-bottom,0px))]"
     >
-      <div className="grid grid-cols-4 items-center justify-around gap-1 max-w-md mx-auto">
+      <div className="grid grid-cols-4 items-center justify-around gap-1.5 max-w-md mx-auto">
         {/* Home */}
         <Link
           href="/"
           onClick={(e) => handleNavClick(e, "home")}
           aria-label={t("home")}
           className={cn(
-            "flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all active:scale-95",
+            "flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-semibold transition-all duration-200 active:scale-95 min-h-[48px]",
             activeTab === "home"
-              ? "text-primary-600 font-bold"
+              ? "bg-slate-100 text-slate-900 font-bold"
               : "text-slate-500 hover:text-slate-900"
           )}
         >
-          <div className="relative flex flex-col items-center">
-            <Home
-              className={cn(
-                "h-5 w-5 transition-transform duration-200",
-                activeTab === "home" ? "scale-110 text-primary-600" : "text-slate-500"
-              )}
-            />
-            {activeTab === "home" && (
-              <span className="h-1 w-3.5 rounded-full bg-primary-500 shadow-xs shadow-primary-500/40 mt-0.5" />
+          <Home
+            className={cn(
+              "h-5 w-5 mb-0.5 transition-transform duration-200",
+              activeTab === "home" ? "scale-105 text-slate-900" : "text-slate-500"
             )}
-          </div>
-          <span className={cn("truncate mt-0.5", activeTab === "home" ? "font-bold text-slate-900" : "text-slate-500")}>
-            {t("home")}
-          </span>
+          />
+          <span className="truncate">{t("home")}</span>
         </Link>
 
-        {/* Packages (Shortened label so it never crowds or overflows) */}
+        {/* Packages */}
         <Link
           href="/#packages"
           onClick={(e) => handleNavClick(e, "packages")}
           aria-label={t("packages")}
           className={cn(
-            "flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all active:scale-95",
+            "flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-semibold transition-all duration-200 active:scale-95 min-h-[48px]",
             activeTab === "packages"
-              ? "text-primary-600 font-bold"
+              ? "bg-slate-100 text-slate-900 font-bold"
               : "text-slate-500 hover:text-slate-900"
           )}
         >
-          <div className="relative flex flex-col items-center">
-            <Package
-              className={cn(
-                "h-5 w-5 transition-transform duration-200",
-                activeTab === "packages" ? "scale-110 text-primary-600" : "text-slate-500"
-              )}
-            />
-            {activeTab === "packages" && (
-              <span className="h-1 w-3.5 rounded-full bg-primary-500 shadow-xs shadow-primary-500/40 mt-0.5" />
+          <Package
+            className={cn(
+              "h-5 w-5 mb-0.5 transition-transform duration-200",
+              activeTab === "packages" ? "scale-105 text-slate-900" : "text-slate-500"
             )}
-          </div>
-          <span className={cn("truncate mt-0.5", activeTab === "packages" ? "font-bold text-slate-900" : "text-slate-500")}>
-            {t("packagesShort")}
-          </span>
+          />
+          <span className="truncate">{t("packagesShort")}</span>
         </Link>
 
         {/* Call Direct */}
@@ -128,24 +114,22 @@ export function MobileNavigation() {
           href={`tel:${sellerConfig.phone}`}
           onClick={handleCallClick}
           aria-label={t("callNow")}
-          className="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold text-slate-500 hover:text-slate-900 transition-all active:scale-95"
+          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-semibold text-slate-500 hover:text-slate-900 transition-all active:scale-95 min-h-[48px]"
         >
-          <div className="relative flex flex-col items-center">
-            <PhoneCall className="h-5 w-5 text-slate-600 mb-0.5" />
-          </div>
-          <span className="truncate mt-0.5 text-slate-600">{t("call")}</span>
+          <PhoneCall className="h-5 w-5 mb-0.5 text-slate-600" />
+          <span className="truncate">{t("call")}</span>
         </a>
 
-        {/* Telegram Direct (Executive Branded CTA Action Pill) */}
+        {/* Telegram Direct (Light Sky Action Pill matching user screenshot aesthetic) */}
         <a
           href={`https://t.me/${sellerConfig.telegramUsername.replace(/^@/, "")}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleTelegramClick}
           aria-label={t("telegramChat")}
-          className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl text-[10px] sm:text-[11px] font-bold text-white bg-[#229ED9] hover:bg-[#1E88C7] shadow-sm shadow-[#229ED9]/25 transition-all active:scale-95 border border-white/20"
+          className="flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-bold text-[#229ED9] bg-[#E8F5FD] hover:bg-[#d8edf9] border border-[#229ED9]/15 transition-all active:scale-95 min-h-[48px]"
         >
-          <Send className="h-4 w-4 mb-0.5 text-white" />
+          <Send className="h-5 w-5 mb-0.5 text-[#229ED9]" />
           <span className="truncate tracking-tight">Telegram</span>
         </a>
       </div>

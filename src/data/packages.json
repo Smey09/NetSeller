@@ -7,7 +7,7 @@
     "monthlyPriceUsd": 15,
     "installationFeeUsd": 0,
     "isFreeInstallation": true,
-    "routerIncluded": "High-Gain Dual-Band Wi-Fi 5 Router Included (Free Loan)",
+    "routerIncluded": "Dual-Band Wi-Fi 5 Router Included (Free Loan)",
     "category": "home",
     "isPopular": false,
     "isPromoted": false,
@@ -15,12 +15,12 @@
     "badgeKm": "តម្លៃសន្សំសំចៃ",
     "availabilityStatus": "available",
     "features": [
-      "30 Mbps High-Speed Optical Fiber",
-      "Unlimited Data - Zero speed throttling",
-      "Free Dual-Band Wi-Fi Router (Free Loan)",
-      "Free standard installation & setup ($0)",
+      "30 Mbps Fast Optical Fiber",
+      "Unlimited Data - No Throttling",
+      "Free Dual-Band Wi-Fi Router Loan",
+      "Free Installation & Setup ($0)",
       "Connect 3 - 6 devices smoothly",
-      "Direct Telegram support from your Officer"
+      "Direct Telegram support & fast dispatch"
     ],
     "featuresKm": [
       "ល្បឿន 30 Mbps ខ្សែកាបអុបទិកពិតៗ",
@@ -28,25 +28,25 @@
       "ផ្ដល់ជូនរ៉ោតទ័រ Dual-Band (ខ្ចីប្រើប្រាស់ឥតគិតថ្លៃ)",
       "ដំឡើង និងតេស្តសេវាឥតគិតថ្លៃ ($0)",
       "ភ្ជាប់ឧបករណ៍បានពី ៣ ដល់ ៦ គ្រឿងរលូន",
-      "ជំនួយផ្ទាល់ពីមន្ត្រីលក់តាម Telegram"
+      "ជំនួយផ្ទាល់តាម Telegram រហ័សទាន់ចិត្ត"
     ],
-    "descriptionEn": "Perfect for rooms, studio apartments, light browsing, online school, and social media for small households.",
+    "descriptionEn": "Perfect for rooms, studio apartments, light browsing, online school, and social media.",
     "descriptionKm": "ស័ក្តិសមបំផុតសម្រាប់បន្ទប់ជួល ផ្ទះតូចៗ មើលវីដេអូ HD រៀនតាមអនឡាញ និងប្រើបណ្ដាញសង្គម។",
     "suitableForEn": "1 - 3 Persons • 3-6 Connected Devices",
     "suitableForKm": "សមាជិក ១-៣ នាក់ • ឧបករណ៍ ៣-៦ គ្រឿង",
-    "equipmentTermsEn": "Free router loan while subscription is active. $0 deposit on standard terms. Device returned upon service cancellation.",
-    "equipmentTermsKm": "ខ្ចីរ៉ោតទ័រឥតគិតថ្លៃពេលគណនីដំណើរការ។ គ្មានប្រាក់កក់សម្រាប់កញ្ចប់ស្តង់ដារ។ ប្រគល់ឧបករណ៍ជូនវិញពេលផ្ដាច់សេវា។"
+    "equipmentTermsEn": "Free router loan while subscription is active. $0 deposit on standard terms.",
+    "equipmentTermsKm": "ខ្ចីរ៉ោតទ័រឥតគិតថ្លៃពេលគណនីដំណើរការ។ គ្មានប្រាក់កក់សម្រាប់កញ្ចប់ស្តង់ដារ។"
   },
   {
     "id": "pkg-standard",
     "key": "standard",
-    "name": "Home Wi-Fi Family Standard",
+    "name": "Home Wi-Fi Family",
     "speedMbps": 50,
     "monthlyPriceUsd": 20,
     "originalPriceUsd": 25,
     "installationFeeUsd": 0,
     "isFreeInstallation": true,
-    "routerIncluded": "Gigabit Dual-Band AC1200 Smart Wi-Fi Router Included (Free Loan)",
+    "routerIncluded": "Gigabit Dual-Band AC1200 Router Included (Free Loan)",
     "category": "home",
     "isPopular": true,
     "isPromoted": false,
@@ -57,10 +57,10 @@
       "50 Mbps Symmetrical Optical Fiber",
       "100% Unlimited Downloads & Uploads",
       "Gigabit Dual-Band Router (2.4GHz + 5GHz)",
-      "Free professional fiber optic installation ($0)",
-      "Multi-device 4K TV streaming without buffering",
-      "Smooth Mobile Legends & PUBG gaming",
-      "Priority assistance from Officer Seller"
+      "Free fiber optic installation ($0)",
+      "4K TV streaming without buffering",
+      "Smooth mobile gaming (MLBB, PUBG)",
+      "Direct priority help on Telegram"
     ],
     "featuresKm": [
       "ល្បឿន 50 Mbps ស្មើគ្នារវាង Upload និង Download",
@@ -69,14 +69,14 @@
       "ដំឡើងខ្សែហ្វាយប៊ឺអុបទិកដោយឥតគិតថ្លៃ ($0)",
       "ទស្សនាភាពយន្តកម្រិត 4K លើ Smart TV មិនទាក់",
       "លេងហ្គេមអនឡាញ MLBB / PUBG រលូន Ping ទាប",
-      "ការជួយសម្រួលរហ័សពីមន្ត្រីលក់ផ្ទាល់"
+      "ការជួយសម្រួលរហ័សតាម Telegram ផ្ទាល់"
     ],
-    "descriptionEn": "Our top-selling family plan. Delivers reliable, fast Wi-Fi performance for multiple smartphones, Smart TVs, and PCs.",
+    "descriptionEn": "Our top-selling family plan. Delivers reliable, fast Wi-Fi for multiple phones, Smart TVs, and PCs.",
     "descriptionKm": "កញ្ចប់ពេញនិយមបំផុតសម្រាប់គ្រួសារទូទៅ! ដំណើរការរលូនលើទូរស័ព្ទច្រើនគ្រឿង ទូរទស្សន៍ Smart TV និងកុំព្យូទ័រ។",
     "suitableForEn": "3 - 5 Persons • 8-12 Connected Devices",
     "suitableForKm": "សមាជិក ៣-៥ នាក់ • ឧបករណ៍ ៨-១២ គ្រឿង",
-    "equipmentTermsEn": "Gigabit router provided on free loan. $0 deposit on standard plans. Hardware remains property of network provider.",
-    "equipmentTermsKm": "ផ្ដល់ជូនរ៉ោតទ័រ Gigabit ឥតគិតថ្លៃ។ គ្មានប្រាក់កក់សម្រាប់កញ្ចប់ស្តង់ដារ។ ឧបករណ៍ជាកម្មសិទ្ធិរបស់បណ្តាញផ្គត់ផ្គង់។"
+    "equipmentTermsEn": "Gigabit router provided on free loan. $0 deposit on standard plans.",
+    "equipmentTermsKm": "ផ្ដល់ជូនរ៉ោតទ័រ Gigabit ឥតគិតថ្លៃ។ គ្មានប្រាក់កក់សម្រាប់កញ្ចប់ស្តង់ដារ។"
   },
   {
     "id": "pkg-premium",
@@ -87,7 +87,7 @@
     "originalPriceUsd": 38,
     "installationFeeUsd": 0,
     "isFreeInstallation": true,
-    "routerIncluded": "Next-Gen Wi-Fi 6 Ultra-Fast Dual-Band Router Included (Free Loan)",
+    "routerIncluded": "Next-Gen Wi-Fi 6 Ultra-Fast Router Included (Free Loan)",
     "category": "home",
     "isPopular": false,
     "isPromoted": true,
@@ -97,27 +97,27 @@
     "features": [
       "100 Mbps Ultra-Fast Fiber Speed",
       "Advanced Wi-Fi 6 Router (Ultra-low latency)",
-      "Zero installation fees (Save up to $45)",
+      "Zero installation fee ($0 Setup)",
       "Supports 15+ devices simultaneously",
-      "Zero-lag competitive esports & streaming",
+      "Lag-free competitive esports & streaming",
       "Fast cloud uploads for videos and files",
-      "Direct VIP Telegram support line"
+      "Direct VIP Telegram priority support"
     ],
     "featuresKm": [
       "ល្បឿនលឿនកម្រិតខ្ពស់ 100 Mbps",
       "បំពាក់បច្ចេកវិទ្យារ៉ោតទ័រទំនើប Wi-Fi 6 (Latency ទាប)",
-      "មិនគិតថ្លៃសេវាដំឡើង (ចំណេញដល់ $45)",
+      "មិនគិតថ្លៃសេវាដំឡើង ($0 ឥតគិតថ្លៃ)",
       "ទ្រទ្រង់ឧបករណ៍ជាង ១៥ គ្រឿងក្នុងពេលតែមួយ",
       "លេងហ្គេមប្រកួតប្រជែង Ping ទាប មិនធ្លាក់",
       "Upload ឯកសារធំៗ ឬវីដេអូលឿនរហ័ស",
-      "ខ្សែ Telegram ពិសេសជួយសម្រួលរហ័ស"
+      "ជំនួយអាទិភាពពិសេសតាម Telegram"
     ],
-    "descriptionEn": "Designed for hardcore gamers, content creators, and modern homes with multiple Smart TVs, tablets, and smart cameras.",
+    "descriptionEn": "Designed for gamers, content creators, and homes with multiple Smart TVs and smart cameras.",
     "descriptionKm": "បង្កើតឡើងសម្រាប់អ្នកលេងហ្គេម អ្នកបង្កើតមាតិកា និងគេហដ្ឋានដែលប្រើទូរទស្សន៍ឆ្លាតវៃច្រើន និងកាមេរ៉ាសុវត្ថិភាព។",
     "suitableForEn": "Large Homes / Gamers • 12-20 Devices",
     "suitableForKm": "គេហដ្ឋានធំ / អ្នកលេងហ្គេម • ឧបករណ៍ ១២-២០ គ្រឿង",
-    "equipmentTermsEn": "Premium Wi-Fi 6 router provided on free loan. $0 deposit with standard advance payment. Technical maintenance included.",
-    "equipmentTermsKm": "រ៉ោតទ័រទំនើប Wi-Fi 6 ខ្ចីប្រើប្រាស់ឥតគិតថ្លៃ។ មិនបាច់កក់ប្រាក់។ រួមបញ្ចូលសេវាថែទាំបច្ចេកទេស។"
+    "equipmentTermsEn": "Premium Wi-Fi 6 router provided on free loan. $0 deposit with standard terms.",
+    "equipmentTermsKm": "រ៉ោតទ័រទំនើប Wi-Fi 6 ខ្ចីប្រើប្រាស់ឥតគិតថ្លៃ។ មិនបាច់កក់ប្រាក់។"
   },
   {
     "id": "pkg-super",
