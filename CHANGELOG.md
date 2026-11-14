@@ -4,6 +4,30 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.7] - 2026-11-14
+
+### Clean Minimalist Footer Redesign via UI/UX Pro Max
+- **Streamlined 4-Column Minimalist Layout (`Footer.tsx`):**
+  - **Column 1 (Brand & Personal Consultant):** Refined NetSeller KH logo, verified seller badge for "Kong Chin" with clean avatar and title, concise tagline, and Facebook page anchor.
+  - **Column 2 (Quick Navigation):** Clear directional links for Home, Packages, Promotions, Contact, and Owner Portal.
+  - **Column 3 (Home Wi-Fi Packages):** Direct access links to all 4 packages (60 Mbps, 100 Mbps Popular, 200 Mbps, 300 Mbps) with monthly prices.
+  - **Column 4 (Direct Assistance & Hotline):** Clean 1-tap Telegram action pill (`#229ED9`) and dark charcoal phone hotline button with fast response indicator.
+- **Eliminated Clutter & Visual Redundancy:**
+  - Removed heavy, muddy 130px ambient blur bubbles that caused visual banding.
+  - Removed nested white cards and redundant duplicate phone/Telegram boxes.
+  - Standardized on solid luminous Golden Amber (`bg-gradient-to-b from-amber-400 via-amber-400 to-amber-500`) with high-contrast Slate 950 typography.
+- **Internationalization (i18n):**
+  - Added localized strings for `ownerPortal` and `fastResponse` in both `messages/en.json` and `messages/km.json`.
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing across all 7 test suites.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across Mobile (320px, 375px), Tablet (768px), and Desktop (1440px).
+  - Security Audit: 0 exposed secrets, 0 unescaped injections, all security gates passed.
+
+---
+
 ## [1.9.6] - 2026-11-14
 
 ### Standardized Clean Color Palette Across All Pages & UI/UX Pro Max Integration
