@@ -87,7 +87,7 @@ export function HeroSection() {
               <a href="#packages" className="w-full sm:w-auto">
                 <Button
                   size="default"
-                  className="w-full sm:w-auto font-black rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-3.5 bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all gap-2 text-xs sm:text-base cursor-pointer min-h-[46px]"
+                  className="w-full sm:w-auto font-black rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-3.5 bg-primary-500 hover:bg-primary-600 text-slate-950 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all gap-2 text-xs sm:text-base cursor-pointer min-h-[46px]"
                 >
                   <span className="truncate">{t("explorePackages")}</span>
                   <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />

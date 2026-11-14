@@ -4,6 +4,30 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.4] - 2026-11-14
+
+### Golden Hour Theme Palette Integration & Theme Factory Installation
+- **Applied Golden Hour Design System (`golden-hour.md`):**
+  - **Mustard Yellow Primary Accent (`#f4a900`):** Configured `--primary` to `42 100% 48%` and extended Tailwind `primary` token scale from `primary-50` (`#fefbf2`) to `primary-500` (`#f4a900`) and `primary-950` (`#462303`).
+  - **Terracotta Secondary Accent (`#c1666b`):** Added `--secondary` token and extended `terracotta` scale (`400`, `500`, `600`, `700`) for badges and secondary highlights.
+  - **Warm Beige Neutrals (`#d4b896`):** Configured `--accent` and `--border` to warm cream beige (`#ECE5DC`) and added `beige` Tailwind token scale.
+  - **Chocolate Brown Dark Anchors (`#4a403a`):** Configured `--foreground` and `--primary-foreground` to deep chocolate espresso (`#352B24` and `#241B16`) providing rich contrast without cold blue tones.
+  - **Warm Cream Canvas (`#fdfbf7`):** Updated root body canvas to `#fdfbf7` with warm amber and peach ambient light orbs.
+- **Button & Component Contrast Harmonization:**
+  - **Hero & Package CTA Buttons:** Switched primary button text to `text-slate-950 font-black` ensuring WCAG AAA compliant contrast against mustard yellow.
+  - **Popular Plan Ribbon & Badges:** Updated package badges and promotion tags to high-contrast dark text on mustard yellow.
+- **Installed Theme Factory Skill (`.agents/skills/theme-factory`):**
+  - Tracked and committed 10 curated themes (`Golden Hour`, `Sunset Boulevard`, `Ocean Depths`, `Modern Minimalist`, etc.) and `skills-lock.json`.
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across Mobile (320px, 375px), Tablet (768px), and Desktop (1440px).
+  - Security Audit: 0 exposed secrets, 0 unescaped injections, all security gates passed.
+
+---
+
 ## [1.9.3] - 2026-11-14
 
 ### Top Micro-Bar & Footer Yellow / Base Theme Design

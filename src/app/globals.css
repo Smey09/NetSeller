@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* #F8FAFC */
-    --foreground: 222.2 84% 4.9%; /* #0F172A */
+    --background: 40 30% 98.5%; /* #FDFBF7 Warm Cream Canvas */
+    --foreground: 24 15% 18%; /* #352B24 Chocolate Espresso */
 
     --card: 0 0% 100%; /* #FFFFFF */
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 24 15% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 24 15% 18%;
 
-    --primary: 24 95% 53%; /* #F37021 Vibrant Orange */
-    --primary-foreground: 0 0% 100%;
+    --primary: 42 100% 48%; /* #F4A900 Mustard Yellow */
+    --primary-foreground: 24 20% 12%; /* #241B16 Deep Chocolate */
 
-    --secondary: 215 16% 47%; /* Slate-500 */
+    --secondary: 355 42% 58%; /* #C1666B Terracotta */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%; /* #64748B */
+    --muted: 38 25% 95%;
+    --muted-foreground: 24 10% 45%; /* #6E635C */
 
-    --accent: 33 100% 96%; /* Warm orange tint (#FFF7ED) */
-    --accent-foreground: 24 95% 36%;
+    --accent: 38 70% 95%; /* #FDF7ED Warm Beige */
+    --accent-foreground: 42 100% 32%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 24 95% 53%;
+    --border: 38 20% 90%; /* #ECE5DC Warm Muted Border */
+    --input: 38 20% 90%;
+    --ring: 42 100% 48%; /* #F4A900 */
 
     --radius: 1rem;
   }

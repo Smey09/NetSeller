@@ -74,8 +74,8 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
     >
       {/* Top Banner for popular / featured */}
       {isPopular && (
-        <div className="bg-primary-500 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-2xs flex items-center justify-center gap-1.5">
-          <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
+        <div className="bg-primary-500 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-950 shadow-2xs flex items-center justify-center gap-1.5">
+          <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-950" />
           <span>{badgeText || t("popular")}</span>
         </div>
       )}
