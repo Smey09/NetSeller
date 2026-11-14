@@ -4,6 +4,38 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.6] - 2026-11-14
+
+### Standardized Clean Color Palette Across All Pages & UI/UX Pro Max Integration
+- **Installed `ui-ux-pro-max` Skill (`.agents/skills/ui-ux-pro-max`):**
+  - Integrated local UI/UX design intelligence (192 product palettes, 80 styles, 120 UX guidelines, and pre-delivery checklist).
+- **Strict Color Standardization & Elimination of Scattered Colors (60-30-10 Rule):**
+  - **Clean 60% Canvas & Surfaces:** Unified on warm cream canvas (`#FDFBF7`), pure white cards (`#FFFFFF`), and soft slate insets (`#F8FAFC`).
+  - **Clean 30% Structural Neutrals:** Standardized on Slate Charcoal typography (`text-slate-900`/`text-slate-950`), muted slate text (`text-slate-600`), and subtle slate borders (`border-slate-200/80`).
+  - **Clean 10% Signature Accent:** Golden Amber / Mustard Yellow (`#F4A900` / `primary-500` / `from-amber-400 via-amber-500 to-orange-500`) with high-contrast AAA dark charcoal labels (`text-slate-950 font-black` / `font-bold`), plus dedicated Telegram Blue (`#229ED9`) exclusively for messenger actions.
+  - **Eliminated Color Clutter:**
+    - Removed disparate sky-blue background cards in `ContactSection.tsx`, converting to clean white cards with Telegram blue action buttons.
+    - Removed sky-blue Zap icons in `admin/page.tsx`, standardizing to signature amber Zap icons.
+    - Removed scattered emerald accents from `PackageOrderDialog.tsx` specs and buttons, aligning with brand amber badges and dark slate borders.
+    - Cleaned up `tailwind.config.ts` by pruning legacy terracotta, beige, and chocolate palettes into a standard, cohesive system.
+    - Replaced hardcoded `#0B132B` in admin promotion cards with standard slate/amber badges.
+- **Checked All Pages:**
+  - Main landing fold `/[locale]` (Hero, Packages, Promotions, Contact)
+  - Owner Portal `/[locale]/admin` (Login, Table view, Cards view, JSON Editor)
+  - Not Found `/[locale]/not-found.tsx` and root `/not-found.tsx`
+  - Error boundary `/[locale]/error.tsx`
+  - Ordering Modal `PackageOrderDialog.tsx`
+  - Navigation bars `Header.tsx`, `Footer.tsx`, `MobileNavigation.tsx`, `FloatingContact.tsx`
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing across all 7 test suites.
+  - Production Build: 12 / 12 static pages prerendered successfully with zero warnings.
+  - Playwright E2E: 32 / 32 tests passing across Mobile (320px, 375px), Tablet (768px), and Desktop (1440px).
+  - Security Audit: 0 exposed secrets, 0 unescaped injections, all security gates passed.
+
+---
+
 ## [1.9.5] - 2026-11-14
 
 ### Owner Identity "Kong Chin" & Color Theme Design Harmonization

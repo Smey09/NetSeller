@@ -181,15 +181,15 @@ export function HeroSection() {
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 rounded-2xl bg-white/95 backdrop-blur-2xl p-2.5 sm:p-3.5 shadow-[0_12px_32px_-6px_rgba(15,23,42,0.18)] border border-white">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2.5">
-                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-orange-50 text-primary-500 border border-orange-100 shrink-0">
+                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-200/80 shrink-0">
                           <Wifi className="h-4 w-4 sm:h-5 sm:w-5" />
                         </span>
                         <div className="leading-tight">
                           <span className="text-[11px] sm:text-xs font-bold text-slate-900 block">
                             {t("routerIncludedBadge")}
                           </span>
-                          <span className="text-[9px] sm:text-[10px] text-primary-500 font-semibold flex items-center gap-1 mt-0.5">
-                            <CheckCircle2 className="h-3 w-3 text-primary-500 shrink-0" />
+                          <span className="text-[9px] sm:text-[10px] text-amber-600 font-semibold flex items-center gap-1 mt-0.5">
+                            <CheckCircle2 className="h-3 w-3 text-amber-500 shrink-0" />
                             {t("zeroSetup")}
                           </span>
                         </div>
@@ -250,7 +250,7 @@ export function HeroSection() {
               <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-700 border border-slate-200/80 group-hover:scale-105 transition-transform">
                 <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
-              <span className="text-[9px] sm:text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md uppercase tracking-wider">$0 Free</span>
+              <span className="text-[9px] sm:text-[10px] font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md uppercase tracking-wider">$0 Free</span>
             </div>
             <div>
               <span className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight block leading-tight">{t("features.freeInstall")}</span>

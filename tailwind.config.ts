@@ -34,50 +34,21 @@ const config: Config = {
           200: "#fbeabf",
           300: "#f8dc93",
           400: "#f6be33",
-          500: "#f4a900", // Golden Hour Mustard Yellow (#f4a900)
+          500: "#f4a900", // Signature Mustard Yellow (#f4a900)
           600: "#dc8c00",
           700: "#b56b02",
           800: "#92530a",
           900: "#78440d",
           950: "#462303",
         },
-        terracotta: {
-          DEFAULT: "#c1666b",
-          400: "#ce7f84",
-          500: "#c1666b", // Golden Hour Terracotta (#c1666b)
-          600: "#ab555a",
-          700: "#8e4348",
-        },
-        beige: {
-          DEFAULT: "#d4b896",
-          50: "#fdfbf9",
-          100: "#f9f5ef",
-          200: "#f2e9dc",
-          300: "#ebdcc7",
-          400: "#dfcbb1",
-          500: "#d4b896", // Golden Hour Warm Beige (#d4b896)
-          600: "#be9e7a",
-        },
-        chocolate: {
-          DEFAULT: "#4a403a",
-          100: "#ede9e6",
-          200: "#dcd4ce",
-          400: "#877970",
-          500: "#4a403a", // Golden Hour Chocolate Brown (#4a403a)
-          800: "#342b26",
-          900: "#241d19",
+        telegram: {
+          DEFAULT: "#229ed9",
+          hover: "#1e88c7",
+          light: "#e8f5fd",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

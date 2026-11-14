@@ -53,7 +53,7 @@ export function FloatingContact() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleTelegramClick}
-            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-sky-50 text-slate-800 transition-colors group"
+            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors group"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#229ED9] text-white shadow-xs group-hover:scale-105 transition-transform">
               <Send className="h-4 w-4" />

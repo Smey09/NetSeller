@@ -545,9 +545,9 @@ export default function AdminPage() {
           <div className="flex items-center gap-2">
             <Button
               onClick={handleSaveAllToWebsite}
-              className="bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl text-xs sm:text-sm gap-1.5 shadow-md shadow-primary-500/30"
+              className="bg-primary-500 hover:bg-primary-600 text-slate-950 font-bold rounded-xl text-xs sm:text-sm gap-1.5 shadow-md shadow-primary-500/30"
             >
-              <Save className="h-4 w-4 text-white" />
+              <Save className="h-4 w-4 text-slate-950" />
               Save to Website
             </Button>
           </div>
@@ -737,7 +737,7 @@ export default function AdminPage() {
                                 {pkg.category}
                               </span>
                               {pkg.isPopular && (
-                                <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.2 rounded bg-slate-900 text-white">
+                                <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.2 rounded bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-2xs">
                                   POPULAR
                                 </span>
                               )}
@@ -752,8 +752,8 @@ export default function AdminPage() {
                       {/* Speed */}
                       <td className="py-3 px-4 whitespace-nowrap">
                         <div className="flex items-center gap-2">
-                          <span className="h-7 w-7 rounded-lg bg-slate-900 text-sky-400 flex items-center justify-center shrink-0 shadow-xs border border-slate-800">
-                            <Zap className="h-3.5 w-3.5 text-sky-400 fill-sky-400/20 stroke-[2.2]" />
+                          <span className="h-7 w-7 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center shrink-0 shadow-xs border border-slate-800">
+                            <Zap className="h-3.5 w-3.5 text-amber-400 fill-amber-400/20 stroke-[2.2]" />
                           </span>
                           <span className="font-black text-slate-900 text-sm">
                             {pkg.speedMbps}{" "}
@@ -867,7 +867,7 @@ export default function AdminPage() {
                           {pkg.category}
                         </span>
                         {pkg.isPopular && (
-                          <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-slate-900 text-white">
+                          <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-2xs">
                             Popular
                           </span>
                         )}
@@ -907,8 +907,8 @@ export default function AdminPage() {
                     {/* Pricing and Speed Box */}
                     <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 my-3">
                       <div className="flex items-center gap-2">
-                        <span className="h-8 w-8 rounded-lg bg-slate-900 text-sky-400 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs border border-slate-800">
-                          <Zap className="h-4 w-4 text-sky-400 fill-sky-400/20 stroke-[2.2]" />
+                        <span className="h-8 w-8 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs border border-slate-800">
+                          <Zap className="h-4 w-4 text-amber-400 fill-amber-400/20 stroke-[2.2]" />
                         </span>
                         <div>
                           <span className="text-[10px] font-bold text-slate-400 uppercase">Speed</span>
@@ -1126,7 +1126,7 @@ export default function AdminPage() {
                         {promo.badgeEn}
                       </span>
                       {promo.highlightEn && (
-                        <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-[#0B132B] text-white">
+                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-2xs">
                           {promo.highlightEn}
                         </span>
                       )}
@@ -1220,7 +1220,7 @@ export default function AdminPage() {
               rows={20}
               value={jsonInput}
               onChange={(e) => setJsonInput(e.target.value)}
-              className="w-full bg-transparent font-mono text-xs text-emerald-400 focus:outline-none resize-y selection:bg-primary-500"
+              className="w-full bg-transparent font-mono text-xs text-amber-400 focus:outline-none resize-y selection:bg-primary-500"
             />
           </div>
 
@@ -1306,7 +1306,7 @@ export default function AdminPage() {
                     onChange={(e) =>
                       setEditingPkg({ ...editingPkg, monthlyPriceUsd: Number(e.target.value) })
                     }
-                    className="mt-1 font-bold text-emerald-600"
+                    className="mt-1 font-bold text-slate-900"
                   />
                 </div>
                 <div>

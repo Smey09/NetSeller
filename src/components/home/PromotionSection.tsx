@@ -82,7 +82,7 @@ export function PromotionSection() {
 
                   <div>
                     <div className="mb-3 sm:mb-4 flex items-center gap-2">
-                      <Badge variant="outline" className="text-[10px] sm:text-xs font-semibold text-orange-800 bg-orange-50 border-orange-200/80 py-0.5">
+                      <Badge variant="outline" className="text-[10px] sm:text-xs font-semibold text-amber-900 bg-amber-50 border-amber-200/80 py-0.5">
                         {badge}
                       </Badge>
                       {isExpired && (

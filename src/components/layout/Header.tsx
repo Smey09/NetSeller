@@ -215,7 +215,7 @@ export function Header() {
               {/* On-screen Action Feedback Toast */}
               {actionToast && (
                 <div className="absolute top-full right-0 mt-2 px-3 py-1.5 rounded-xl bg-slate-900/95 backdrop-blur-xl border border-white/20 text-white text-[11px] font-semibold shadow-xl flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1 z-50 whitespace-nowrap">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                   <span>{actionToast}</span>
                 </div>
               )}

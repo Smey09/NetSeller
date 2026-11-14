@@ -143,7 +143,7 @@ export function ContactSection() {
         {/* Global Copied Notification Banner */}
         {notification && (
           <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-900 text-white font-semibold text-center text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 animate-in fade-in slide-in-from-top-2 border border-slate-800">
-            <CheckCircle2 className="h-4 w-4 text-sky-400" />
+            <CheckCircle2 className="h-4 w-4 text-primary-400" />
             <span>{notification}</span>
           </div>
         )}
@@ -151,8 +151,8 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 max-w-6xl mx-auto items-start">
           {/* Direct channels left */}
           <div className="lg:col-span-5 space-y-3 sm:space-y-4">
-            {/* Telegram highlight card (Frosted Glass) */}
-            <div className="rounded-2xl sm:rounded-3xl border border-sky-200/80 bg-gradient-to-br from-sky-50/80 via-white/85 to-sky-50/60 backdrop-blur-2xl p-4 sm:p-6 shadow-[inset_0_1px_2px_0_rgba(255,255,255,1),0_12px_28px_-5px_rgba(34,158,217,0.12)]">
+            {/* Telegram highlight card (Clean Contrast White Card) */}
+            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 shadow-xs">
               <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-4">
                 <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-[#229ED9] text-white shadow-sm shrink-0">
                   <Send className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -189,7 +189,7 @@ export function ContactSection() {
             {/* Direct hotline */}
             <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-3.5 sm:p-6 shadow-xs space-y-2 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-orange-50 text-primary-500 shrink-0 border border-orange-100">
+                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-amber-50 text-amber-600 shrink-0 border border-amber-200/80">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 </span>
                 <div>

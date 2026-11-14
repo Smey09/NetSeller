@@ -319,10 +319,10 @@ export function PackageOrderDialog({
               <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-3.5 sm:p-4 space-y-3">
                 <div className="flex items-center justify-between border-b border-slate-200/60 pb-2">
                   <span className="text-xs font-bold text-slate-900 uppercase tracking-wide flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-slate-700" />
+                    <Sparkles className="h-3.5 w-3.5 text-amber-500" />
                     {t("fullSpecsTitle")}
                   </span>
-                  <Badge variant="outline" className="bg-white text-emerald-700 border-emerald-200 text-[10px] font-bold">
+                  <Badge variant="outline" className="bg-amber-50 text-amber-900 border-amber-200 text-[10px] font-bold">
                     {t("free")} ($0 Setup)
                   </Badge>
                 </div>
@@ -332,7 +332,7 @@ export function PackageOrderDialog({
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
                     {selectedPkgFeatures.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 leading-snug">
-                        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 shrink-0 mt-0.5">
+                        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 shrink-0 mt-0.5">
                           <Check className="h-2.5 w-2.5 stroke-[3]" />
                         </span>
                         <span className="text-[11px] sm:text-xs font-medium">{feature}</span>
@@ -345,10 +345,10 @@ export function PackageOrderDialog({
                 <div className="pt-2 border-t border-slate-200/60 space-y-1.5 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 font-medium text-slate-800 text-xs">
-                      <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <ShieldCheck className="h-4 w-4 text-slate-700 shrink-0" />
                       {selectedPkgData.routerIncluded}
                     </span>
-                    <span className="font-bold text-emerald-700 text-[11px] uppercase">
+                    <span className="font-bold text-amber-700 text-[11px] uppercase">
                       {t("free")}
                     </span>
                   </div>
@@ -452,7 +452,7 @@ export function PackageOrderDialog({
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary-500 hover:bg-primary-600 active:scale-[0.99] text-white font-bold text-sm sm:text-base py-3 sm:py-3.5 rounded-xl shadow-lg shadow-primary-500/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 active:scale-[0.99] text-slate-950 font-black text-sm sm:text-base py-3 sm:py-3.5 rounded-xl shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
                     disabled={isSubmitting}
                   >
                     <MessageCircle className="h-5 w-5" />
@@ -493,8 +493,8 @@ export function PackageOrderDialog({
                   <span className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
                     <span>{t("preparedMessageHeader")}</span>
                     {copied && (
-                      <span className="text-orange-800 bg-orange-50 px-2 py-0.5 rounded-md text-[10px] font-bold border border-orange-200/80 flex items-center gap-1">
-                        <Check className="h-3 w-3" />
+                      <span className="text-amber-900 bg-amber-50 px-2 py-0.5 rounded-md text-[10px] font-bold border border-amber-200/80 flex items-center gap-1">
+                        <Check className="h-3 w-3 text-amber-600" />
                         {t("copied")}
                       </span>
                     )}
@@ -588,7 +588,7 @@ export function PackageOrderDialog({
                     @{sellerConfig.telegramUsername.replace(/^@/, "")}
                   </a>{" "}
                   • {t("hotlineLabel")}{" "}
-                  <a href={`tel:${sellerConfig.phone}`} className="font-semibold text-slate-700 hover:text-emerald-600">
+                  <a href={`tel:${sellerConfig.phone}`} className="font-semibold text-slate-700 hover:text-primary-600">
                     {sellerConfig.phoneDisplay}
                   </a>
                 </p>

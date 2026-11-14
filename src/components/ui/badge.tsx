@@ -11,7 +11,7 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
     secondary: "bg-slate-100 text-slate-700 border-slate-200",
     outline: "text-slate-700 border-slate-200 bg-white",
     success: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    accent: "bg-primary-50 text-primary-700 border-primary-200",
+    accent: "bg-amber-50 text-amber-900 border-amber-200",
   };
 
   return (

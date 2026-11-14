@@ -15,7 +15,7 @@ export default function RootNotFound() {
           <div className="pt-2">
             <Link
               href="/en"
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm shadow-primary-500/25"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm shadow-primary-500/25"
             >
               Back to Home
             </Link>
