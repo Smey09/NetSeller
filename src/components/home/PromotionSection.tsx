@@ -72,7 +72,7 @@ export function PromotionSection() {
                         className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-1 px-3 sm:py-1.5 sm:px-4.5 rounded-bl-2xl shadow-xs transition-colors ${
                           isExpired
                             ? "bg-slate-400 text-white"
-                            : "bg-[#0B132B] text-white font-extrabold border-b border-l border-white/10"
+                            : "bg-primary-500 text-white font-extrabold border-b border-l border-white/10 shadow-xs"
                         }`}
                       >
                         {highlight}
@@ -82,7 +82,7 @@ export function PromotionSection() {
 
                   <div>
                     <div className="mb-3 sm:mb-4 flex items-center gap-2">
-                      <Badge variant="outline" className="text-[10px] sm:text-xs font-semibold text-slate-700 bg-slate-100 border-slate-200 py-0.5">
+                      <Badge variant="outline" className="text-[10px] sm:text-xs font-semibold text-orange-800 bg-orange-50 border-orange-200/80 py-0.5">
                         {badge}
                       </Badge>
                       {isExpired && (

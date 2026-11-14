@@ -75,14 +75,14 @@ export function MobileNavigation() {
           className={cn(
             "flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-semibold transition-all duration-200 active:scale-95 min-h-[48px]",
             activeTab === "home"
-              ? "bg-slate-100 text-slate-900 font-bold"
+              ? "bg-orange-50 text-primary-600 font-bold"
               : "text-slate-500 hover:text-slate-900"
           )}
         >
           <Home
             className={cn(
               "h-5 w-5 mb-0.5 transition-transform duration-200",
-              activeTab === "home" ? "scale-105 text-slate-900" : "text-slate-500"
+              activeTab === "home" ? "scale-105 text-primary-600" : "text-slate-500"
             )}
           />
           <span className="truncate">{t("home")}</span>
@@ -96,14 +96,14 @@ export function MobileNavigation() {
           className={cn(
             "flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-[10px] sm:text-[11px] font-semibold transition-all duration-200 active:scale-95 min-h-[48px]",
             activeTab === "packages"
-              ? "bg-slate-100 text-slate-900 font-bold"
+              ? "bg-orange-50 text-primary-600 font-bold"
               : "text-slate-500 hover:text-slate-900"
           )}
         >
           <Package
             className={cn(
               "h-5 w-5 mb-0.5 transition-transform duration-200",
-              activeTab === "packages" ? "scale-105 text-slate-900" : "text-slate-500"
+              activeTab === "packages" ? "scale-105 text-primary-600" : "text-slate-500"
             )}
           />
           <span className="truncate">{t("packagesShort")}</span>

@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 199 74% 49%; /* #229ED9 Clean Telegram Blue */
+    --primary: 24 95% 53%; /* #F37021 Cellcard Orange */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 215 16% 47%; /* Slate-500 */
@@ -22,15 +22,15 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%; /* #64748B */
 
-    --accent: 199 90% 96%;
-    --accent-foreground: 201 96% 32%;
+    --accent: 33 100% 96%; /* Warm orange tint (#FFF7ED) */
+    --accent-foreground: 24 95% 36%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 199 74% 49%;
+    --ring: 24 95% 53%;
 
     --radius: 1rem;
   }

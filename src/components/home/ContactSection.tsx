@@ -40,18 +40,18 @@ export function ContactSection() {
     let text = "";
     if (type === "coverage") {
       text = isKm
-        ? `សួស្តីបង! ខ្ញុំចង់ពិនិត្យមើលខ្សែបណ្ដាញ Home Wi-Fi នៅទីតាំងរបស់ខ្ញុំ (ផ្ញើទីតាំង/Location)។`
-        : `Hello! I would like to check Home Wi-Fi fiber coverage for my location. (Sending location...)`;
+        ? `សួស្តីបង! ខ្ញុំចង់ពិនិត្យមើលខ្សែបណ្ដាញ Cellcard Home Wi-Fi នៅទីតាំងរបស់ខ្ញុំ (ផ្ញើទីតាំង/Location)។`
+        : `Hello! I would like to check Cellcard Home Wi-Fi fiber coverage for my location. (Sending location...)`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_coverage" });
     } else if (type === "booking") {
       text = isKm
-        ? `សួស្តីបង! ខ្ញុំចង់កក់សេវាដំឡើង Home Wi-Fi គេហដ្ឋាន។ សូមជួយណែនាំព័ត៌មានលម្អិត។`
-        : `Hello! I would like to book a Home Wi-Fi installation at my home.`;
+        ? `សួស្តីបង! ខ្ញុំចង់កក់សេវាដំឡើង Cellcard Home Wi-Fi គេហដ្ឋាន។ សូមជួយណែនាំព័ត៌មានលម្អិត។`
+        : `Hello! I would like to book a Cellcard Home Wi-Fi installation at my home.`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_booking" });
     } else {
       text = isKm
-        ? `សួស្តីបង! ខ្ញុំចង់ពិគ្រោះយោបល់ដើម្បីជ្រើសរើសកញ្ចប់ Home Wi-Fi ដែលស័ក្តិសមបំផុតសម្រាប់គេហដ្ឋានរបស់ខ្ញុំ។`
-        : `Hello! I need advice on selecting the best Home Wi-Fi package for my household.`;
+        ? `សួស្តីបង! ខ្ញុំចង់ពិគ្រោះយោបល់ដើម្បីជ្រើសរើសកញ្ចប់ Cellcard Home Wi-Fi ដែលស័ក្តិសមបំផុតសម្រាប់គេហដ្ឋានរបស់ខ្ញុំ។`
+        : `Hello! I need advice on selecting the best Cellcard Home Wi-Fi package for my household.`;
       PrivacyAnalytics.track("telegram_click", { location: "contact_quick_advice" });
     }
 
@@ -87,8 +87,8 @@ export function ContactSection() {
     e.preventDefault();
     const cleanNote = customMessage.trim();
     const defaultText = isKm
-      ? `សួស្តីបង! ខ្ញុំមានចម្ងល់ចង់សាកសួរអំពីសេវា Home Wi-Fi។`
-      : `Hello! I have a question about your Home Wi-Fi service.`;
+      ? `សួស្តីបង! ខ្ញុំមានចម្ងល់ចង់សាកសួរអំពីសេវា Cellcard Home Wi-Fi។`
+      : `Hello! I have a question about your Cellcard Home Wi-Fi service.`;
 
     const textToSend = cleanNote
       ? isKm
@@ -189,7 +189,7 @@ export function ContactSection() {
             {/* Direct hotline (Frosted Glass) */}
             <div className="rounded-2xl sm:rounded-3xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-3.5 sm:p-6 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] space-y-2 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-sky-50 text-[#229ED9] shrink-0 border border-sky-100">
+                <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-orange-50 text-primary-500 shrink-0 border border-orange-100">
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 </span>
                 <div>

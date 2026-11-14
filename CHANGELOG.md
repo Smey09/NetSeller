@@ -4,6 +4,34 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.0] - 2026-11-14
+
+### Cellcard Home Wi-Fi Branding & Real Package Architecture
+- **Cellcard Corporate Brand Theme (Inspired by https://www.cellcard.com.kh/):**
+  - **Signature Cellcard Orange Palette:** Configured primary tokens to Cellcard Orange (`#F37021`, HSL `24 95% 53%`) across `tailwind.config.ts` and `src/app/globals.css`.
+  - **Clean 2-Tone Visual Hierarchy:** Balanced energetic Cellcard Orange buttons and accents with high-contrast Slate Charcoal (`slate-900`) and clean warm canvas backgrounds, maintaining zero visual clutter.
+  - **Ambient Atmosphere:** Replaced cool blue ambient orbs in `layout.tsx` with subtle, warm peach/orange tints (`bg-orange-200/25`).
+- **Official Cellcard Home Wi-Fi / AO Wi-Fi Fiber Data (`packages.json`):**
+  - **60 Mbps Starter ($15/mo):** 60 Mbps Local / 20 Mbps Global, free dual-band router loan, free installation ($0), 3 bonus Cellcard SIMs (5GB + 100 mins/mo).
+  - **100 Mbps Family Plus ($18/mo - Most Popular):** 100 Mbps Symmetrical fiber, high-power Wi-Fi 6 Gigabit router, free installation ($0), 3 bonus Cellcard SIMs, 4K streaming.
+  - **200 Mbps Ultra Pro ($25/mo - Best Value):** 200 Mbps fiber, ultra-low latency Wi-Fi 6 router, esports gaming and heavy cloud uploads, 3 bonus Cellcard SIMs.
+  - **300 Mbps Super Max ($35/mo):** 300 Mbps maximum gigabit fiber, mesh-ready high-power Wi-Fi 6 router, priority 24h installation, villas and shophouses.
+- **Cellcard Advance Payment Promotions (`promotions.json`):**
+  - **Pay 5 Get 1 Free:** Pay 5 months upfront on any plan and get the 6th month 100% free with $0 installation.
+  - **Pay 9 Get 3 Free (1 Full Year):** Pay 9 months upfront and get 3 extra months free (12 months total).
+  - **Free 3x Cellcard SIMs:** 3 bonus mobile SIMs with 5GB monthly data and 100 on-net minutes included with every subscription.
+- **Consultant Identity & Bilingual Copy (`seller.ts`, `en.json`, `km.json`):**
+  - Updated consultant profile to "Sokha (Cellcard Home Wi-Fi)" / "អ្នកប្រឹក្សាលក់ និងដំឡើង Cellcard Home Wi-Fi".
+  - Refreshed all headlines, subtitles, features, and meta badges with authentic Cellcard Home Wi-Fi phrasing.
+- **Quality Gates Verification:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across all viewports (Mobile 320px–414px, Tablet 768px, Desktop 1440px).
+
+---
+
 ## [1.8.1] - 2026-11-14
 
 ### Clean Theme Design & Color Clutter Elimination

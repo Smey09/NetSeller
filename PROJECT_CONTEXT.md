@@ -30,8 +30,8 @@ All dependencies are verified from [`package.json`](./package.json):
 
 ### Styling & Design System
 - **Tailwind CSS:** `3.4.15` with HSL CSS variables design tokens (`src/app/globals.css`)
-- **Brand Color Base:** `#F9A01B` / HSL `36 94.9% 54.1%` (Cambodian Telecom Warm Golden Orange / Amber)
-  - `primary-50`: `#fffbeb`, `primary-100`: `#fef3c7`, `primary-200`: `#fde68a`, `primary-300`: `#fcd34d`, `primary-400`: `#fbbf24`, `primary-500`: `#f9a01b`, `primary-600`: `#d97706`, `primary-700`: `#b45309`, `primary-800`: `#92400e`, `primary-900`: `#78350f`
+- **Brand Color Base:** `#F37021` / HSL `24 95% 53%` (Cellcard Orange Brand Palette)
+  - `primary-50`: `#fff7ed`, `primary-100`: `#ffedd5`, `primary-200`: `#fed7aa`, `primary-300`: `#fdba74`, `primary-400`: `#fb923c`, `primary-500`: `#f37021`, `primary-600`: `#ea580c`, `primary-700`: `#c2410c`, `primary-800`: `#9a3412`, `primary-900`: `#7c2d12`
 - **Telegram Brand Accent:** `#229ED9` (Dedicated for instant messaging actions and bot badges)
 - **PostCSS:** `8.4.49` / **Autoprefixer:** `10.4.20`
 - **Animation:** `tailwindcss-animate` (`1.0.7`)

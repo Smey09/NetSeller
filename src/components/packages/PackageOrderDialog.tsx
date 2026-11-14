@@ -493,7 +493,7 @@ export function PackageOrderDialog({
                   <span className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
                     <span>{t("preparedMessageHeader")}</span>
                     {copied && (
-                      <span className="text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md text-[10px] font-bold border border-sky-200 flex items-center gap-1">
+                      <span className="text-orange-800 bg-orange-50 px-2 py-0.5 rounded-md text-[10px] font-bold border border-orange-200/80 flex items-center gap-1">
                         <Check className="h-3 w-3" />
                         {t("copied")}
                       </span>
@@ -506,8 +506,8 @@ export function PackageOrderDialog({
                   >
                     {copied ? (
                       <>
-                        <Check className="h-3.5 w-3.5 text-sky-600" />
-                        <span className="text-sky-600 font-semibold">{t("copied")}</span>
+                        <Check className="h-3.5 w-3.5 text-primary-600" />
+                        <span className="text-primary-600 font-semibold">{t("copied")}</span>
                       </>
                     ) : (
                       <>
@@ -559,7 +559,7 @@ export function PackageOrderDialog({
                     onClick={handleCopy}
                     className="w-full text-xs py-2 flex items-center justify-center gap-1.5"
                   >
-                    {copied ? <Check className="h-3.5 w-3.5 text-sky-600" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copied ? <Check className="h-3.5 w-3.5 text-primary-600" /> : <Copy className="h-3.5 w-3.5" />}
                     {copied ? t("copied") : t("copyMessageBtn")}
                   </Button>
 

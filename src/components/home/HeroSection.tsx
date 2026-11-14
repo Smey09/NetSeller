@@ -61,8 +61,8 @@ export function HeroSection() {
                 {sellerConfig.name}
               </span>
               <span className="h-3 w-px bg-slate-200" />
-              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] py-0.5 px-2 font-bold rounded-full bg-sky-50 text-sky-800 border border-sky-200/80 shadow-2xs">
-                <ShieldCheck className="h-2.5 w-2.5 text-sky-600" />
+              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] py-0.5 px-2 font-bold rounded-full bg-orange-50 text-orange-800 border border-orange-200/80 shadow-2xs">
+                <ShieldCheck className="h-2.5 w-2.5 text-primary-500" />
                 <span>{t("verifiedBadge")}</span>
               </div>
             </div>
@@ -70,7 +70,7 @@ export function HeroSection() {
             {/* Main Headline */}
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.2]">
               {t("titlePrefix")}{" "}
-              <span className="text-primary-600">
+              <span className="text-primary-500">
                 {t("titleHighlight")}
               </span>
             </h1>
@@ -85,7 +85,7 @@ export function HeroSection() {
               <a href="#packages" className="w-full sm:w-auto">
                 <Button
                   size="default"
-                  className="w-full sm:w-auto font-bold rounded-xl sm:rounded-2xl px-3 sm:px-8 py-2.5 sm:py-3.5 bg-slate-900 hover:bg-slate-800 text-white shadow-sm gap-1.5 text-xs sm:text-base cursor-pointer min-h-[44px]"
+                  className="w-full sm:w-auto font-bold rounded-xl sm:rounded-2xl px-3 sm:px-8 py-2.5 sm:py-3.5 bg-primary-500 hover:bg-primary-600 text-white shadow-md shadow-primary-500/25 gap-1.5 text-xs sm:text-base cursor-pointer min-h-[44px]"
                 >
                   <span className="truncate">{t("explorePackages")}</span>
                   <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
@@ -168,7 +168,7 @@ export function HeroSection() {
                     </div>
 
                     <div className="inline-flex items-center gap-1 rounded-full bg-slate-900/85 backdrop-blur-xl py-1 px-2.5 text-white shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.2)] border border-white/20">
-                      <ShieldCheck className="h-3 w-3 text-sky-400" />
+                      <ShieldCheck className="h-3 w-3 text-primary-400" />
                       <span className="text-[10px] font-bold">
                         {sellerConfig.name}
                       </span>
@@ -179,15 +179,15 @@ export function HeroSection() {
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 rounded-xl bg-white/90 backdrop-blur-2xl p-2.5 sm:p-3 shadow-[inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_24px_rgba(0,0,0,0.08)] border border-white/90">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-sky-50 text-primary-600 shrink-0">
+                        <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg sm:rounded-xl bg-orange-50 text-primary-500 shrink-0">
                           <Wifi className="h-4 w-4 sm:h-5 sm:w-5" />
                         </span>
                         <div className="leading-tight">
                           <span className="text-[11px] sm:text-xs font-bold text-slate-900 block">
                             {t("routerIncludedBadge")}
                           </span>
-                          <span className="text-[9px] sm:text-[10px] text-primary-600 font-semibold flex items-center gap-1">
-                            <CheckCircle2 className="h-3 w-3 text-primary-600 shrink-0" />
+                          <span className="text-[9px] sm:text-[10px] text-primary-500 font-semibold flex items-center gap-1">
+                            <CheckCircle2 className="h-3 w-3 text-primary-500 shrink-0" />
                             {t("zeroSetup")}
                           </span>
                         </div>
@@ -215,7 +215,7 @@ export function HeroSection() {
             ========================================================================= */}
         <div className="mt-6 sm:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-5">
           <div className="rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-2.5 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] text-center lg:text-left flex flex-col justify-between hover:from-white/95 hover:to-white/80 hover:border-white hover:shadow-md transition-all">
-            <span className="text-lg sm:text-3xl font-black text-primary-600">{t("features.speed")}</span>
+            <span className="text-lg sm:text-3xl font-black text-primary-500">{t("features.speed")}</span>
             <span className="text-[10px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{t("features.speedDesc")}</span>
           </div>
           <div className="rounded-xl sm:rounded-2xl border border-white/85 bg-gradient-to-b from-white/85 via-white/75 to-white/65 backdrop-blur-xl p-2.5 sm:p-5 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),0_6px_20px_-3px_rgba(15,23,42,0.04)] text-center lg:text-left flex flex-col justify-between hover:from-white/95 hover:to-white/80 hover:border-white hover:shadow-md transition-all">
