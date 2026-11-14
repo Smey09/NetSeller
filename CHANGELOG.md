@@ -4,6 +4,27 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.5] - 2026-11-14
+
+### Owner Identity "Kong Chin" & Color Theme Design Harmonization
+- **Owner Identity Updated to "Kong Chin" (`seller.ts`):**
+  - Updated seller name to **"Kong Chin"** across consultant profile, English biography, Khmer biography, structured metadata, and copyright anchors.
+  - Automatically reflected in Hero seller micro-pill, verified badge, hero consultant badge, footer profile card, and OpenGraph/JSON-LD author tags.
+- **Color Theme Design Enhancements:**
+  - **Hero Headline Accent:** Upgraded title highlight to smooth warm gradient (`bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent`).
+  - **Explore Packages CTA Button:** Upgraded primary button to tactile amber-orange gradient (`bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-950 font-black shadow-lg shadow-amber-500/25`).
+  - **Package Cards & Ribbons:** Updated popular plan ribbon and promotion corner badges to warm amber-orange gradients (`from-amber-400 to-orange-500`) with high-contrast text.
+  - **Metric Tiles:** Synchronized icon squircles and status badges to warm amber tokens.
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing across all 7 suites.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across Mobile (320px, 375px), Tablet (768px), and Desktop (1440px).
+  - Security Audit: 0 exposed secrets, 0 unescaped injections, all security gates passed.
+
+---
+
 ## [1.9.4] - 2026-11-14
 
 ### Golden Hour Theme Palette Integration & Theme Factory Installation

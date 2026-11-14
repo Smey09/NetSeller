@@ -72,7 +72,7 @@ export function PromotionSection() {
                         className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider py-1 px-3 sm:py-1.5 sm:px-4.5 rounded-bl-2xl shadow-xs transition-colors ${
                           isExpired
                             ? "bg-slate-400 text-white"
-                            : "bg-primary-500 text-slate-950 font-black border-b border-l border-white/20 shadow-xs"
+                            : "bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-black border-b border-l border-white/20 shadow-xs"
                         }`}
                       >
                         {highlight}

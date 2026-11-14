@@ -43,9 +43,9 @@ export function HeroSection() {
           {/* Left Column: Seller Identity Micro-Pill, Headline, Subtitle, Actions, Trust */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
             {/* Seller Identity Header Micro-Pill (Frosted Glass with Crisp Specular Border) */}
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/95 backdrop-blur-xl p-1.5 pr-3.5 sm:pr-4 border border-slate-200/90 shadow-[0_4px_16px_-2px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,1)] hover:border-primary-400/50 transition-all">
+            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/95 backdrop-blur-xl p-1.5 pr-3.5 sm:pr-4 border border-slate-200/90 shadow-[0_4px_16px_-2px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,1)] hover:border-amber-400/50 transition-all">
               <div className="relative shrink-0">
-                <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-slate-900 ring-2 ring-primary-500/25 flex items-center justify-center text-white overflow-hidden text-[10px] font-bold">
+                <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-slate-900 ring-2 ring-amber-400/40 flex items-center justify-center text-white overflow-hidden text-[10px] font-bold">
                   {sellerConfig.avatarUrl ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img
@@ -54,7 +54,7 @@ export function HeroSection() {
                       className="h-full w-full object-cover"
                     />
                   ) : (
-                    <Wifi className="h-3.5 w-3.5" />
+                    <Wifi className="h-3.5 w-3.5 text-amber-400" />
                   )}
                 </div>
                 <span className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 border border-white" />
@@ -63,8 +63,8 @@ export function HeroSection() {
                 {sellerConfig.name}
               </span>
               <span className="h-3 w-px bg-slate-200" />
-              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] py-0.5 px-2.5 font-bold rounded-full bg-orange-50 text-orange-800 border border-orange-200/90 shadow-2xs">
-                <ShieldCheck className="h-2.5 w-2.5 text-primary-500" />
+              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] py-0.5 px-2.5 font-bold rounded-full bg-amber-50 text-amber-900 border border-amber-200/90 shadow-2xs">
+                <ShieldCheck className="h-2.5 w-2.5 text-amber-600" />
                 <span>{t("verifiedBadge")}</span>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function HeroSection() {
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black text-slate-900 tracking-tight leading-[1.18]">
               {t("titlePrefix")}{" "}
-              <span className="text-primary-500">
+              <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
                 {t("titleHighlight")}
               </span>
             </h1>
@@ -87,7 +87,7 @@ export function HeroSection() {
               <a href="#packages" className="w-full sm:w-auto">
                 <Button
                   size="default"
-                  className="w-full sm:w-auto font-black rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-3.5 bg-primary-500 hover:bg-primary-600 text-slate-950 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all gap-2 text-xs sm:text-base cursor-pointer min-h-[46px]"
+                  className="w-full sm:w-auto font-black rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-950 shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all gap-2 text-xs sm:text-base cursor-pointer min-h-[46px]"
                 >
                   <span className="truncate">{t("explorePackages")}</span>
                   <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
@@ -125,15 +125,15 @@ export function HeroSection() {
             {/* Trust bullet row */}
             <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 text-[11px] sm:text-xs font-bold text-slate-800">
               <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1 sm:py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary-500 shrink-0" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                 <span>{t("zeroSetup")}</span>
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1 sm:py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary-500 shrink-0" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                 <span>{t("routerIncludedBadge")}</span>
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1 sm:py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary-500 shrink-0" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                 <span>{t("fastInstallBadge")}</span>
               </span>
             </div>
@@ -217,15 +217,15 @@ export function HeroSection() {
             ========================================================================= */}
         <div className="mt-8 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
           {/* Metric 1: Speed */}
-          <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-xl p-3 sm:p-5 shadow-[0_4px_16px_-3px_rgba(15,23,42,0.04)] hover:shadow-md hover:border-primary-300 hover:-translate-y-0.5 transition-all flex flex-col justify-between gap-2 group">
+          <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-xl p-3 sm:p-5 shadow-[0_4px_16px_-3px_rgba(15,23,42,0.04)] hover:shadow-md hover:border-amber-300 hover:-translate-y-0.5 transition-all flex flex-col justify-between gap-2 group">
             <div className="flex items-center justify-between">
-              <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-orange-50 text-primary-500 border border-orange-100 group-hover:scale-105 transition-transform">
-                <Zap className="h-4 w-4 sm:h-5 sm:w-5 fill-primary-500/20" />
+              <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-200/80 group-hover:scale-105 transition-transform">
+                <Zap className="h-4 w-4 sm:h-5 sm:w-5 fill-amber-500/20" />
               </span>
-              <span className="text-[9px] sm:text-[10px] font-black text-primary-600 bg-orange-50 px-2 py-0.5 rounded-md uppercase tracking-wider">Fast</span>
+              <span className="text-[9px] sm:text-[10px] font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md uppercase tracking-wider">Fast</span>
             </div>
             <div>
-              <span className="text-xl sm:text-3xl font-black text-primary-500 tracking-tight block leading-tight">{t("features.speed")}</span>
+              <span className="text-xl sm:text-3xl font-black text-amber-600 tracking-tight block leading-tight">{t("features.speed")}</span>
               <span className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 block leading-tight">{t("features.speedDesc")}</span>
             </div>
           </div>

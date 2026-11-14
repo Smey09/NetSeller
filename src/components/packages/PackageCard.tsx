@@ -67,14 +67,14 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
       className={cn(
         "relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:-translate-y-1",
         isPopular
-          ? "border-2 border-primary-500 bg-white shadow-md shadow-primary-500/10 hover:shadow-xl hover:shadow-primary-500/20"
+          ? "border-2 border-amber-400 bg-white shadow-md shadow-amber-400/15 hover:shadow-xl hover:shadow-amber-400/25"
           : "border border-slate-200/90 bg-white shadow-xs hover:shadow-lg hover:border-slate-300",
         className
       )}
     >
       {/* Top Banner for popular / featured */}
       {isPopular && (
-        <div className="bg-primary-500 py-1 px-3 sm:py-1.5 sm:px-4 text-center text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-950 shadow-2xs flex items-center justify-center gap-1.5">
+        <div className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 py-1.5 px-3 sm:px-4 text-center text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-950 shadow-2xs flex items-center justify-center gap-1.5">
           <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-950" />
           <span>{badgeText || t("popular")}</span>
         </div>
@@ -127,7 +127,7 @@ export function PackageCard({ packageData, onSelect, className }: PackageCardPro
         <div className="mt-2.5 sm:mt-3.5 flex items-center justify-between rounded-xl sm:rounded-2xl bg-slate-900/[0.03] backdrop-blur-md p-2.5 sm:p-3.5 border border-slate-200/60 shadow-[inset_0_1px_2px_0_rgba(15,23,42,0.02)]">
           <div className="flex items-center gap-2 sm:gap-2.5">
             <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-slate-900 text-white shadow-xs shrink-0 border border-slate-800">
-              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-primary-500 fill-primary-500/20 stroke-[2.2]" />
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400 fill-amber-400/20 stroke-[2.2]" />
             </span>
             <div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
