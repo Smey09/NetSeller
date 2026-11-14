@@ -4,6 +4,28 @@ All notable technical and architectural changes to the NetSeller project are doc
 
 ---
 
+## [1.9.3] - 2026-11-14
+
+### Top Micro-Bar & Footer Yellow / Base Theme Design
+- **Top Micro-Bar with Yellow & Base Theme Gradient (`Header.tsx`):**
+  - **Yellow-to-Orange Base Gradient:** Replaced dark charcoal with signature yellow/amber-to-orange gradient (`bg-gradient-to-r from-amber-400 via-amber-500 to-primary-500 border-b border-amber-500/50`).
+  - **High-Contrast Typography:** Applied deep slate charcoal typography (`text-slate-950 font-bold`) ensuring WCAG AAA compliant contrast against yellow/amber tones.
+  - **Enhanced Status Elements:** Live pulsating emerald beacon (`bg-emerald-700 ring-emerald-600/30`), prominent seller hotline link, and high-contrast micro promo pill (`bg-slate-950/15 border-slate-950/20 text-slate-950 font-black`).
+- **Footer with Yellow & Base Theme Design (`Footer.tsx`):**
+  - **Base Theme Yellow/Amber Gradient Canvas:** Replaced dark charcoal background with high-impact, warm yellow/amber-to-orange gradient (`bg-gradient-to-br from-amber-400 via-amber-500 to-primary-600 border-t border-amber-300 shadow-2xl`).
+  - **Clean White Contrast Cards:** Elevated seller profile badge and contact channels into crisp white glassmorphism cards (`bg-white/95 backdrop-blur-xl border border-white/80 shadow-lg`) with high-contrast text and verified status badges.
+  - **Tactile Charcoal Action Buttons:** Direct hotline and social triggers styled in bold charcoal (`bg-slate-900 hover:bg-slate-800 text-white shadow-md`) with yellow/amber icon accents.
+  - **Refined Bottom Bar:** Clean border divider (`border-slate-950/15`), dark charcoal back-to-top button (`bg-slate-900 text-white`), and high-legibility disclaimer text.
+- **Verification & Quality Gates:**
+  - TypeScript: 0 errors (`pnpm tsc --noEmit`).
+  - ESLint: 0 warnings, 0 errors (`pnpm lint`).
+  - Vitest: 29 / 29 unit tests passing across all 7 suites.
+  - Production Build: 12 / 12 static pages prerendered successfully.
+  - Playwright E2E: 32 / 32 tests passing across Mobile (320px, 375px), Tablet (768px), and Desktop (1440px).
+  - Security Audit: 0 exposed secrets, 0 unescaped injections, all security gates passed.
+
+---
+
 ## [1.9.2] - 2026-11-14
 
 ### UI/UX Refinement: HeroSection, Header, Footer Background Colors & Top Floating Pills

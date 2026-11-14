@@ -107,23 +107,23 @@ export function Header() {
 
   return (
     <>
-      {/* Top micro-bar for quick contact info (Dark Charcoal Top Bar) */}
-      <div className="bg-slate-900 border-b border-slate-800 text-slate-300 text-[11px] sm:text-xs py-1.5 px-4 font-medium hidden sm:block shadow-xs">
+      {/* Top micro-bar for quick contact info (Yellow & Base Theme Gradient) */}
+      <div className="bg-gradient-to-r from-amber-400 via-amber-500 to-primary-500 border-b border-amber-500/50 text-slate-950 text-[11px] sm:text-xs py-1.5 px-4 font-semibold hidden sm:block shadow-xs">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-slate-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              {t("telegramOnline")}: <strong className="text-white">@{sellerConfig.telegramUsername.replace(/^@/, "")}</strong>
+            <span className="flex items-center gap-1.5 text-slate-950 font-medium">
+              <span className="h-2 w-2 rounded-full bg-emerald-700 ring-2 ring-emerald-600/30 animate-pulse" />
+              {t("telegramOnline")}: <strong className="text-slate-950 font-black">@{sellerConfig.telegramUsername.replace(/^@/, "")}</strong>
             </span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-300">
-              {t("hotline")}: <a href={`tel:${sellerConfig.phone}`} className="hover:text-white underline font-semibold text-slate-200">{sellerConfig.phoneDisplay}</a>
+            <span className="text-slate-900/40 font-bold">•</span>
+            <span className="text-slate-950 font-medium">
+              {t("hotline")}: <a href={`tel:${sellerConfig.phone}`} className="hover:text-black underline font-black text-slate-950">{sellerConfig.phoneDisplay}</a>
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-500/15 border border-primary-500/30 text-orange-300 text-[11px] font-bold shadow-2xs">
-              <Sparkles className="h-3 w-3" />
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-950/15 backdrop-blur-xs border border-slate-950/20 text-slate-950 text-[11px] font-black shadow-2xs">
+              <Sparkles className="h-3 w-3 text-slate-950" />
               {t("topBarPromo")}
             </span>
           </div>
